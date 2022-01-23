@@ -1,8 +1,4 @@
 *.next
 node_modules
-<<<<<<< HEAD
 package-lock.json
 yarn.lock
-=======
-./.eslintrc.js
->>>>>>> 4d36a60 (remove unnese things)
