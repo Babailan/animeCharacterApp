@@ -22,7 +22,6 @@
 }
 
 body {
-<<<<<<< HEAD
   overflow-x: hidden;
 }
 
@@ -40,10 +39,4 @@ body {
   flex-wrap: wrap;
   gap: 0.2em;
   text-align: start;
-=======
-  background-color: rgb(31, 31, 31);
-  color: rgb(243, 243, 243);
-  margin: 2em auto !important;
-  max-width: 1280px;
->>>>>>> b5f8d03 (final)
 }
