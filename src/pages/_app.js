@@ -1,7 +1,9 @@
 import Head from "next/head";
 import "../style/index.css";
+import "../style/home.css";
 import Navbar from "../components/navbar";
 export default function App({ Component, pageProps }) {
+  const date = new Date();
   return (
     <>
       <Head>
@@ -18,6 +20,9 @@ export default function App({ Component, pageProps }) {
       </Head>
       <Navbar />
       <Component {...pageProps} />
+      <footer style={{ fontSize: "1.3em", fontWeight: 600 }}>
+        &copy; {date.getFullYear()} Babailan{" "}
+      </footer>
     </>
   );
 }
