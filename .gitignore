@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 *.next
 node_modules
 package-lock.json
 yarn.lock
+=======
+node_modules
+package-lock.json
+>>>>>>> b5f8d03 (final)
