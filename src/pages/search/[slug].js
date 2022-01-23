@@ -1,4 +1,5 @@
 import axios from "axios";
+import Image from "next/image";
 
 function Slug({ res }) {
   return (
@@ -12,7 +13,14 @@ function Slug({ res }) {
           }
           return (
             <div className="character" key={index}>
-              <img src={images.jpg.image_url} className="imageCharac" />
+              <Image
+                src={images.jpg.image_url}
+                className="imageCharac"
+                layout="responsive"
+                alt={name}
+                width={500}
+                height={500}
+              />
               <h1>{name}</h1>
               <p>{about}</p>
             </div>

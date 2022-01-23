@@ -33,6 +33,7 @@ function Navbar() {
             src={Search}
             width={20}
             height={20}
+            alt="serchIcon"
             className="imageTitleNav"
           />
         </div>

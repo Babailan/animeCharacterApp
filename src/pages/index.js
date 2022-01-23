@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Home({ res }) {
   const [page, setPage] = useState(1);
@@ -34,7 +35,14 @@ export default function Home({ res }) {
           }
           return (
             <div className="character" key={index}>
-              <img src={images.jpg.image_url} className="imageCharac" />
+              <Image
+                src={images.jpg.image_url}
+                className="imageCharac"
+                layout="responsive"
+                alt={name}
+                width={500}
+                height={500}
+              />
               <h1>{name}</h1>
               <p>{about}</p>
             </div>
