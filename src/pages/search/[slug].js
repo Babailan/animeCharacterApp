@@ -1,7 +1,14 @@
 import axios from "axios";
 import Image from "next/image";
 
-function Slug({ res }) {
+function Slug({ res, setCharacterPreview }) {
+  const previewCharacterTrigger = (about, image, name) => {
+    console.log(image);
+    setCharacterPreview({
+      bool: true,
+      character: { about, image, name },
+    });
+  };
   return (
     <div className="container">
       {res.data.length === 0 ? (
@@ -12,14 +19,18 @@ function Slug({ res }) {
             about = "No description available";
           }
           return (
-            <div className="character" key={index}>
+            <div
+              className="character"
+              key={index}
+              onClick={() => previewCharacterTrigger(about, images, name)}
+            >
               <Image
                 src={images.jpg.image_url}
                 className="imageCharac"
-                layout="responsive"
                 alt={name}
                 width={500}
                 height={500}
+                priority="true"
               />
               <h1>{name}</h1>
               <p>{about}</p>

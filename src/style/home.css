@@ -22,12 +22,35 @@
   cursor: pointer;
 }
 .imageCharac {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
 }
+
+.previewCharacter {
+  display: flex;
+  padding: 2em;
+  border-radius: 6px;
+  flex: 1;
+  position: fixed;
+  max-width: 800px;
+  max-height: 400px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: rgb(54, 54, 54);
+}
+
 .Navbar {
   display: flex;
   justify-content: space-between;
@@ -53,6 +76,7 @@
 .character {
   max-width: 280px;
   flex-basis: 100%;
+  margin-bottom: 10px;
 }
 .imageTitleNav {
   min-width: 20px !important;
@@ -60,4 +84,5 @@
 .itemLogo {
   word-spacing: -15px;
   margin-bottom: 1em;
+  cursor: pointer;
 }

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import Image from "next/image";
 
-export default function Home({ res }) {
+export default function Home({ res, setCharacterPreview }) {
   const [page, setPage] = useState(1);
   const [characters, setCharacters] = useState(res);
   const nextPage = async () => {
@@ -14,6 +14,13 @@ export default function Home({ res }) {
     setCharacters(result.data);
     setPage((prev) => prev + 1);
     console.log(page);
+  };
+  const previewCharacterTrigger = (about, image, name) => {
+    console.log(image);
+    setCharacterPreview({
+      bool: true,
+      character: { about, image, name },
+    });
   };
   const previousPage = async () => {
     const result = await axios.request({
@@ -36,12 +43,14 @@ export default function Home({ res }) {
           return (
             <div className="character" key={index}>
               <Image
+                loading="lazy"
                 src={images.jpg.image_url}
                 className="imageCharac"
                 layout="responsive"
                 alt={name}
                 width={500}
                 height={500}
+                onClick={() => previewCharacterTrigger(about, images, name)}
               />
               <h1>{name}</h1>
               <p>{about}</p>
