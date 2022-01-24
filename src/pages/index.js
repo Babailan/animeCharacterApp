@@ -32,7 +32,7 @@ export default function Home({ res, setCharacterPreview }) {
     setCharacters(result.data);
     console.log(page);
   };
-
+  //nothing change
   return (
     <>
       <div className="container">
