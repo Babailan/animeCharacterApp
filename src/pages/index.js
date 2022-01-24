@@ -41,7 +41,11 @@ export default function Home({ res, setCharacterPreview }) {
             about = "No description available";
           }
           return (
-            <div className="character" key={index}>
+            <div
+              className="character"
+              key={index}
+              onClick={() => previewCharacterTrigger(about, images, name)}
+            >
               <Image
                 loading="lazy"
                 src={images.jpg.image_url}
@@ -50,7 +54,6 @@ export default function Home({ res, setCharacterPreview }) {
                 alt={name}
                 width={500}
                 height={500}
-                onClick={() => previewCharacterTrigger(about, images, name)}
               />
               <h1>{name}</h1>
               <p>{about}</p>
