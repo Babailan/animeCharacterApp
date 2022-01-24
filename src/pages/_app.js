@@ -25,6 +25,7 @@ export default function App({ Component, pageProps }) {
             loading="lazy"
             src={characterPreview.character.image.jpg.image_url}
             className="imageCharac"
+            alt={characterPreview.character.name}
             // alt={name}
             width={250}
             height={250}
