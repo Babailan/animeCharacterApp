@@ -1,7 +1,6 @@
 // import App from 'next/app'
 import { useEffect, useState } from "react";
 import "../style/index.css";
-import "../style/navbar.module.css";
 import Navbar from "../components/navbar/navbar";
 
 function MyApp({ Component, pageProps }) {
