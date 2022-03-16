@@ -1,7 +1,24 @@
 // import App from 'next/app'
+import { useEffect, useState } from "react";
 import "../style/index.css";
+import "../style/navbar.module.css";
+import Navbar from "../components/navbar/navbar";
+
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  const [width, setWidth] = useState(undefined);
+  useEffect(() => {
+    setWidth(window.innerWidth);
+    window.addEventListener("resize", () => {
+      setWidth(window.innerWidth);
+    });
+  }, []);
+
+  return (
+    <div>
+      <Navbar width={width} />
+      <Component {...pageProps} width={width} />
+    </div>
+  );
 }
 
 // Only uncomment this method if you have blocking data requirements for

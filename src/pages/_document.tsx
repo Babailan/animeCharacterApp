@@ -1,11 +1,6 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import { useEffect } from "react";
-import Navbar from "../components/navbar";
 
 export default function Document() {
-  
-
-
   return (
     <Html>
       <Head>
@@ -21,7 +16,6 @@ export default function Document() {
         ></link>
       </Head>
       <body>
-        <Navbar />
         <Main />
         <NextScript />
       </body>
