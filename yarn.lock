@@ -274,56 +274,6 @@
   "resolved" "https://registry.npmjs.org/@next/react-refresh-utils/-/react-refresh-utils-12.0.8.tgz"
   "version" "12.0.8"
 
-"@next/swc-android-arm64@12.0.8":
-  "integrity" "sha512-BiXMcOZNnXSIXv+FQvbRgbMb+iYayLX/Sb2MwR0wja+eMs46BY1x/ssXDwUBADP1M8YtrGTlSPHZqUiCU94+Mg=="
-  "resolved" "https://registry.npmjs.org/@next/swc-android-arm64/-/swc-android-arm64-12.0.8.tgz"
-  "version" "12.0.8"
-
-"@next/swc-darwin-arm64@12.0.8":
-  "integrity" "sha512-6EGMmvcIwPpwt0/iqLbXDGx6oKHAXzbowyyVXK8cqmIvhoghRFjqfiNGBs+ar6wEBGt68zhwn/77vE3iQWoFJw=="
-  "resolved" "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-12.0.8.tgz"
-  "version" "12.0.8"
-
-"@next/swc-darwin-x64@12.0.8":
-  "integrity" "sha512-todxgQOGP/ucz5UH2kKR3XGDdkWmWr0VZAAbzgTbiFm45Ol4ih602k2nNR3xSbza9IqNhxNuUVsMpBgeo19CFQ=="
-  "resolved" "https://registry.npmjs.org/@next/swc-darwin-x64/-/swc-darwin-x64-12.0.8.tgz"
-  "version" "12.0.8"
-
-"@next/swc-linux-arm-gnueabihf@12.0.8":
-  "integrity" "sha512-KULmdrfI+DJxBuhEyV47MQllB/WpC3P2xbwhHezxL/LkC2nkz5SbV4k432qpx2ebjIRf9SjdQ5Oz1FjD8Urayw=="
-  "resolved" "https://registry.npmjs.org/@next/swc-linux-arm-gnueabihf/-/swc-linux-arm-gnueabihf-12.0.8.tgz"
-  "version" "12.0.8"
-
-"@next/swc-linux-arm64-gnu@12.0.8":
-  "integrity" "sha512-1XO87wgIVPvt5fx5i8CqdhksRdcpqyzCOLW4KrE0f9pUCIT04EbsFiKdmsH9c73aqjNZMnCMXpbV+cn4hN8x1w=="
-  "resolved" "https://registry.npmjs.org/@next/swc-linux-arm64-gnu/-/swc-linux-arm64-gnu-12.0.8.tgz"
-  "version" "12.0.8"
-
-"@next/swc-linux-arm64-musl@12.0.8":
-  "integrity" "sha512-NStRZEy/rkk2G18Yhc/Jzi1Q2Dv+zH176oO8479zlDQ5syRfc6AvRHVV4iNRc8Pai58If83r/nOJkwFgGwkKLw=="
-  "resolved" "https://registry.npmjs.org/@next/swc-linux-arm64-musl/-/swc-linux-arm64-musl-12.0.8.tgz"
-  "version" "12.0.8"
-
-"@next/swc-linux-x64-gnu@12.0.8":
-  "integrity" "sha512-rHxTGtTEDFsdT9/VjewzxE19S7W1NE+aZpm4TwbT1pSNGK9KQxQGcXjqoHMeB+VZCFknzNEoIU/vydbjZMlAuw=="
-  "resolved" "https://registry.npmjs.org/@next/swc-linux-x64-gnu/-/swc-linux-x64-gnu-12.0.8.tgz"
-  "version" "12.0.8"
-
-"@next/swc-linux-x64-musl@12.0.8":
-  "integrity" "sha512-1F4kuFRQE10GSx7LMSvRmjMXFGpxT30g8rZzq9r/p/WKdErA4WB4uxaKEX0P8AINfuN63i4luKdR+LoacgBhYw=="
-  "resolved" "https://registry.npmjs.org/@next/swc-linux-x64-musl/-/swc-linux-x64-musl-12.0.8.tgz"
-  "version" "12.0.8"
-
-"@next/swc-win32-arm64-msvc@12.0.8":
-  "integrity" "sha512-QuRe49jqCV61TysGopC1P0HPqFAMZMWe1nbIQLyOkDLkULmZR8N2eYZq7fwqvZE5YwhMmJA/grwWFVBqSEh5Kg=="
-  "resolved" "https://registry.npmjs.org/@next/swc-win32-arm64-msvc/-/swc-win32-arm64-msvc-12.0.8.tgz"
-  "version" "12.0.8"
-
-"@next/swc-win32-ia32-msvc@12.0.8":
-  "integrity" "sha512-0RV3/julybJr1IlPCowIWrJJZyAl+sOakJEM15y1NOOsbwTQ5eKZZXSi+7e23TN4wmy5HwNvn2dKzgOEVJ+jbA=="
-  "resolved" "https://registry.npmjs.org/@next/swc-win32-ia32-msvc/-/swc-win32-ia32-msvc-12.0.8.tgz"
-  "version" "12.0.8"
-
 "@next/swc-win32-x64-msvc@12.0.8":
   "integrity" "sha512-tTga6OFfO2JS+Yt5hdryng259c/tzNgSWkdiU2E+RBHiysAIOta57n4PJ8iPahOSqEqjaToPI76wM+o441GaNQ=="
   "resolved" "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-12.0.8.tgz"
@@ -1669,17 +1619,6 @@
   dependencies:
     "@next/env" "12.0.8"
     "@next/react-refresh-utils" "12.0.8"
-    "@next/swc-android-arm64" "12.0.8"
-    "@next/swc-darwin-arm64" "12.0.8"
-    "@next/swc-darwin-x64" "12.0.8"
-    "@next/swc-linux-arm-gnueabihf" "12.0.8"
-    "@next/swc-linux-arm64-gnu" "12.0.8"
-    "@next/swc-linux-arm64-musl" "12.0.8"
-    "@next/swc-linux-x64-gnu" "12.0.8"
-    "@next/swc-linux-x64-musl" "12.0.8"
-    "@next/swc-win32-arm64-msvc" "12.0.8"
-    "@next/swc-win32-ia32-msvc" "12.0.8"
-    "@next/swc-win32-x64-msvc" "12.0.8"
     "caniuse-lite" "^1.0.30001283"
     "jest-worker" "27.0.0-next.5"
     "node-fetch" "2.6.1"
