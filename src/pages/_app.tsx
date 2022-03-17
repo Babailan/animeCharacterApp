@@ -1,9 +1,12 @@
 // import App from 'next/app'
 import { useEffect, useState } from "react";
 import "../style/index.css";
+import "../style/navbar.css";
 import Navbar from "../components/navbar/navbar";
+import Footer from "../components/footer";
+import { AppProps } from "next/app";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   const [width, setWidth] = useState(undefined);
   useEffect(() => {
     setWidth(window.innerWidth);
@@ -13,10 +16,11 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <div>
+    <>
       <Navbar width={width} />
       <Component {...pageProps} width={width} />
-    </div>
+      <Footer />
+    </>
   );
 }
 

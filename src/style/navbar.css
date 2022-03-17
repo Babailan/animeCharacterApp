@@ -1,0 +1,104 @@
+/*  navbar  */
+.navbar {
+  border-bottom: 1px solid rgb(190, 190, 190);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  cursor: pointer;
+  font-family: "Autour One", cursive;
+  color: #ff9239;
+  font-size: 2em;
+  display: flex;
+  height: fit-content;
+  justify-content: center;
+  width: fit-content;
+  position: relative;
+}
+.logo::after {
+  content: "";
+  position: absolute;
+  bottom: 50%;
+  top: 50%;
+  width: 100%;
+  border-radius: 20px;
+  height: 3px;
+  background-color: #ff9239;
+}
+.searchContainer {
+  padding: 2em 0 2em 2em;
+  position: relative;
+  margin: 0 0 0 auto;
+  width: 80%;
+}
+.magni {
+  width: 20px;
+  height: 100%;
+  color: #133697;
+}
+.magniDropDown {
+  min-width: 20px;
+  margin-left: 0.3em;
+  height: fit-content;
+  margin-right: 0.3em;
+  height: 100%;
+  color: #0d4dad;
+  align-self: flex-start;
+}
+.searchBox {
+  width: 100%;
+  padding: 0.5em;
+  font-family: "Fredoka", sans-serif;
+  border-radius: 3px;
+  font-weight: lighter;
+  outline: none;
+  background-color: #dfdfdf;
+  color: #4d4d4d;
+  border: none;
+}
+.searchBox::placeholder {
+  color: #4d4d4d;
+}
+.parent {
+  min-height: 100vh;
+}
+.container-search {
+  position: relative;
+  z-index: 2;
+}
+.dropDrop {
+  padding: 0.2em 0 0.2em 0;
+  position: absolute;
+  display: flex;
+  font-size: 1.4em;
+  font-weight: 300;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  word-break: break-all;
+  z-index: 2;
+}
+
+.optionCategory {
+  background-color: transparent;
+  position: absolute;
+  color: #4d4d4d;
+  outline: none;
+  top: 50%;
+  height: min-content;
+  bottom: 50%;
+  border: none;
+  right: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.logins-signups {
+  gap: 1em;
+  color: #0d4dad;
+}
+.login {
+  margin-right: 7px;
+}
