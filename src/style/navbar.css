@@ -4,11 +4,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 .logo {
   cursor: pointer;
   font-family: "Autour One", cursive;
-  color: #c5ba1d;
+  color: #dd9700;
   font-size: 2em;
   display: flex;
   height: fit-content;
@@ -19,21 +20,26 @@
 .logo::after {
   content: "";
   position: absolute;
-  bottom: 50%;
-  top: 50%;
+  bottom: 25%;
   width: 100%;
   border-radius: 20px;
-  height: 3px;
-  background-color: #c5ba1d;
+  height: 2px;
+  background-color: #dd9700;
 }
-.searchContainer {
+.containerSearch-2 {
   display: flex;
   background-color: #dfdfdf;
-  margin: 2em 0 2em 2em;
   position: relative;
-  margin: 0 0 0 auto;
   width: 80%;
+  margin: 0 0 0 auto;
 }
+.search-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+}
+
 .magni {
   width: 20px;
   height: 100%;
@@ -48,6 +54,16 @@
   color: #0d4dad;
   align-self: flex-start;
 }
+.container-search {
+  background-color: #ffffff;
+  padding: 1em 0;
+  position: absolute;
+  bottom: 0;
+  top: 100%;
+  width: 100%;
+  height: fit-content;
+  z-index: 2;
+}
 .searchBox {
   width: 100%;
   padding: 0.5em;
@@ -61,26 +77,23 @@
 }
 .searchBox::placeholder {
   color: #4d4d4d;
+  text-transform: capitalize;
 }
 .parent {
   min-height: 100vh;
 }
-.container-search {
-  position: relative;
-  z-index: 2;
-}
 .dropDrop {
-  padding: 0.2em 0 0.2em 0;
   position: absolute;
-  display: flex;
-  font-size: 1.4em;
-  font-weight: 300;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
+  font-size: 1em;
+  top: 100%;
+  bottom: 0;
+  min-width: 250px;
+  max-width: 250px;
+  height: fit-content;
+  right: 0;
+  font-weight: 400;
   background-color: rgb(255, 255, 255);
-  border-radius: 5px;
-  word-break: break-all;
+  word-wrap: break-word;
   z-index: 2;
 }
 

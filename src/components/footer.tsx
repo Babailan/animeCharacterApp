@@ -1,7 +1,13 @@
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaFacebook, FaTwitter } from "react-icons/fa";
 
 function Footer() {
-  return <div className="footer">Footer</div>;
+  return (
+    <div className="footer">
+      <FaGithub />
+      <FaFacebook />
+      <FaTwitter />
+    </div>
+  );
 }
 
 export default Footer;

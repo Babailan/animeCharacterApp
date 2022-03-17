@@ -2,17 +2,25 @@ import { FaSearch, FaBars } from "react-icons/fa";
 import { useState } from "react";
 import Router from "next/router";
 import Button from "../searchButton";
+import axios from "axios";
 
 export default function MobileNavbar() {
-  const [SearchBox, setSearchBox] = useState(true);
+  const [SearchBox, setSearchBox] = useState(false);
   const [textC, setTextC] = useState(false);
   const [text, setText] = useState("");
-  const [category, setCategory] = useState("character");
+  const [category, setCategory] = useState("characters");
+  const [data, setData] = useState(null);
 
   function Search(e: any) {
     e.preventDefault();
     Router.push(`/character/${text}`);
   }
+  const searchData = async () => {
+    const req = await axios.get(`https://api.jikan.moe/v4/${category}`, {
+      params: { order_by: "favorites", q: text },
+    });
+    setData(req.data.data);
+  };
   const logoClick = () => {
     Router.push(`/`);
   };
@@ -36,29 +44,31 @@ export default function MobileNavbar() {
           <button className="login">login</button>
           <button className="sign-up">sign up</button>
         </div>
-      </div>
-      {/* if else StateMent */}
-      {SearchBox ? (
-        <form onSubmit={Search} className="container-search">
-          <Button
-            text={text}
-            setText={setText}
-            className="searchBox"
-            setDropDown={setTextC}
-          >
-            <select
-              defaultValue={"character"}
-              className="optionCategory"
-              onChange={(e) => setCategory(e.target.value)}
+        {/* if else StateMent */}
+        {SearchBox ? (
+          <form onSubmit={Search} className="container-search">
+            <Button
+              dataSearch={searchData}
+              placeholder={category}
+              text={text}
+              setText={setText}
+              className="searchBox"
+              setDropDown={setTextC}
             >
-              <option value="character">character</option>
-              <option value="anime">anime</option>
-              <option value="manga">manga</option>
-            </select>
-          </Button>
-          {textC ? <div className="dropDrop">{text}</div> : null}
-        </form>
-      ) : null}
+              <select
+                defaultValue={"characters"}
+                className="optionCategory"
+                onChange={(e) => setCategory(e.target.value)}
+              >
+                <option value="characters">character</option>
+                <option value="anime">anime</option>
+                <option value="manga">manga</option>
+              </select>
+            </Button>
+            {textC ? <div className="dropDrop">{}</div> : null}
+          </form>
+        ) : null}
+      </div>
     </>
   );
 }

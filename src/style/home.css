@@ -1,0 +1,72 @@
+/* greetings */
+.greetings-container {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: rgb(0, 43, 122);
+  color: #ffffff;
+  padding: 1em;
+  position: relative;
+}
+.greetings-container::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  top: -100px;
+  animation-name: falling-star;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  width: 4px;
+  height: 4px;
+  background: #1b6a6a;
+  box-shadow: 1px 1px 0#fff, 0 0 10px #fff, 0 0 30px #fff, 0 0 5px #fff,
+    0 0 5px #fff;
+}
+.greetings-container::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  top: -100px;
+  animation-name: falling-star-before;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  width: 4px;
+  height: 4px;
+  background: #1b6a6a;
+  box-shadow: 1px 1px 0#fff, 0 0 10px #fff, 0 0 30px #fff, 0 0 5px #fff,
+    0 0 5px #fff;
+}
+
+.greetings-container-letters {
+  z-index: 2;
+  margin: 0;
+  width: 60%;
+  padding: 1em;
+  max-width: 600px;
+  position: relative;
+}
+/* keyframes  */
+@keyframes falling-star {
+  100% {
+    top: 100%;
+    right: 0;
+  }
+}
+@keyframes falling-star-before {
+  100% {
+    top: 100%;
+    right: 0;
+  }
+}
+
+@media screen and (min-width: 620px) {
+  .greetings-container-letters {
+    margin: auto;
+    z-index: 2;
+    width: 60%;
+    padding: 1em;
+    position: relative;
+  }
+}

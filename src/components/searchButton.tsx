@@ -6,6 +6,8 @@ type ButtonProps = {
   className: string;
   setDropDown: (e: boolean) => void;
   children: ReactNode;
+  placeholder: string;
+  dataSearch: () => void;
 };
 
 function Button({
@@ -14,15 +16,18 @@ function Button({
   className,
   setDropDown,
   children,
+  placeholder,
+  dataSearch,
 }: ButtonProps) {
   return (
-    <div className="searchContainer">
+    <div className="containerSearch-2">
       <input
         type="text"
-        placeholder="Character"
+        placeholder={placeholder}
         className={className}
         value={text}
         onChange={(e) => {
+          dataSearch();
           if (e.target.value) {
             setDropDown(true);
           } else {
