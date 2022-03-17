@@ -1,4 +1,4 @@
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaBars } from "react-icons/fa";
 import { useState } from "react";
 import Router from "next/router";
 import Button from "../searchButton";
@@ -18,8 +18,10 @@ export default function MobileNavbar() {
   };
   return (
     <>
+      {/* navbar */}
       <div className="navbar">
         <div className="search-icon">
+          <FaBars className="bar" />
           <FaSearch
             className="magni"
             onClick={() => {
@@ -31,10 +33,11 @@ export default function MobileNavbar() {
           <p className="logoMain">aw</p>
         </div>
         <div className="logins-signups">
-          <a className="login">login</a>
-          <a className="sign-up">sign up</a>
+          <button className="login">login</button>
+          <button className="sign-up">sign up</button>
         </div>
       </div>
+      {/* if else StateMent */}
       {SearchBox ? (
         <form onSubmit={Search} className="container-search">
           <Button

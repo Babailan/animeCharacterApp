@@ -8,7 +8,7 @@
 .logo {
   cursor: pointer;
   font-family: "Autour One", cursive;
-  color: #ff9239;
+  color: #c5ba1d;
   font-size: 2em;
   display: flex;
   height: fit-content;
@@ -24,10 +24,12 @@
   width: 100%;
   border-radius: 20px;
   height: 3px;
-  background-color: #ff9239;
+  background-color: #c5ba1d;
 }
 .searchContainer {
-  padding: 2em 0 2em 2em;
+  display: flex;
+  background-color: #dfdfdf;
+  margin: 2em 0 2em 2em;
   position: relative;
   margin: 0 0 0 auto;
   width: 80%;
@@ -84,12 +86,9 @@
 
 .optionCategory {
   background-color: transparent;
-  position: absolute;
   color: #4d4d4d;
   outline: none;
-  top: 50%;
   height: min-content;
-  bottom: 50%;
   border: none;
   right: 0;
   margin-top: auto;
@@ -97,8 +96,22 @@
 }
 .logins-signups {
   gap: 1em;
-  color: #0d4dad;
 }
 .login {
   margin-right: 7px;
+  border: none;
+  color: #0d4dad;
+  font-size: 1em;
+}
+.sign-up {
+  color: #0d4dad;
+  font-size: 1em;
+  border: none;
+}
+
+.bar {
+  width: 20px;
+  height: 100%;
+  color: #133697;
+  margin: 0 7px;
 }
