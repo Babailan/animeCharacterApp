@@ -1,4 +1,4 @@
-import { FaFacebookF, FaTwitter } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { VscGithub } from "react-icons/vsc";
 
 function Footer() {
@@ -24,6 +24,13 @@ function Footer() {
         target="_blank"
       >
         <FaTwitter className="twitterLogo" />
+      </a>
+      <a
+        className="instagram"
+        href={"https://twitter.com/ArigatoED"}
+        target="_blank"
+      >
+        <FaInstagram className="instagramLogo" />
       </a>
     </div>
   );

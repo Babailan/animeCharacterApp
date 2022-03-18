@@ -6,7 +6,7 @@ type ButtonProps = {
   className: string;
   children: ReactNode;
   placeholder: string;
-  dataSearch: (e: string) => void;
+  dataSearch: (e: any) => void;
 };
 
 function SeachBox({

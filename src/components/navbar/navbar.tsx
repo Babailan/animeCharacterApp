@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MobileNavbar from "./navbarMobile";
-import { useWidth } from "../hooks/useWidth";
+
 export default function Navbar() {
-  let width = useWidth();
+  const [width, setWidth] = useState<number>(0);
+
+  const handleResize = () => setWidth(window.innerWidth);
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+  }, []);
   const [category, setCategory] = useState("characters");
   const [previousCall, setPreviousCall] = useState();
   const [text, setText] = useState("");
@@ -20,9 +27,7 @@ export default function Navbar() {
           previousCall={previousCall}
           setPreviousCall={setPreviousCall}
         />
-      ) : (
-        <h1>more than</h1>
-      )}
+      ) : null}
     </>
   );
 }

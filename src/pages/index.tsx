@@ -45,7 +45,7 @@ const Index = ({ characters }: Props) => {
     });
   }
   useEffect(() => {
-    //
+    stars();
   }, []);
   return (
     <div className="parent">

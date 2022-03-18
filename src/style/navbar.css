@@ -50,6 +50,7 @@
 
 .magni {
   cursor: pointer;
+  margin-left: 5px;
   width: 20px;
   height: 100%;
   color: #133697;
@@ -69,6 +70,7 @@
   position: absolute;
   bottom: 0;
   top: 100%;
+  border-top: 1px solid #000;
   width: 100%;
   height: fit-content;
   z-index: 3;
@@ -141,9 +143,12 @@
   word-wrap: break-word;
   z-index: 2;
 }
+.dropDrop::-webkit-scrollbar {
+  width: 10px;
+}
 .dropDrop::-webkit-scrollbar-thumb {
   background: #888;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .dropDrop::-webkit-scrollbar-track {
   background: transparent;

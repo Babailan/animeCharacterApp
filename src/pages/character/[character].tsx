@@ -1,4 +1,4 @@
 function Character() {
-  return <div className="parent">h1</div>;
+  return <h1>characters</h1>;
 }
 export default Character;

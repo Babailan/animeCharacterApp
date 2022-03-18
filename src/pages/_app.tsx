@@ -1,5 +1,4 @@
 // import App from 'next/app'
-import { useEffect, useState } from "react";
 import "../style/index.css";
 import "../style/home.css";
 import "../style/navbar.css";
@@ -7,6 +6,7 @@ import "../style/footer.css";
 import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer";
 import { AppProps } from "next/app";
+import { useState, useEffect } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

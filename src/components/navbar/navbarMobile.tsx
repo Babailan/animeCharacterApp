@@ -2,7 +2,7 @@ import { FaSearch, FaBars } from "react-icons/fa";
 import { useState } from "react";
 import Router from "next/router";
 import SeachBox from "../searchButton";
-import axios from "axios";
+import searchData from "../libs/searchNavbar";
 
 type Props = {
   text: string;
@@ -27,27 +27,14 @@ function MobileNavbar({
 }: Props) {
   const [SearchBox, setSearchBox] = useState(false);
 
+  const onClickBox = async (e: any, id: any) => {
+    e.preventDefault();
+    await Router.push(`/character/id/${id}`);
+    Router.reload();
+  };
   //SearchNavbar
-  function Search(e: any) {
+  const Search = (e: any) => {
     Router.push(`/character/${text}`);
-  }
-  const searchData = (value: string) => {
-    if (value && value.length >= 3) {
-      let previousTime = setTimeout(async () => {
-        const req = await axios.get(`https://api.jikan.moe/v4/${category}`, {
-          params: { limit: 6, q: value },
-        });
-
-        const character = req.data.data;
-        setData(character);
-        console.log(data);
-      }, 1000);
-      clearTimeout(previousCall);
-      setPreviousCall(previousTime);
-    } else {
-      setData([]);
-      return;
-    }
   };
 
   const logoClick = () => {
@@ -62,7 +49,7 @@ function MobileNavbar({
           <FaSearch
             className="magni"
             onClick={() => {
-              setSearchBox((p) => !p);
+              setSearchBox((p: any) => !p);
             }}
           />
         </div>
@@ -77,7 +64,9 @@ function MobileNavbar({
         {SearchBox ? (
           <form onSubmit={Search} className="container-search">
             <SeachBox
-              dataSearch={searchData}
+              dataSearch={(e) =>
+                searchData(e, setPreviousCall, setData, previousCall, category)
+              }
               placeholder={category}
               text={text}
               setText={setText}
@@ -86,7 +75,17 @@ function MobileNavbar({
               <select
                 defaultValue={category}
                 className="optionCategory"
-                onChange={(e) => setCategory(e.target.value)}
+                onChange={(e) => {
+                  setCategory(e.target.value);
+                  setData([]);
+                  searchData(
+                    text,
+                    setPreviousCall,
+                    setData,
+                    previousCall,
+                    e.target.value
+                  );
+                }}
               >
                 <option value="characters">character</option>
                 <option value="anime">anime</option>
@@ -95,20 +94,45 @@ function MobileNavbar({
             </SeachBox>
             {data.length ? (
               <div className="dropDrop">
-                {data.map(({ name, images }, index) => {
-                  console.log(data);
-                  return (
-                    <div key={index} className="card-bar">
-                      <img
-                        src={images.webp.image_url}
-                        width={"25px"}
-                        height={"40px"}
-                        className="card-bar-image"
-                      />
-                      <p>{name}</p>
-                    </div>
-                  );
-                })}
+                {category === "characters"
+                  ? data.map(({ name, images, mal_id }, index) => {
+                      console.log(data);
+                      return (
+                        <div
+                          key={index}
+                          className="card-bar"
+                          onClick={(e) => onClickBox(e, mal_id)}
+                        >
+                          <img
+                            src={images.webp.image_url}
+                            width={"25px"}
+                            height={"40px"}
+                            className="card-bar-image"
+                          />
+                          <p>{name}</p>
+                        </div>
+                      );
+                    })
+                  : null}
+                {category === "anime"
+                  ? data.map(({ title, images }, index) => {
+                      return (
+                        <div
+                          key={index}
+                          className="card-bar"
+                          // onClick={onClickBox}
+                        >
+                          <img
+                            src={images.webp.image_url}
+                            width={"25px"}
+                            height={"40px"}
+                            className="card-bar-image"
+                          />
+                          <p>{title}</p>
+                        </div>
+                      );
+                    })
+                  : null}
               </div>
             ) : null}
           </form>
