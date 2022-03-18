@@ -62,7 +62,7 @@
   top: 100%;
   width: 100%;
   height: fit-content;
-  z-index: 2;
+  z-index: 3;
 }
 .searchBox {
   width: 100%;
@@ -98,6 +98,7 @@
 }
 
 .optionCategory {
+  text-transform: capitalize;
   background-color: transparent;
   color: #4d4d4d;
   outline: none;

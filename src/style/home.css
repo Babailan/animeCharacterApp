@@ -8,37 +8,15 @@
   padding: 1em;
   position: relative;
 }
-.greetings-container::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  top: -100px;
-  animation-name: falling-star;
-  animation-duration: 3s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  width: 4px;
-  height: 4px;
-  background: #1b6a6a;
-  box-shadow: 1px 1px 0#fff, 0 0 10px #fff, 0 0 30px #fff, 0 0 5px #fff,
-    0 0 5px #fff;
-}
-.greetings-container::before {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  top: -100px;
-  animation-name: falling-star-before;
-  animation-duration: 3s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  width: 4px;
-  height: 4px;
-  background: #1b6a6a;
-  box-shadow: 1px 1px 0#fff, 0 0 10px #fff, 0 0 30px #fff, 0 0 5px #fff,
-    0 0 5px #fff;
-}
 
+.greetings-container i {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0px 0px 10px#fff, 0 0 0px #fff, 0 0 30px #fff, 0 0 1px #fff,
+    0 0 5px #fff;
+}
 .greetings-container-letters {
   z-index: 2;
   margin: 0;
@@ -48,16 +26,15 @@
   position: relative;
 }
 /* keyframes  */
-@keyframes falling-star {
-  100% {
-    top: 100%;
-    right: 0;
-  }
-}
 @keyframes falling-star-before {
+  0% {
+    opacity: 0.5;
+  }
+
   100% {
+    opacity: 1;
     top: 100%;
-    right: 0;
+    left: 0%;
   }
 }
 

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import MobileNavbar from "./navbarMobile";
 
 type Navbars = {
@@ -5,5 +6,23 @@ type Navbars = {
 };
 
 export default function Navbar({ width }: Navbars) {
-  return <>{width < 750 ? <MobileNavbar /> : <h1>more than</h1>}</>;
+  const [category, setCategory] = useState("characters");
+  const [text, setText] = useState("");
+  const [previousRequest, setPreviousRequest] = useState(undefined);
+  return (
+    <>
+      {width < 750 ? (
+        <MobileNavbar
+          text={text}
+          setText={setText}
+          setCategory={setCategory}
+          category={category}
+          setPreviousRequest={setPreviousRequest}
+          previousRequest={previousRequest}
+        />
+      ) : (
+        <h1>more than</h1>
+      )}
+    </>
+  );
 }

@@ -2,15 +2,15 @@ import { ReactNode } from "react";
 
 type ButtonProps = {
   text: string;
-  setText: (e: string) => void;
+  setText: Function;
   className: string;
   setDropDown: (e: boolean) => void;
   children: ReactNode;
   placeholder: string;
-  dataSearch: () => void;
+  dataSearch: (e: string) => void;
 };
 
-function Button({
+function SeachBox({
   text,
   setText,
   className,
@@ -27,17 +27,18 @@ function Button({
         className={className}
         value={text}
         onChange={(e) => {
-          dataSearch();
+          setText(e.target.value);
           if (e.target.value) {
             setDropDown(true);
           } else {
             setDropDown(false);
           }
-          return setText(e.target.value);
+          dataSearch(e.target.value);
+          return;
         }}
       />
       {children}
     </div>
   );
 }
-export default Button;
+export default SeachBox;

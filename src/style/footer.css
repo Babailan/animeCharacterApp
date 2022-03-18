@@ -1,22 +1,16 @@
 .footer {
-  font-size: 2em;
+  font-size: 1.8em;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.4em;
-  margin-bottom: 0.6em;
   align-items: center;
+  margin-bottom: 0.7em;
 }
 .footer::before {
+  max-width: 150px;
   content: "";
   flex: 1;
   display: block;
-  background-color: rgb(0, 0, 0);
-  height: 1px;
-}
-.footer::after {
-  content: "";
-  flex: 1;
-  display: block;
-  background-color: rgb(0, 0, 0);
+  background-color: #082e68;
   height: 1px;
 }

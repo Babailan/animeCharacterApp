@@ -1,26 +1,49 @@
 import { FaSearch, FaBars } from "react-icons/fa";
 import { useState } from "react";
 import Router from "next/router";
-import Button from "../searchButton";
+import SeachBox from "../searchButton";
 import axios from "axios";
+import Image from "next/image";
 
-export default function MobileNavbar() {
+type Props = {
+  text: string;
+  setText: Function;
+  category: string;
+  setCategory: Function;
+  setPreviousRequest: Function;
+  previousRequest: any;
+};
+
+export default function MobileNavbar({
+  text,
+  setText,
+  category,
+  setCategory,
+  setPreviousRequest,
+  previousRequest,
+}: Props) {
   const [SearchBox, setSearchBox] = useState(false);
-  const [textC, setTextC] = useState(false);
-  const [text, setText] = useState("");
-  const [category, setCategory] = useState("characters");
-  const [data, setData] = useState(null);
-
+  const [dropData, setdropData] = useState(false);
+  const [data, setData] = useState([]);
+  //SearchNavbar
   function Search(e: any) {
     e.preventDefault();
     Router.push(`/character/${text}`);
   }
-  const searchData = async () => {
-    const req = await axios.get(`https://api.jikan.moe/v4/${category}`, {
-      params: { order_by: "favorites", q: text },
-    });
-    setData(req.data.data);
+  const searchData = async (value: string) => {
+    if (value) {
+      console.log(data);
+      const req = await axios.get(`https://api.jikan.moe/v4/${category}`, {
+        params: { order_by: "favorites", limit: 10, letter: value },
+      });
+
+      const character = req.data.data;
+      setData(character);
+    } else {
+      return;
+    }
   };
+
   const logoClick = () => {
     Router.push(`/`);
   };
@@ -47,16 +70,16 @@ export default function MobileNavbar() {
         {/* if else StateMent */}
         {SearchBox ? (
           <form onSubmit={Search} className="container-search">
-            <Button
+            <SeachBox
               dataSearch={searchData}
               placeholder={category}
               text={text}
               setText={setText}
               className="searchBox"
-              setDropDown={setTextC}
+              setDropDown={setdropData}
             >
               <select
-                defaultValue={"characters"}
+                defaultValue={category}
                 className="optionCategory"
                 onChange={(e) => setCategory(e.target.value)}
               >
@@ -64,8 +87,23 @@ export default function MobileNavbar() {
                 <option value="anime">anime</option>
                 <option value="manga">manga</option>
               </select>
-            </Button>
-            {textC ? <div className="dropDrop">{}</div> : null}
+            </SeachBox>
+            {dropData ? (
+              <div className="dropDrop">
+                {data.map(({ name, images }, index) => {
+                  return (
+                    <div key={index}>
+                      <Image
+                        src={images.jpg.image_url}
+                        width="100px"
+                        height="100px"
+                      />
+                      <p>{name}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : null}
           </form>
         ) : null}
       </div>
