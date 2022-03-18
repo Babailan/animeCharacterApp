@@ -14,6 +14,7 @@ type Props = {
   setPreviousCall: Function;
   previousCall: any;
 };
+// Mobile Navbar
 function MobileNavbar({
   text,
   setText,
@@ -28,18 +29,18 @@ function MobileNavbar({
 
   //SearchNavbar
   function Search(e: any) {
-    e.preventDefault();
     Router.push(`/character/${text}`);
   }
   const searchData = (value: string) => {
     if (value && value.length >= 3) {
       let previousTime = setTimeout(async () => {
         const req = await axios.get(`https://api.jikan.moe/v4/${category}`, {
-          params: { order_by: "popularity", limit: 6, q: value },
+          params: { limit: 6, q: value },
         });
 
         const character = req.data.data;
         setData(character);
+        console.log(data);
       }, 1000);
       clearTimeout(previousCall);
       setPreviousCall(previousTime);

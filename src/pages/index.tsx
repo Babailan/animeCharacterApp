@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 type Props = {
   characters: string;
@@ -44,7 +44,9 @@ const Index = ({ characters }: Props) => {
       }
     });
   }
-  useEffect(() => stars(), []);
+  useEffect(() => {
+    //
+  }, []);
   return (
     <div className="parent">
       {/* greetings entry */}

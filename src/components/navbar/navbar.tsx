@@ -1,18 +1,15 @@
 import { useState } from "react";
 import MobileNavbar from "./navbarMobile";
-
-type Navbars = {
-  width: number;
-};
-
-export default function Navbar({ width }: Navbars) {
+import { useWidth } from "../hooks/useWidth";
+export default function Navbar() {
+  let width = useWidth();
   const [category, setCategory] = useState("characters");
   const [previousCall, setPreviousCall] = useState();
   const [text, setText] = useState("");
   const [data, setData] = useState([]);
   return (
     <>
-      {width < 750 ? (
+      {width < 768 ? (
         <MobileNavbar
           data={data}
           setData={setData}

@@ -4,13 +4,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0.5em 0;
   position: relative;
 }
 .logo {
   cursor: pointer;
   font-family: sans-serif;
   color: #026077;
-  font-size: 2em;
+  font-size: 1.5em;
   display: flex;
   justify-content: center;
   height: fit-content;
@@ -19,7 +20,6 @@
 }
 .logoMain {
   width: fit-content;
-  letter-spacing: -10px;
   position: relative;
   height: fit-content;
 }
@@ -31,13 +31,14 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 4px;
+  bottom: 0px;
 }
 .containerSearch-2 {
   display: flex;
   background-color: #dfdfdf;
   position: relative;
   width: 80%;
+  max-width: 300px;
   margin: 0 0 0 auto;
 }
 .search-icon {
@@ -48,6 +49,7 @@
 }
 
 .magni {
+  cursor: pointer;
   width: 20px;
   height: 100%;
   color: #133697;
@@ -119,6 +121,7 @@
 .bar {
   width: 20px;
   height: 100%;
+  cursor: pointer;
   color: #133697;
   margin: 0 7px;
 }
@@ -138,8 +141,17 @@
   word-wrap: break-word;
   z-index: 2;
 }
+.dropDrop::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+.dropDrop::-webkit-scrollbar-track {
+  background: transparent;
+}
 .card-bar {
-  font-weight: 400;
+  padding: 6px;
+  cursor: pointer;
+  font-weight: 300;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;

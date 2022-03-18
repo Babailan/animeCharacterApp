@@ -9,18 +9,10 @@ import Footer from "../components/footer";
 import { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [width, setWidth] = useState(undefined);
-  useEffect(() => {
-    setWidth(window.innerWidth);
-    window.addEventListener("resize", () => {
-      setWidth(window.innerWidth);
-    });
-  }, []);
-
   return (
     <>
-      <Navbar width={width} />
-      <Component {...pageProps} width={width} />
+      <Navbar />
+      <Component {...pageProps} />
       <Footer />
     </>
   );
