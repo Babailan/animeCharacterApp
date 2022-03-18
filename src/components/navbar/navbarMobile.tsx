@@ -9,31 +9,40 @@ type Props = {
   setText: Function;
   category: string;
   setCategory: Function;
+  data: Array<any>;
+  setData: Function;
+  setPreviousCall: Function;
+  previousCall: any;
 };
-
-export default function MobileNavbar({
+function MobileNavbar({
   text,
   setText,
   category,
   setCategory,
+  data,
+  setData,
+  setPreviousCall,
+  previousCall,
 }: Props) {
   const [SearchBox, setSearchBox] = useState(false);
-  const [data, setData] = useState([]);
+
   //SearchNavbar
   function Search(e: any) {
     e.preventDefault();
     Router.push(`/character/${text}`);
   }
-  const searchData = async (value: string) => {
-    if (value) {
-      console.log(data);
-      const req = await axios.get(`https://api.jikan.moe/v4/${category}`, {
-        params: { order_by: "popularity", limit: 6, letter: value },
-      });
+  const searchData = (value: string) => {
+    if (value && value.length >= 3) {
+      let previousTime = setTimeout(async () => {
+        const req = await axios.get(`https://api.jikan.moe/v4/${category}`, {
+          params: { order_by: "popularity", limit: 6, q: value },
+        });
 
-      const character = req.data.data;
-      setData(character);
-      return;
+        const character = req.data.data;
+        setData(character);
+      }, 1000);
+      clearTimeout(previousCall);
+      setPreviousCall(previousTime);
     } else {
       setData([]);
       return;
@@ -57,7 +66,7 @@ export default function MobileNavbar({
           />
         </div>
         <div className="logo" onClick={logoClick}>
-          <p className="logoMain">aw</p>
+          <p className="logoMain">AW</p>
         </div>
         <div className="logins-signups">
           <button className="login">login</button>
@@ -86,12 +95,13 @@ export default function MobileNavbar({
             {data.length ? (
               <div className="dropDrop">
                 {data.map(({ name, images }, index) => {
+                  console.log(data);
                   return (
                     <div key={index} className="card-bar">
                       <img
                         src={images.webp.image_url}
-                        width="100px"
-                        height="100px"
+                        width={"25px"}
+                        height={"40px"}
                         className="card-bar-image"
                       />
                       <p>{name}</p>
@@ -106,3 +116,5 @@ export default function MobileNavbar({
     </>
   );
 }
+
+export default MobileNavbar;

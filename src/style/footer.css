@@ -1,16 +1,51 @@
 .footer {
-  font-size: 1.8em;
   display: flex;
   justify-content: flex-start;
-  gap: 0.4em;
+  gap: 1em;
   align-items: center;
-  margin-bottom: 0.7em;
+  background-color: #162442;
+  color: #ffffff;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
 }
-.footer::before {
-  max-width: 150px;
-  content: "";
-  flex: 1;
-  display: block;
-  background-color: #082e68;
-  height: 1px;
+.footer > a {
+  cursor: pointer;
+  min-width: 30px;
+  max-width: 30px;
+  max-height: 30px;
+  min-height: 30px;
+  color: #ffffff;
+  transition: 0.2s;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+.footer > a > svg {
+  color: #162442;
+}
+.footer > .facebook > svg {
+  font-size: 1em;
+  transition: 0.2s;
+}
+.footer > .github > svg {
+  font-size: 1em;
+}
+.footer > .twitter > svg {
+  font-size: 1em;
+}
+.footer > .facebook:hover {
+  background-color: #ffffff60;
+  font-size: 0.8em;
+}
+.footer > .github:hover {
+  background-color: #ffffff60;
+  font-size: 0.8em;
+}
+.footer > .twitter:hover {
+  background-color: #ffffff60;
+  font-size: 0.8em;
 }

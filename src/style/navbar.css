@@ -8,23 +8,30 @@
 }
 .logo {
   cursor: pointer;
-  font-family: "Autour One", cursive;
-  color: #dd9700;
+  font-family: sans-serif;
+  color: #026077;
   font-size: 2em;
   display: flex;
-  height: fit-content;
   justify-content: center;
+  height: fit-content;
   width: fit-content;
   position: relative;
 }
-.logo::after {
+.logoMain {
+  width: fit-content;
+  letter-spacing: -10px;
+  position: relative;
+  height: fit-content;
+}
+.logoMain::after {
   content: "";
-  position: absolute;
-  bottom: 25%;
   width: 100%;
-  border-radius: 20px;
-  height: 2px;
-  background-color: #dd9700;
+  height: 3px;
+  background-color: #026077;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4px;
 }
 .containerSearch-2 {
   display: flex;
@@ -82,21 +89,6 @@
 .parent {
   min-height: 100vh;
 }
-.dropDrop {
-  position: absolute;
-  font-size: 1em;
-  top: 100%;
-  bottom: 0;
-  min-width: 250px;
-  max-width: 300px;
-  overflow: auto;
-  height: fit-content;
-  right: 0;
-  font-weight: 400;
-  background-color: rgb(255, 255, 255);
-  word-wrap: break-word;
-  z-index: 2;
-}
 
 .optionCategory {
   text-transform: capitalize;
@@ -130,13 +122,33 @@
   color: #133697;
   margin: 0 7px;
 }
+.dropDrop {
+  position: absolute;
+  font-size: 1em;
+  top: 100%;
+  bottom: 0;
+  min-width: 250px;
+  max-width: 300px;
+  overflow: auto;
+  height: fit-content;
+  max-height: 250px;
+  right: 0;
+  font-weight: 400;
+  background-color: rgb(255, 255, 255);
+  word-wrap: break-word;
+  z-index: 2;
+}
 .card-bar {
+  font-weight: 400;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   overflow: hidden;
   gap: 1em;
   margin-bottom: 10px;
-  border-bottom: 1px solid rgb(0, 0, 0);
+}
+.card-bar:hover {
+  background-color: #d6d6d6;
 }
 .card-bar:last-child {
   display: flex;
@@ -144,9 +156,8 @@
   overflow: hidden;
   gap: 1em;
   margin-bottom: 0px;
-  border-bottom: 1px solid rgb(0, 0, 0);
 }
 .card-bar-image {
-  min-width: 100px;
-  min-height: 100px;
+  min-width: 40px;
+  min-height: 60px;
 }
