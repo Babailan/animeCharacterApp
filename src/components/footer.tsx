@@ -30,7 +30,11 @@ function Footer() {
         href={"https://twitter.com/ArigatoED"}
         target="_blank"
       >
-        <FaInstagram className="instagramLogo" />
+        <FaInstagram
+          className="instagramLogo"
+          href={"https://www.instagram.com/ronnelbabailan/"}
+          target="_blank"
+        />
       </a>
     </div>
   );
