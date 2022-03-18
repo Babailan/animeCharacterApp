@@ -88,7 +88,8 @@
   top: 100%;
   bottom: 0;
   min-width: 250px;
-  max-width: 250px;
+  max-width: 300px;
+  overflow: auto;
   height: fit-content;
   right: 0;
   font-weight: 400;
@@ -128,4 +129,24 @@
   height: 100%;
   color: #133697;
   margin: 0 7px;
+}
+.card-bar {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  gap: 1em;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+.card-bar:last-child {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  gap: 1em;
+  margin-bottom: 0px;
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+.card-bar-image {
+  min-width: 100px;
+  min-height: 100px;
 }

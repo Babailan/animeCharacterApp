@@ -1,10 +1,10 @@
-import { FaGithub, FaFacebook, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaFacebookF, FaTwitter } from "react-icons/fa";
 
 function Footer() {
   return (
     <div className="footer">
       <FaGithub />
-      <FaFacebook />
+      <FaFacebookF />
       <FaTwitter />
     </div>
   );

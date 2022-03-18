@@ -3,15 +3,12 @@ import { useState } from "react";
 import Router from "next/router";
 import SeachBox from "../searchButton";
 import axios from "axios";
-import Image from "next/image";
 
 type Props = {
   text: string;
   setText: Function;
   category: string;
   setCategory: Function;
-  setPreviousRequest: Function;
-  previousRequest: any;
 };
 
 export default function MobileNavbar({
@@ -19,11 +16,8 @@ export default function MobileNavbar({
   setText,
   category,
   setCategory,
-  setPreviousRequest,
-  previousRequest,
 }: Props) {
   const [SearchBox, setSearchBox] = useState(false);
-  const [dropData, setdropData] = useState(false);
   const [data, setData] = useState([]);
   //SearchNavbar
   function Search(e: any) {
@@ -34,12 +28,14 @@ export default function MobileNavbar({
     if (value) {
       console.log(data);
       const req = await axios.get(`https://api.jikan.moe/v4/${category}`, {
-        params: { order_by: "favorites", limit: 10, letter: value },
+        params: { order_by: "popularity", limit: 6, letter: value },
       });
 
       const character = req.data.data;
       setData(character);
+      return;
     } else {
+      setData([]);
       return;
     }
   };
@@ -76,7 +72,6 @@ export default function MobileNavbar({
               text={text}
               setText={setText}
               className="searchBox"
-              setDropDown={setdropData}
             >
               <select
                 defaultValue={category}
@@ -88,15 +83,16 @@ export default function MobileNavbar({
                 <option value="manga">manga</option>
               </select>
             </SeachBox>
-            {dropData ? (
+            {data.length ? (
               <div className="dropDrop">
                 {data.map(({ name, images }, index) => {
                   return (
-                    <div key={index}>
-                      <Image
-                        src={images.jpg.image_url}
+                    <div key={index} className="card-bar">
+                      <img
+                        src={images.webp.image_url}
                         width="100px"
                         height="100px"
+                        className="card-bar-image"
                       />
                       <p>{name}</p>
                     </div>
