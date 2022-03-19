@@ -1,4 +1,5 @@
 import axios from "axios";
+import Router from "next/router";
 
 const searchData = (
   value: string,
@@ -49,4 +50,12 @@ const searchData = (
     console.log("NONE CATEGORY");
   }
 };
-export default searchData;
+const logoOnClick = async (e: any) => {
+  e.preventDefault();
+  await Router.push(`/`);
+};
+const onSubmitSearch = async (e: any, value: string) => {
+  e.preventDefault();
+  await Router.push(`/character/${value}`);
+};
+export { logoOnClick, searchData, onSubmitSearch };

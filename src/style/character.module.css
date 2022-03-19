@@ -1,0 +1,48 @@
+.characterContainer {
+  padding: 10px;
+  height: fit-content;
+  flex: 1;
+}
+.section1 {
+  height: 100%;
+  display: flex;
+}
+.characterImg {
+  height: auto;
+  max-height: 250px;
+  max-width: 200px;
+  width: 50%;
+}
+.basicInfo {
+  word-break: break-word;
+  text-align: center;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 300;
+}
+.name {
+  font-family: sans-serif;
+}
+
+.about {
+  text-align: start;
+  padding: 10px;
+  font-family: sans-serif;
+}
+.about::first-letter {
+  margin-left: 5%;
+}
+.kanji {
+  font-weight: 500;
+  margin-left: 5px;
+}
+.kanji_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

@@ -1,18 +1,23 @@
 // import App from 'next/app'
 import "../style/index.css";
-import "../style/home.css";
 import "../style/navbar.css";
 import "../style/footer.css";
 import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer";
 import { AppProps } from "next/app";
-import { useState, useEffect } from "react";
+import useWidth from "../hooks/useWidth";
+import Greeting from "../components/greeting";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const width = useWidth();
+
   return (
     <>
       <Navbar />
-      <Component {...pageProps} />
+      <div className="parent">
+        <Greeting />
+        <Component {...pageProps} />
+      </div>
       <Footer />
     </>
   );

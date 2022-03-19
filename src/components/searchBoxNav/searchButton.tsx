@@ -9,7 +9,7 @@ type ButtonProps = {
   dataSearch: (e: any) => void;
 };
 
-function SeachBox({
+function SearchBox({
   text,
   setText,
   className,
@@ -34,4 +34,4 @@ function SeachBox({
     </div>
   );
 }
-export default SeachBox;
+export default SearchBox;
