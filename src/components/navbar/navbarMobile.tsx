@@ -5,7 +5,7 @@ import {
   searchData,
   logoOnClick,
   onSubmitSearch,
-} from "../libs/navbarFunctions";
+} from "../../libs/navbarFunctions";
 import FormSearchBox from "../searchBoxNav/mainSearchBox";
 
 type Props = {

@@ -14,7 +14,7 @@ const Index = ({ characters }: Props) => {
   );
 };
 
-export async function getServerSideProps(context: object) {
+export async function getServerSideProps() {
   const req = await axios.get("https://api.jikan.moe/v4/characters", {
     params: {
       q: "",

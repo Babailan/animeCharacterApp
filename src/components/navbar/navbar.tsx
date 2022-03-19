@@ -5,8 +5,8 @@ import MobileNavbar from "./navbarMobile";
 import Media from "react-media";
 
 const SizeQuery = {
-  mobileNav: "(max-width: 768px)",
-  DesktopNav: "(min-width: 768px)",
+  mobileNav: "(max-width: 640px)",
+  DesktopNav: "(min-width: 641px)",
 };
 
 export default function Navbar() {

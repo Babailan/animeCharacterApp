@@ -5,6 +5,7 @@
 }
 .section1 {
   height: 100%;
+  justify-content: center;
   display: flex;
 }
 .characterImg {
@@ -45,4 +46,50 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+.pictures_container {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+.pictures {
+  width: 150px;
+  height: 100%;
+  border: 1px solid #000;
+}
+.Picture_titles {
+  justify-self: center;
+}
+.image_container {
+  transition: 0.3s;
+  background-color: rgb(73, 73, 73);
+  position: relative;
+  overflow: hidden;
+}
+.download_image {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  transition: 0.3s;
+  font-size: 0.8em;
+  cursor: pointer;
+  opacity: 0;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 20px;
+  margin: auto;
+  right: 0;
+  left: 0;
+  background-color: rgb(20, 21, 26);
+  color: #fff;
+  padding: 10px;
+  align-items: center;
+  width: fit-content;
+}
+.image_container:hover .download_image {
+  opacity: 1;
+}
+.pictures:hover {
+  mix-blend-mode: soft-light;
 }

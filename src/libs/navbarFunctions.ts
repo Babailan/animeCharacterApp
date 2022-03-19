@@ -52,10 +52,10 @@ const searchData = (
 };
 const logoOnClick = async (e: any) => {
   e.preventDefault();
-  await Router.push(`/`);
+  Router.push(`/`);
 };
 const onSubmitSearch = async (e: any, value: string) => {
   e.preventDefault();
-  await Router.push(`/character/${value}`);
+  Router.push(`/character/${value}`);
 };
 export { logoOnClick, searchData, onSubmitSearch };
