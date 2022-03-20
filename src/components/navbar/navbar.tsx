@@ -2,7 +2,7 @@
 import { useState, Fragment } from "react";
 import Media from "react-media";
 import dynamic from "next/dynamic";
-const MobileNavbar = dynamic(() => import("./navbarMobile"));
+const MobileNavbar = dynamic(() => import("./navbarMobile"), { ssr: false });
 
 const SizeQuery = {
   mobileNav: "(max-width: 640px)",
@@ -27,6 +27,18 @@ export default function Navbar() {
         {(matches) => (
           <Fragment>
             {matches.mobileNav && (
+              <MobileNavbar
+                data={data}
+                setData={setData}
+                text={text}
+                setText={setText}
+                setCategory={setCategory}
+                category={category}
+                previousCall={previousCall}
+                setPreviousCall={setPreviousCall}
+              />
+            )}
+            {matches.DesktopNav && (
               <MobileNavbar
                 data={data}
                 setData={setData}

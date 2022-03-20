@@ -40,9 +40,9 @@ function FormSearchBox({
         dataSearch={(e) =>
           searchData(e, setPreviousCall, setData, previousCall, category)
         }
-        placeholder={category}
         text={text}
         setText={setText}
+        setData={setData}
         className="searchBox"
       >
         <select

@@ -30,14 +30,22 @@ function Character({ character, pictures, voiceActor }) {
         <h2 className={styles.Picture_titles}>Pictures</h2>
         {pictures.length !== 0 ? (
           <div className={styles.pictures_list}>
-            {pictures.map(({ jpg }) => (
-              <div className={styles.image_container} key={jpg.image_url}>
-                <Image
-                  src={jpg.image_url}
-                  width={"225px"}
-                  height={"350px"}
-                  loading={"lazy"}
-                />
+            {pictures.map(({ jpg }, index: number) => (
+              <div className={styles.image_container} key={index}>
+                <div
+                  style={{
+                    width: "100%",
+                    border: "1px solid #000",
+                    position: "relative",
+                  }}
+                >
+                  <Image
+                    src={jpg.image_url}
+                    objectFit={"fill"}
+                    layout={"fill"}
+                    loading={"lazy"}
+                  />
+                </div>
                 <span
                   className={styles.download_image}
                   onClick={() => download(jpg.image_url)}
@@ -53,17 +61,25 @@ function Character({ character, pictures, voiceActor }) {
         <div className={styles.voiceActor_container}>
           <h2 className={styles.voice_actor_titles}>Voice Actors</h2>
           <div className={styles.voice_actor_list}>
-            {voiceActor.map(({ name, person, language }) => {
+            {voiceActor.map(({ name, person, language }, index) => {
               return (
-                <div className={styles.voiceActor}>
-                  <Image
-                    src={person.images.jpg.image_url}
-                    alt={name}
-                    width={"225px"}
-                    height={"350px"}
-                    layout={"responsive"}
-                    loading={"lazy"}
-                  />
+                <div className={styles.voiceActor} key={index}>
+                  <div
+                    className={styles.image_container}
+                    style={{
+                      border: "1px solid #000",
+
+                      width: "100%",
+                    }}
+                  >
+                    <Image
+                      src={person.images.jpg.image_url}
+                      alt={name}
+                      objectFit={"fill"}
+                      layout={"fill"}
+                      loading={"lazy"}
+                    />
+                  </div>
                   <p>Name: {person.name}</p>
                   <p>Language: {language}</p>
                 </div>

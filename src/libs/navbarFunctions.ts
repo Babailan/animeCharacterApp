@@ -9,7 +9,7 @@ const searchData = (
   category: string
 ) => {
   if (category === "characters") {
-    if (value && value.length >= 3) {
+    if (value && value.length >= 1) {
       let previousTime = setTimeout(async () => {
         const req = await axios.get(`https://api.jikan.moe/v4/${category}?`, {
           params: { sort: "desc", order_by: "favorites", limit: 15, q: value },
@@ -18,15 +18,17 @@ const searchData = (
         const character = req.data.data;
         setData(character);
       }, 1000);
+      console.log("YES");
       clearTimeout(previousCall);
       setPreviousCall(previousTime);
       return;
     } else {
       setData([]);
+      clearTimeout(previousCall);
       return;
     }
   } else if (category === "anime") {
-    if (value && value.length >= 3) {
+    if (value && value.length >= 1) {
       let previousTime = setTimeout(async () => {
         const req = await axios.get(`https://api.jikan.moe/v4/${category}`, {
           params: { limit: 6, q: value },

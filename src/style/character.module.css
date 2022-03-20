@@ -32,6 +32,8 @@
   font-family: sans-serif;
 }
 .about::first-letter {
+  font-size: 1.3em;
+  font-weight: 500;
   margin-left: 5%;
 }
 .kanji {
@@ -45,12 +47,13 @@
 }
 .pictures_list {
   position: relative;
-  padding: 10px;
   display: flex;
   align-items: center;
   width: 100%;
-  overflow-x: scroll;
+  overflow-x: auto;
+  overflow-y: hidden;
   gap: 1em;
+  padding-bottom: 10px;
 }
 .pictures_list::-webkit-scrollbar {
   height: 10px;
@@ -64,9 +67,9 @@
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
+  padding: 10px;
 }
 .Picture_titles {
-  padding: 0 10px;
   justify-self: center;
 }
 .image_container {
@@ -110,6 +113,7 @@
 }
 .voiceActor_container {
   margin-top: 1em;
+  padding: 10px;
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -134,7 +138,7 @@
   display: flex;
   gap: 1em;
   overflow-y: hidden;
-  overflow-x: scroll;
+  overflow-x: auto;
   padding-bottom: 0.7em;
 }
 .voice_actor_list::-webkit-scrollbar-track {

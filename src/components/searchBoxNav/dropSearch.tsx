@@ -11,12 +11,18 @@ function DropSearch({ category, data, onClickBox }) {
                 className="card-bar"
                 onClick={(e) => onClickBox(e, mal_id)}
               >
-                <Image
-                  src={images.webp.image_url}
-                  width={"25px"}
-                  height={"40px"}
-                  loading={"lazy"}
-                />
+                <div
+                  style={{ width: "100%", maxWidth: "30px", maxHeight: "40px" }}
+                >
+                  <Image
+                    src={images.webp.image_url}
+                    width={"25px"}
+                    height={"40px"}
+                    layout={"responsive"}
+                    loading={"lazy"}
+                  />
+                </div>
+
                 <p>{name}</p>
               </div>
             );
@@ -26,12 +32,17 @@ function DropSearch({ category, data, onClickBox }) {
         ? data.map(({ title, images }, index: number) => {
             return (
               <div key={index} className="card-bar">
-                <Image
-                  src={images.webp.image_url}
-                  width={"25px"}
-                  height={"40px"}
-                  loading={"lazy"}
-                />
+                <div
+                  style={{ width: "100%", maxWidth: "30px", maxHeight: "40px" }}
+                >
+                  <Image
+                    src={images.webp.image_url}
+                    width={"25px"}
+                    height={"40px"}
+                    layout={"responsive"}
+                    loading={"lazy"}
+                  />
+                </div>
                 <p>{title}</p>
               </div>
             );

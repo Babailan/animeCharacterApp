@@ -5,8 +5,8 @@ type ButtonProps = {
   setText: Function;
   className: string;
   children: ReactNode;
-  placeholder: string;
   dataSearch: (e: any) => void;
+  setData: Function;
 };
 
 function SearchBox({
@@ -14,18 +14,18 @@ function SearchBox({
   setText,
   className,
   children,
-  placeholder,
   dataSearch,
 }: ButtonProps) {
   return (
     <div className="containerSearch-2">
       <input
         type="text"
-        placeholder={placeholder}
         className={className}
         value={text}
         onChange={(e) => {
           setText(e.target.value);
+          if (e.target.value.length === 0) {
+          }
           dataSearch(e.target.value);
           return;
         }}
