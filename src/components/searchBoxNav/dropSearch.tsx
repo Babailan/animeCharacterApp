@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 function DropSearch({ category, data, onClickBox }) {
   return (
     <div className="dropDrop">
@@ -9,11 +11,11 @@ function DropSearch({ category, data, onClickBox }) {
                 className="card-bar"
                 onClick={(e) => onClickBox(e, mal_id)}
               >
-                <img
+                <Image
                   src={images.webp.image_url}
                   width={"25px"}
                   height={"40px"}
-                  className="card-bar-image"
+                  loading={"lazy"}
                 />
                 <p>{name}</p>
               </div>
@@ -24,11 +26,11 @@ function DropSearch({ category, data, onClickBox }) {
         ? data.map(({ title, images }, index: number) => {
             return (
               <div key={index} className="card-bar">
-                <img
+                <Image
                   src={images.webp.image_url}
                   width={"25px"}
                   height={"40px"}
-                  className="card-bar-image"
+                  loading={"lazy"}
                 />
                 <p>{title}</p>
               </div>

@@ -1,11 +1,12 @@
 /*  navbar  */
 .navbar {
-  background-color: #fff;
+  background-color: #d6d6d6ad;
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid rgb(190, 190, 190);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5em 0;
+  padding: 0.5em 0.5em;
   position: sticky;
   top: 0;
   z-index: 3;
@@ -109,15 +110,20 @@
   margin-bottom: auto;
 }
 .logins-signups {
+  background-color: transparent;
   gap: 1em;
 }
 .login {
+  text-transform: capitalize;
+  background-color: transparent;
   margin-right: 7px;
   border: none;
   color: #0d4dad;
   font-size: 1em;
 }
 .sign-up {
+  text-transform: capitalize;
+  background-color: transparent;
   color: #0d4dad;
   font-size: 1em;
   border: none;
@@ -146,16 +152,7 @@
   word-wrap: break-word;
   z-index: 2;
 }
-.dropDrop::-webkit-scrollbar {
-  width: 10px;
-}
-.dropDrop::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 10px;
-}
-.dropDrop::-webkit-scrollbar-track {
-  background: transparent;
-}
+
 .card-bar {
   padding: 6px;
   cursor: pointer;

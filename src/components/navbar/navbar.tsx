@@ -1,8 +1,8 @@
 // import { useWindowWidth } from "@react-hook/window-size";
 import { useState, Fragment } from "react";
-import useWidth from "../../hooks/useWidth";
-import MobileNavbar from "./navbarMobile";
 import Media from "react-media";
+import dynamic from "next/dynamic";
+const MobileNavbar = dynamic(() => import("./navbarMobile"));
 
 const SizeQuery = {
   mobileNav: "(max-width: 640px)",
@@ -10,8 +10,6 @@ const SizeQuery = {
 };
 
 export default function Navbar() {
-  const width = useWidth();
-
   // const handleResize = () => setWidth(window.innerWidth);
 
   // useEffect(() => {
@@ -40,7 +38,6 @@ export default function Navbar() {
                 setPreviousCall={setPreviousCall}
               />
             )}
-            {matches.DesktopNav && <p>I am medium!</p>}
           </Fragment>
         )}
       </Media>

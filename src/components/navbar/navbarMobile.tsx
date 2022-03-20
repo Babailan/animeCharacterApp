@@ -36,7 +36,7 @@ function MobileNavbar({
     setSearchBox(false);
     setText("");
     setData([]);
-    await Router.push(`/character/id/${id}`);
+    Router.push(`/character/id/${id}`, undefined, { shallow: false });
   };
   //SearchNavbar
 
@@ -73,6 +73,7 @@ function MobileNavbar({
           previousCall={previousCall}
           setText={setText}
           onClickBox={onClickBox}
+          setSearchBox={setSearchBox}
         />
       ) : null}
     </>

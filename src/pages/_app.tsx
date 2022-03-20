@@ -5,21 +5,19 @@ import "../style/footer.css";
 import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer";
 import { AppProps } from "next/app";
-import useWidth from "../hooks/useWidth";
+import LazyLoad from "react-lazyload";
 import Greeting from "../components/greeting";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const width = useWidth();
-
   return (
-    <>
+    <LazyLoad>
       <Navbar />
       <div className="parent">
         <Greeting />
         <Component {...pageProps} />
       </div>
       <Footer />
-    </>
+    </LazyLoad>
   );
 }
 

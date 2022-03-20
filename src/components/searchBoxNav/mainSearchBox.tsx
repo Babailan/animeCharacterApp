@@ -13,6 +13,7 @@ type Props = {
   setCategory: Function;
   setText: Function;
   onClickBox: Function;
+  setSearchBox: Function;
 };
 
 // uses dropSearchBox
@@ -28,10 +29,11 @@ function FormSearchBox({
   setCategory,
   setText,
   onClickBox,
+  setSearchBox,
 }: Props) {
   return (
     <form
-      onSubmit={(e) => onSubmitSearch(e, text)}
+      onSubmit={(e) => onSubmitSearch(e, text, setData, setText, setSearchBox)}
       className="container-search"
     >
       <SearchBox

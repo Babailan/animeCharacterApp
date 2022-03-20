@@ -8,12 +8,7 @@
   justify-content: center;
   display: flex;
 }
-.characterImg {
-  height: auto;
-  max-height: 250px;
-  max-width: 200px;
-  width: 50%;
-}
+
 .basicInfo {
   word-break: break-word;
   text-align: center;
@@ -27,6 +22,7 @@
   font-weight: 300;
 }
 .name {
+  padding: 10px;
   font-family: sans-serif;
 }
 
@@ -47,29 +43,48 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.pictures_list {
+  position: relative;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow-x: scroll;
+  gap: 1em;
+}
+.pictures_list::-webkit-scrollbar {
+  height: 10px;
+}
+.pictures_list::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: rgb(218, 216, 216);
+}
 .pictures_container {
   display: flex;
   justify-content: center;
-  gap: 1em;
+  flex-direction: column;
   flex-wrap: wrap;
 }
-.pictures {
-  width: 150px;
-  height: 100%;
-  border: 1px solid #000;
-}
 .Picture_titles {
+  padding: 0 10px;
   justify-self: center;
 }
 .image_container {
+  display: flex;
   transition: 0.3s;
-  background-color: rgb(73, 73, 73);
+  background-color: #949494;
   position: relative;
   overflow: hidden;
+  width: 225px;
+  min-width: 225px;
+  max-width: 225px;
+  height: 350px;
+  background-size: 100% 100%;
+  border: 1px solid #000;
+  background-repeat: no-repeat;
 }
 .download_image {
   display: flex;
-  align-items: center;
   gap: 1em;
   transition: 0.3s;
   font-size: 0.8em;
@@ -90,6 +105,55 @@
 .image_container:hover .download_image {
   opacity: 1;
 }
-.pictures:hover {
-  mix-blend-mode: soft-light;
+.image_container:hover {
+  background-blend-mode: darken;
+}
+.voiceActor_container {
+  margin-top: 1em;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.voice_actor_titles {
+  align-self: flex-start;
+  justify-self: flex-start;
+}
+.voiceActor {
+  display: flex;
+  flex-direction: column;
+  min-height: fit-content;
+  max-height: fit-content;
+  min-width: 225px;
+  max-width: 225px;
+}
+.voiceActor > img {
+  border: 1px solid #000;
+}
+.voice_actor_list {
+  width: 100%;
+  display: flex;
+  gap: 1em;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding-bottom: 0.7em;
+}
+.voice_actor_list::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: rgb(218, 216, 216);
+}
+
+@media (max-width: 381px) {
+  .image_container {
+    max-height: 400px;
+    min-height: 400px;
+    width: 100%;
+  }
+  .pictures {
+    width: 100%;
+    height: 100%;
+  }
+  .download_image {
+    width: 80%;
+    justify-content: center;
+  }
 }

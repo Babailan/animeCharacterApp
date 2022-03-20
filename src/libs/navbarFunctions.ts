@@ -11,16 +11,12 @@ const searchData = (
   if (category === "characters") {
     if (value && value.length >= 3) {
       let previousTime = setTimeout(async () => {
-        const req = await axios.get(`https://api.jikan.moe/v4/${category}`, {
-          params: { limit: 6, q: value },
+        const req = await axios.get(`https://api.jikan.moe/v4/${category}?`, {
+          params: { sort: "desc", order_by: "favorites", limit: 15, q: value },
         });
 
         const character = req.data.data;
-        setData(
-          character.sort((a: any, b: any) =>
-            a.favorites < b.favorites ? 1 : -1
-          )
-        );
+        setData(character);
       }, 1000);
       clearTimeout(previousCall);
       setPreviousCall(previousTime);
@@ -33,10 +29,11 @@ const searchData = (
     if (value && value.length >= 3) {
       let previousTime = setTimeout(async () => {
         const req = await axios.get(`https://api.jikan.moe/v4/${category}`, {
-          params: { limit: 6, q: value, order_by: "rank" },
+          params: { limit: 6, q: value },
         });
 
         const character = req.data.data;
+        console.log(character);
         setData(character);
       }, 1000);
       clearTimeout(previousCall);
@@ -52,10 +49,19 @@ const searchData = (
 };
 const logoOnClick = async (e: any) => {
   e.preventDefault();
-  Router.push(`/`);
+  await Router.push(`/`);
 };
-const onSubmitSearch = async (e: any, value: string) => {
+const onSubmitSearch = async (
+  e: any,
+  value: string,
+  setData: Function,
+  setText: Function,
+  setSearchBox: Function
+) => {
   e.preventDefault();
-  Router.push(`/character/${value}`);
+  setSearchBox((p: boolean) => !p);
+  setData([]);
+  setText("");
+  await Router.push(`/character/${value}`);
 };
 export { logoOnClick, searchData, onSubmitSearch };
