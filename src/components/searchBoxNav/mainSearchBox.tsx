@@ -1,7 +1,7 @@
 import DropSearch from "./dropSearch";
 import SearchBox from "./searchButton";
 
-type Props = {
+interface Props {
   data: any;
   text: string;
   onSubmitSearch: Function;
@@ -13,8 +13,8 @@ type Props = {
   setCategory: Function;
   setText: Function;
   onClickBox: Function;
-  setSearchBox: Function;
-};
+  setSearchBox?: Function;
+}
 
 // uses dropSearchBox
 function FormSearchBox({

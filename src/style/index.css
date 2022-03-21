@@ -19,3 +19,27 @@
 *::-webkit-scrollbar-track {
   background: transparent;
 }
+
+.parent {
+  min-height: 100vh;
+  margin: auto;
+  max-width: 1000px;
+}
+.align_items {
+  display: flex;
+  justify-content: center;
+  font-family: "Fredoka", sans-serif;
+  align-items: center;
+  font-size: 1.2em;
+  font-weight: 500;
+  flex-wrap: wrap;
+  gap: 0.2em;
+}
+.align_items > svg {
+  font-size: 0.7em;
+}
+@media (max-width: 640px) {
+  .align_items {
+    padding: 0 10px;
+  }
+}

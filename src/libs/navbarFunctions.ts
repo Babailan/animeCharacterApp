@@ -17,8 +17,7 @@ const searchData = (
 
         const character = req.data.data;
         setData(character);
-      }, 1000);
-      console.log("YES");
+      }, 500);
       clearTimeout(previousCall);
       setPreviousCall(previousTime);
       return;

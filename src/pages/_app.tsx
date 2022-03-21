@@ -6,17 +6,18 @@ import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer";
 import { AppProps } from "next/app";
 import Greeting from "../components/greeting";
+import { Query, sizeQuery } from "../hooks/sizeQuery";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <Query.Provider value={sizeQuery}>
       <Navbar />
+      <Greeting />
       <div className="parent">
-        <Greeting />
         <Component {...pageProps} />
       </div>
       <Footer />
-    </>
+    </Query.Provider>
   );
 }
 
