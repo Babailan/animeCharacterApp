@@ -15,6 +15,7 @@ function SearchBox({
   className,
   children,
   dataSearch,
+  setData,
 }: ButtonProps) {
   return (
     <div className="containerSearch-2">
@@ -23,9 +24,8 @@ function SearchBox({
         className={className}
         value={text}
         onChange={(e) => {
+          setData([]);
           setText(e.target.value);
-          if (e.target.value.length === 0) {
-          }
           dataSearch(e.target.value);
           return;
         }}

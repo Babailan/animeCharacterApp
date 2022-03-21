@@ -27,7 +27,7 @@
   width: fit-content;
   position: relative;
   height: fit-content;
-  font-family: "Fredoka", sans-serif;
+  font-family: "fredoka";
   font-weight: 600;
 }
 .logoMain::after {
@@ -87,7 +87,7 @@
 .searchBox {
   width: 100%;
   padding: 0.5em;
-  font-family: "Fredoka", sans-serif;
+  font-family: "fredoka";
   border-radius: 3px;
   font-weight: lighter;
   outline: none;
@@ -101,7 +101,7 @@
 }
 .optionCategory {
   font-weight: 600;
-  font-family: "Fredoka", sans-serif;
+  font-family: "fredoka";
   text-transform: capitalize;
   background-color: transparent;
   color: #4d4d4d;
@@ -146,7 +146,7 @@
   text-transform: capitalize;
   background-color: transparent;
   margin-right: 7px;
-  font-family: "Fredoka", sans-serif;
+  /* font-family: "fredoka"; */
   border: none;
   color: #0d4dad;
   font-weight: 600;
@@ -154,7 +154,7 @@
   min-width: fit-content;
 }
 .sign-up {
-  font-family: "Fredoka", sans-serif;
+  /* font-family: "fredoka"; */
   text-transform: capitalize;
   font-weight: 600;
   background-color: transparent;

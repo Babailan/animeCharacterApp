@@ -2,7 +2,7 @@ import Router from "next/router";
 import { FaBars } from "react-icons/fa";
 import {
   logoOnClick,
-  onSubmitSearch,
+  onSubmitSearchDesktop,
   searchData,
 } from "../../libs/navbarFunctions";
 import FormSearchBox from "../searchBoxNav/mainSearchBox";
@@ -36,7 +36,7 @@ export default function Desktop({
           category={category}
           setPreviousCall={setPreviousCall}
           searchData={searchData}
-          onSubmitSearch={onSubmitSearch}
+          onSubmitSearch={onSubmitSearchDesktop}
           text={text}
           setCategory={setCategory}
           data={data}

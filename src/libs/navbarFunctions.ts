@@ -9,23 +9,23 @@ const searchData = (
   category: string
 ) => {
   if (category === "characters") {
-    if (value && value.length >= 1) {
-      let previousTime = setTimeout(async () => {
+    let previousTime = setTimeout(async () => {
+      if (!value) {
+        return;
+      } else {
         const req = await axios.get(`https://api.jikan.moe/v4/${category}?`, {
           params: { sort: "desc", order_by: "favorites", limit: 15, q: value },
         });
-
         const character = req.data.data;
         setData(character);
-      }, 500);
+      }
+    }, 500);
+    clearTimeout(previousCall);
+    setPreviousCall(previousTime);
+    setTimeout(() => {
       clearTimeout(previousCall);
-      setPreviousCall(previousTime);
-      return;
-    } else {
       setData([]);
-      clearTimeout(previousCall);
-      return;
-    }
+    }, 1000);
   } else if (category === "anime") {
     if (value && value.length >= 1) {
       let previousTime = setTimeout(async () => {
@@ -39,10 +39,8 @@ const searchData = (
       }, 1000);
       clearTimeout(previousCall);
       setPreviousCall(previousTime);
-      return;
     } else {
       setData([]);
-      return;
     }
   } else {
     console.log("NONE CATEGORY");
@@ -50,9 +48,9 @@ const searchData = (
 };
 const logoOnClick = async (e: any) => {
   e.preventDefault();
-  await Router.push(`/`);
+  Router.push(`/`);
 };
-const onSubmitSearch = async (
+const onSubmitSearchMobile = async (
   e: any,
   value: string,
   setData: Function,
@@ -63,6 +61,23 @@ const onSubmitSearch = async (
   setSearchBox((p: boolean) => !p);
   setData([]);
   setText("");
-  await Router.push(`/character/${value}`);
+  if (value.length === 0) {
+    Router.push("/character");
+  }
+  Router.push(`/character/search/${value}`);
 };
-export { logoOnClick, searchData, onSubmitSearch };
+const onSubmitSearchDesktop = async (
+  e: any,
+  value: string,
+  setData: Function,
+  setText: Function
+) => {
+  e.preventDefault();
+  setData([]);
+  setText("");
+  if (value.length === 0) {
+    Router.push("/character");
+  }
+  Router.push(`/character/search/${value}`);
+};
+export { logoOnClick, searchData, onSubmitSearchMobile, onSubmitSearchDesktop };

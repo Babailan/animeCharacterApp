@@ -4,7 +4,7 @@ import Router from "next/router";
 import {
   searchData,
   logoOnClick,
-  onSubmitSearch,
+  onSubmitSearchMobile,
 } from "../../libs/navbarFunctions";
 import FormSearchBox from "../searchBoxNav/mainSearchBox";
 
@@ -65,7 +65,7 @@ function MobileNavbar({
           category={category}
           setPreviousCall={setPreviousCall}
           searchData={searchData}
-          onSubmitSearch={onSubmitSearch}
+          onSubmitSearch={onSubmitSearchMobile}
           text={text}
           setCategory={setCategory}
           data={data}

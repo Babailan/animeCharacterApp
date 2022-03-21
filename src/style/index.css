@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Fredoka", sans-serif;
+  font-family: "fredoka";
   word-wrap: break-word;
   scroll-snap-type: proximity;
   scroll-behavior: smooth;
@@ -27,8 +27,10 @@
 }
 .align_items {
   display: flex;
-  justify-content: center;
-  font-family: "Fredoka", sans-serif;
+  width: 100%;
+  justify-content: flex-start;
+  margin-left: 5%;
+  font-family: "fredoka";
   align-items: center;
   font-size: 1.2em;
   font-weight: 500;
@@ -41,5 +43,6 @@
 @media (max-width: 640px) {
   .align_items {
     padding: 0 10px;
+    justify-content: flex-start;
   }
 }

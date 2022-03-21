@@ -4,9 +4,12 @@
   flex: 1;
 }
 .section1 {
+  gap: 1em;
+  padding: 0 10px;
   height: 100%;
-  justify-content: center;
+  justify-content: flex-start;
   display: flex;
+  align-items: flex-start;
 }
 
 .basicInfo {
@@ -18,18 +21,18 @@
   flex-direction: column;
   justify-content: center;
   width: 50%;
-  font-family: "Noto Sans JP", sans-serif;
   font-weight: 300;
+  flex: 1;
 }
 .name {
-  padding: 10px;
+  padding: 0 10px;
   font-family: sans-serif;
 }
 
 .about {
   text-align: start;
-  padding: 10px;
   font-family: sans-serif;
+  width: 100%;
 }
 .about::first-letter {
   font-size: 1.3em;
@@ -40,11 +43,12 @@
 .pictures_list {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   gap: 1em;
+  flex: 1;
   padding-bottom: 10px;
 }
 .pictures_list::-webkit-scrollbar {
@@ -53,6 +57,10 @@
 .pictures_list::-webkit-scrollbar-track {
   border-radius: 10px;
   background-color: rgb(218, 216, 216);
+}
+.eachPicture_container {
+  position: relative;
+  max-width: 225px;
 }
 .pictures_container {
   display: flex;
@@ -97,47 +105,13 @@
   align-items: center;
   width: fit-content;
 }
-.image_container:hover .download_image {
+.eachPicture_container:hover .download_image {
   opacity: 1;
 }
-.image_container:hover > .image {
+.eachPicture_container:hover .image {
   mix-blend-mode: darken;
 }
 
-.voiceActor_container {
-  margin-top: 1em;
-  padding: 10px;
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-}
-.voice_actor_titles {
-  align-self: flex-start;
-  justify-self: flex-start;
-}
-.voiceActor {
-  display: flex;
-  flex-direction: column;
-  min-height: fit-content;
-  max-height: fit-content;
-  min-width: 225px;
-  max-width: 225px;
-}
-.voiceActor > img {
-  border: 1px solid #000;
-}
-.voice_actor_list {
-  width: 100%;
-  display: flex;
-  gap: 1em;
-  overflow-y: hidden;
-  overflow-x: auto;
-  padding: 0.7em 0;
-}
-.voice_actor_list::-webkit-scrollbar-track {
-  border-radius: 10px;
-  background-color: rgb(218, 216, 216);
-}
 .favorites {
   display: flex;
   align-items: center;
@@ -165,9 +139,5 @@
   }
   .section1 {
     flex-direction: column;
-  }
-  .kanji {
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
   }
 }
