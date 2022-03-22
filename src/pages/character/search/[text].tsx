@@ -9,7 +9,6 @@ import axios from "axios";
 import styles from "../../../style/searchCharacter.module.css";
 
 export default ({ list }) => {
-  console.log(list);
   return (
     <div className={styles.searchList}>
       {list.map(({ mal_id, images, name }) => {
