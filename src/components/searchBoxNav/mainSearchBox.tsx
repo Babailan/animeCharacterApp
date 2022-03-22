@@ -1,5 +1,8 @@
 import DropSearch from "./dropSearch";
 import SearchBox from "./searchButton";
+import Media from "react-media";
+import { useContext } from "react";
+import { Query } from "../../hooks/sizeQuery";
 
 interface Props {
   data: any;
@@ -14,6 +17,7 @@ interface Props {
   setText: Function;
   onClickBox: Function;
   setSearchBox?: Function;
+  router?: any;
 }
 
 // uses dropSearchBox
@@ -30,46 +34,102 @@ function FormSearchBox({
   setText,
   onClickBox,
   setSearchBox,
+  router,
 }: Props) {
+  const query = useContext(Query);
   return (
-    <form
-      onSubmit={(e) => onSubmitSearch(e, text, setData, setText, setSearchBox)}
-      className="container-search"
-    >
-      <SearchBox
-        dataSearch={(e) =>
-          searchData(e, setPreviousCall, setData, previousCall, category)
-        }
-        text={text}
-        setText={setText}
-        setData={setData}
-        className="searchBox"
-      >
-        <select
-          defaultValue={category}
-          className="optionCategory"
-          onChange={(e) => {
-            setCategory(e.target.value);
-            setData([]);
-            searchData(
-              text,
-              setPreviousCall,
-              setData,
-              previousCall,
-              e.target.value
-            );
-          }}
+    <>
+      <Media query={query.mobileNav}>
+        <form
+          onSubmit={(e) =>
+            onSubmitSearch(e, text, setData, setText, setSearchBox, router)
+          }
+          className="container-search"
         >
-          <option value="characters">character</option>
-          <option value="anime">anime</option>
-          <option value="manga">manga</option>
-        </select>
-      </SearchBox>
-      {/* dropSearchMobile */}
-      {data.length ? (
-        <DropSearch onClickBox={onClickBox} data={data} category={category} />
-      ) : null}
-    </form>
+          <SearchBox
+            dataSearch={(e) =>
+              searchData(e, setPreviousCall, setData, previousCall, category)
+            }
+            text={text}
+            setText={setText}
+            setData={setData}
+            className="searchBox"
+          >
+            <select
+              defaultValue={category}
+              className="optionCategory"
+              onChange={(e) => {
+                setCategory(e.target.value);
+                setData([]);
+                searchData(
+                  text,
+                  setPreviousCall,
+                  setData,
+                  previousCall,
+                  e.target.value
+                );
+              }}
+            >
+              <option value="characters">character</option>
+              <option value="anime">anime</option>
+              <option value="manga">manga</option>
+            </select>
+          </SearchBox>
+          {/* dropSearchMobile */}
+          {data.length ? (
+            <DropSearch
+              onClickBox={onClickBox}
+              data={data}
+              category={category}
+            />
+          ) : null}
+        </form>
+      </Media>
+      <Media query={query.DesktopNav}>
+        <form
+          onSubmit={(e) => onSubmitSearch(e, text, setData, setText, router)}
+          className="container-search"
+        >
+          <SearchBox
+            dataSearch={(e) =>
+              searchData(e, setPreviousCall, setData, previousCall, category)
+            }
+            text={text}
+            setText={setText}
+            setData={setData}
+            className="searchBox"
+          >
+            <select
+              defaultValue={category}
+              className="optionCategory"
+              onChange={(e) => {
+                setCategory(e.target.value);
+                setData([]);
+                searchData(
+                  text,
+                  setPreviousCall,
+                  setData,
+                  previousCall,
+                  e.target.value
+                );
+              }}
+            >
+              <option value="characters">character</option>
+              <option value="anime">anime</option>
+              <option value="manga">manga</option>
+            </select>
+          </SearchBox>
+          {/* dropSearchMobile */}
+          {data.length ? (
+            <DropSearch
+              onClickBox={onClickBox}
+              data={data}
+              category={category}
+            />
+          ) : null}
+        </form>
+      </Media>
+    </>
   );
 }
 

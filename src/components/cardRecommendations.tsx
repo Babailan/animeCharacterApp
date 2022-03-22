@@ -1,10 +1,4 @@
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@mui/material";
+import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 import Image from "next/image";
 
 type cardProps = {
@@ -17,8 +11,22 @@ type cardProps = {
 function Cards({ images, name, mal_id, id }: cardProps) {
   return (
     <>
-      <Card sx={{ maxWidth: 225, minWidth: 225 }} key={mal_id || id}>
-        <CardActionArea sx={{ height: "100%" }}>
+      <Card
+        sx={{
+          maxWidth: 225,
+          minWidth: 225,
+          justifyContent: "flex-start",
+          alignContent: "flex-start",
+        }}
+        key={mal_id || id}
+      >
+        <CardActionArea
+          sx={{
+            height: "100%",
+            justifyContent: "flex-start",
+            alignContent: "flex-start",
+          }}
+        >
           <Image
             src={images}
             loading={"lazy"}

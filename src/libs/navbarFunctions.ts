@@ -1,5 +1,4 @@
 import axios from "axios";
-import Router from "next/router";
 
 const searchData = async (
   value: string,
@@ -42,38 +41,42 @@ const searchData = async (
   } else {
   }
 };
-const logoOnClick = async (e: any) => {
+const logoOnClick = async (e: any, router: any) => {
   e.preventDefault();
-  Router.push(`/`);
+  router.push(`/`);
 };
 const onSubmitSearchMobile = async (
   e: any,
   value: string,
   setData: Function,
   setText: Function,
-  setSearchBox: Function
+  setSearchBox: Function,
+  router: any
 ) => {
   e.preventDefault();
+
+  router.push(`/`);
   setSearchBox((p: boolean) => !p);
   setData([]);
   setText("");
   if (value.length === 0) {
-    Router.push("/character");
+    router.push("/character");
   }
-  Router.push(`/character/search/${value}`);
+  router.push(`/character/search/${value}`);
 };
 const onSubmitSearchDesktop = async (
   e: any,
   value: string,
   setData: Function,
-  setText: Function
+  setText: Function,
+  router: any
 ) => {
   e.preventDefault();
   setData([]);
   setText("");
   if (value.length === 0) {
-    Router.push("/character");
+    router.push("/character");
   }
-  Router.push(`/character/search/${value}`);
+  router.push(`/character/search/${value}`);
 };
 export { logoOnClick, searchData, onSubmitSearchMobile, onSubmitSearchDesktop };

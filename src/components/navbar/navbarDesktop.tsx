@@ -1,4 +1,4 @@
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 import { FaBars } from "react-icons/fa";
 import {
   logoOnClick,
@@ -16,6 +16,7 @@ export default function Desktop({
   previousCall,
   setPreviousCall,
 }) {
+  const router = useRouter();
   const onClickBox = async (e: any, id: any) => {
     e.preventDefault();
     setText("");
@@ -27,7 +28,7 @@ export default function Desktop({
       {/* navbar */}
       <div className="search-icon">
         <FaBars className="bar" />
-        <div className="logo" onClick={logoOnClick}>
+        <div className="logo" onClick={(e) => logoOnClick(e, router)}>
           <p className="logoMain">AnimeWorld</p>
         </div>
       </div>
@@ -44,6 +45,7 @@ export default function Desktop({
           previousCall={previousCall}
           setText={setText}
           onClickBox={onClickBox}
+          router={router}
         />
         <button className="login">login</button>
         <button className="sign-up">sign up</button>

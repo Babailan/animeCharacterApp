@@ -1,6 +1,6 @@
 import { FaSearch, FaBars } from "react-icons/fa";
 import { useState } from "react";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 import {
   searchData,
   logoOnClick,
@@ -29,6 +29,7 @@ function MobileNavbar({
   setPreviousCall,
   previousCall,
 }: Props) {
+  const router = useRouter();
   const [SearchBox, setSearchBox] = useState(false);
 
   const onClickBox = async (e: any, id: any) => {
@@ -52,7 +53,7 @@ function MobileNavbar({
           }}
         />
       </div>
-      <div className="logo" onClick={logoOnClick}>
+      <div className="logo" onClick={(e) => logoOnClick(e, router)}>
         <p className="logoMain">AW</p>
       </div>
       <div className="logins-signups">
@@ -74,6 +75,7 @@ function MobileNavbar({
           setText={setText}
           onClickBox={onClickBox}
           setSearchBox={setSearchBox}
+          router={router}
         />
       ) : null}
     </>

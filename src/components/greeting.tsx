@@ -5,6 +5,7 @@ function Greeting({ background }) {
   return (
     //greetings entry
     <div className={styles.greetings_container}>
+      <div className={styles.image_background_greeting}></div>
       <div className={styles.greeting_left_right}></div>
       <div className={styles.greetings_container_letters}>
         <h1>Welcome to Anime-World</h1>

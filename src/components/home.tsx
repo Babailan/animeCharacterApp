@@ -1,13 +1,13 @@
 import AnimeRecomendation from "./animeRec";
-import Greeting from "./greeting";
+import CharacterRecomendation from "./characterFav";
 import MangaRecomendation from "./mangaRec";
 
-function Home({ mangaRec, animeRec }) {
-  console.log(animeRec);
+function Home({ mangaRec, animeRec, character }) {
   return (
     <>
       <AnimeRecomendation animeRec={animeRec} />
       <MangaRecomendation mangaRec={mangaRec} />
+      <CharacterRecomendation character={character} />
     </>
   );
 }
