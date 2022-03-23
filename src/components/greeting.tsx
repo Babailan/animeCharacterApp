@@ -8,7 +8,9 @@ function Greeting({ background }) {
       <div className={styles.image_background_greeting}></div>
       <div className={styles.greeting_left_right}></div>
       <div className={styles.greetings_container_letters}>
-        <h1>Welcome to Anime-World</h1>
+        <h1>
+          Welcome to <span style={{ color: "#026077" }}>Anime-World</span>
+        </h1>
         <p>
           Discover anime and manga, track your progress, watch anime, read
           manga.

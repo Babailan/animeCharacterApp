@@ -1,6 +1,6 @@
 module.exports = {
   swcMinify: true, // it should be false by default
-  optimizeFonts: false, //font optimization
+  optimizeFonts: true, //font optimization
   fontFamily: {
     fredoka: ["Noto Sans JP", "sans-serif"],
   },

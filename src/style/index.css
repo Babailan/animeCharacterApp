@@ -18,6 +18,7 @@
 }
 *::-webkit-scrollbar-track {
   background-color: rgb(218, 216, 216);
+  border-radius: 10px;
 }
 
 .parent {
