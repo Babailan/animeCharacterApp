@@ -7,7 +7,7 @@ function CharacterRecomendation({ character }) {
   const router = useRouter();
   const onClickBox = (e: any, mal_id: string) => {
     e.preventDefault();
-    router.push(`/character/id/${mal_id}`);
+    router.push(`/character/id/${mal_id}`, undefined, { shallow: false });
   };
   return (
     <div className={styles.Recommendation_container}>
