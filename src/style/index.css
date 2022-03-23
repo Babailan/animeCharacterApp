@@ -31,18 +31,20 @@
   justify-content: flex-start;
   margin-left: 5%;
   font-family: "fredoka";
-  align-items: center;
+  align-items: flex-start;
   font-size: 1.2em;
   font-weight: 500;
   flex-wrap: wrap;
   gap: 0.2em;
+  text-align: start;
 }
 .align_items > svg {
   font-size: 0.7em;
 }
 @media (max-width: 640px) {
   .align_items {
-    padding: 0 10px;
     justify-content: flex-start;
+    margin-left: 0;
+    align-items: flex-start;
   }
 }
