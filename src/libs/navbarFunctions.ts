@@ -43,7 +43,7 @@ const searchData = async (
 };
 const logoOnClick = async (e: any, router: any) => {
   e.preventDefault();
-  router.push(`/`);
+  router.push(`/`, undefined, { shallow: true });
 };
 const onSubmitSearchMobile = async (
   e: any,
@@ -60,9 +60,9 @@ const onSubmitSearchMobile = async (
   setData([]);
   setText("");
   if (value.length === 0) {
-    router.push("/character");
+    router.push("/character", undefined, { shallow: true });
   }
-  router.push(`/character/search/${value}`);
+  router.push(`/character/search/${value}`, undefined, { shallow: true });
 };
 const onSubmitSearchDesktop = async (
   e: any,
@@ -75,8 +75,8 @@ const onSubmitSearchDesktop = async (
   setData([]);
   setText("");
   if (value.length === 0) {
-    router.push("/character");
+    router.push("/character", undefined, { shallow: true });
   }
-  router.push(`/character/search/${value}`);
+  router.push(`/character/search/${value}`, undefined, { shallow: true });
 };
 export { logoOnClick, searchData, onSubmitSearchMobile, onSubmitSearchDesktop };

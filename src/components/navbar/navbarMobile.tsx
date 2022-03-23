@@ -6,7 +6,7 @@ import {
   logoOnClick,
   onSubmitSearchMobile,
 } from "../../libs/navbarFunctions";
-import FormSearchBox from "../searchBoxNav/mainSearchBox";
+import FormSearchBox from "../searchBoxNav/navSearchBoxMobile";
 
 type Props = {
   text: string;

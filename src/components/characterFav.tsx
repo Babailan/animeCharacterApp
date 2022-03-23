@@ -2,12 +2,12 @@
 
 import Cards from "./cardRecommendations";
 import styles from "../style/Recommendations.module.css";
-import { useRouter } from "next/router";
+import Router from "next/router";
+
 function CharacterRecomendation({ character }) {
-  const router = useRouter();
   const onClickBox = (e: any, mal_id: string) => {
     e.preventDefault();
-    router.push(`/character/id/${mal_id}`, undefined, { shallow: false });
+    Router.push(`/character/id/${mal_id}`, undefined, { shallow: false });
   };
   return (
     <div className={styles.Recommendation_container}>
