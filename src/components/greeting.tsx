@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import styles from "../style/greeting.module.css";
 
-function Greeting({ background }) {
+function Greeting() {
   return (
     //greetings entry
     <div className={styles.greetings_container}>

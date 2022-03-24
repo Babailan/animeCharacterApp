@@ -1,53 +1,38 @@
 import axios from "axios";
+import useSWR from "swr";
 import Greetings from "../components/greeting";
 import Home from "../components/home";
+import fetcher, { fetchCharacterFav } from "../libs/axiosFetch";
 import RemoveElementsDuplicated from "../libs/removeElementDuplicated";
 
-type Props = {
-  mangaRec: any;
-  animeRec: any;
-  character: any;
-};
-
-const Index = ({ mangaRec, animeRec, character }: Props) => {
+const Index = () => {
+  const mangaRec = useSWR(
+    "https://api.jikan.moe/v4/recommendations/manga",
+    fetcher
+  );
+  const animeRec = useSWR(
+    "https://api.jikan.moe/v4/recommendations/anime",
+    fetcher
+  );
+  const character = useSWR(
+    "https://api.jikan.moe/v4/characters",
+    fetchCharacterFav
+  );
+  if (mangaRec.error || animeRec.error || character.error)
+    return <p>Loading..</p>;
+  if (!mangaRec.data || !animeRec.data || !character.data)
+    return <p>Loading..</p>;
   return (
     <>
       {/* greetings entry */}
-      <Greetings
-        background={animeRec[0].entry[0].images.webp.large_image_url}
+      <Greetings />
+      <Home
+        mangaRec={RemoveElementsDuplicated(mangaRec.data)}
+        animeRec={RemoveElementsDuplicated(animeRec.data)}
+        character={character.data}
       />
-      <Home mangaRec={mangaRec} animeRec={animeRec} character={character} />
     </>
   );
 };
-
-export async function getStaticProps() {
-  const animeRecommendations = await axios.get(
-    "https://api.jikan.moe/v4/recommendations/anime"
-  );
-  const mangaRecommendations = await axios.get(
-    "https://api.jikan.moe/v4/recommendations/manga"
-  );
-  const characterFavorites = await axios.get(
-    "https://api.jikan.moe/v4/characters",
-    {
-      params: { order_by: "favorites", sort: "desc" },
-    }
-  );
-  let anime = RemoveElementsDuplicated(animeRecommendations.data.data);
-  let manga = RemoveElementsDuplicated(mangaRecommendations.data.data);
-
-  return {
-    props: {
-      animeRec: anime,
-      mangaRec: manga,
-      character: characterFavorites.data.data,
-    },
-    // Next.js will attempt to re-generate the page:
-    // - When a request comes in
-    // - At most once every 10 seconds
-    revalidate: 300, // In seconds
-  };
-}
 
 export default Index;

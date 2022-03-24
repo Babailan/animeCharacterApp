@@ -7,16 +7,57 @@ import { useContext } from "react";
 import { Query } from "../../../hooks/sizeQuery";
 import dynamic from "next/dynamic";
 import Media from "react-media";
+import useSWR from "swr";
+import fetcher from "../../../libs/axiosFetch";
+import { useRouter } from "next/router";
 const About = dynamic(() => import("../../../components/character"), {
   ssr: false,
 });
 
-function Character({ character, pictures, voiceActor, animeList, mangaList }) {
+function Character({ params }) {
+  const router = useRouter();
   const query = useContext(Query);
+  const character = useSWR(
+    `https://api.jikan.moe/v4/characters/${router.query.character}`,
+    fetcher
+  );
+  const pictures = useSWR(
+    `https://api.jikan.moe/v4/characters/${router.query.character}/pictures`,
+    fetcher
+  );
+  const voiceActor = useSWR(
+    `https://api.jikan.moe/v4/characters/${router.query.character}/voices`,
+    fetcher
+  );
+  const mangaList = useSWR(
+    `https://api.jikan.moe/v4/characters/${router.query.character}/manga`,
+    fetcher
+  );
+  const animeList = useSWR(
+    `https://api.jikan.moe/v4/characters/${router.query.character}/anime`,
+    fetcher
+  );
+
+  if (
+    character.error ||
+    pictures.error ||
+    voiceActor.error ||
+    mangaList.error ||
+    animeList.error
+  )
+    return <div>Loading</div>;
+  if (
+    !character.data ||
+    !pictures.data ||
+    !voiceActor.data ||
+    !mangaList.data ||
+    !animeList.data
+  )
+    return <div>Loading...</div>;
 
   return (
     <div className={styles.characterContainer}>
-      <h1 className={styles.name}>{character.name}</h1>
+      <h1 className={styles.name}>{character.data.name}</h1>
       <div className={styles.section1}>
         {/* images character */}
         <div
@@ -29,7 +70,7 @@ function Character({ character, pictures, voiceActor, animeList, mangaList }) {
           }}
         >
           <Image
-            src={character.images.jpg.image_url}
+            src={character.data.images.jpg.image_url}
             width={"225px"}
             height={"350px"}
           />
@@ -40,33 +81,33 @@ function Character({ character, pictures, voiceActor, animeList, mangaList }) {
             {
               <span className={styles.favorites}>
                 Favorites:
-                {character.favorites}
+                {character.data.favorites}
               </span>
             }
           </p>
           <p className={"align_items"}>
             <span className={styles.favorites}></span>
-            Nicknames:{JSON.stringify(character.nicknames)}
+            Nicknames:{JSON.stringify(character.data.nicknames)}
           </p>
           <p className={"align_items"}>
             <span className={styles.favorites}>
               Name_kanji:
-              {character.name_kanji}
+              {character.data.name_kanji}
             </span>
           </p>
           <Media query={query.DesktopNav}>
-            <About about={character.about} />
+            <About about={character.data.about} />
           </Media>
         </div>
       </div>
       <Media query={query.mobileNav}>
-        <About about={character.about} />
+        <About about={character.data.about} />
       </Media>
-      {animeList.length !== 0 && (
+      {animeList.data.length !== 0 && (
         <div className={styles.pictures_container}>
           <h2 className={styles.Picture_titles}>Anime</h2>
           <div className={styles.pictures_list}>
-            {animeList.map(({ anime }, index: number) => (
+            {animeList.data.map(({ anime }, index: number) => (
               <div key={index} className={styles.eachPicture_container}>
                 <div className={styles.image_container}>
                   <div
@@ -92,11 +133,11 @@ function Character({ character, pictures, voiceActor, animeList, mangaList }) {
           </div>
         </div>
       )}
-      {mangaList.length !== 0 && (
+      {mangaList.data.length !== 0 && (
         <div className={styles.pictures_container}>
           <h2 className={styles.Picture_titles}>Manga</h2>
           <div className={styles.pictures_list}>
-            {mangaList.map(({ manga }, index: number) => (
+            {mangaList.data.map(({ manga }, index: number) => (
               <div key={index} className={styles.eachPicture_container}>
                 <div className={styles.image_container}>
                   <div
@@ -123,11 +164,11 @@ function Character({ character, pictures, voiceActor, animeList, mangaList }) {
         </div>
       )}
 
-      {pictures.length !== 0 && (
+      {pictures.data.length !== 0 && (
         <div className={styles.pictures_container}>
           <h2 className={styles.Picture_titles}>Pictures</h2>
           <div className={styles.pictures_list}>
-            {pictures.map(({ jpg }, index: number) => (
+            {pictures.data.map(({ jpg }, index: number) => (
               <div key={index} className={styles.eachPicture_container}>
                 <div className={styles.image_container}>
                   <div
@@ -158,11 +199,11 @@ function Character({ character, pictures, voiceActor, animeList, mangaList }) {
           </div>
         </div>
       )}
-      {voiceActor.length !== 0 && (
+      {voiceActor.data.length !== 0 && (
         <div className={styles.pictures_container}>
           <h2 className={styles.Picture_titles}>Voice Actor</h2>
           <div className={styles.pictures_list}>
-            {voiceActor.map(({ person, language }, index: number) => (
+            {voiceActor.data.map(({ person, language }, index: number) => (
               <div key={index} className={styles.eachPicture_container}>
                 <div className={styles.image_container}>
                   <div
@@ -190,33 +231,6 @@ function Character({ character, pictures, voiceActor, animeList, mangaList }) {
       )}
     </div>
   );
-}
-
-export async function getServerSideProps(context: any) {
-  const character = await axios.get(
-    `https://api.jikan.moe/v4/characters/${context.params.character}`
-  );
-  const picture = await axios.get(
-    `https://api.jikan.moe/v4/characters/${context.params.character}/pictures`
-  );
-  const voiceActor = await axios.get(
-    `https://api.jikan.moe/v4/characters/${context.params.character}/voices`
-  );
-  const animeList = await axios.get(
-    `https://api.jikan.moe/v4/characters/${context.params.character}/anime`
-  );
-  const mangaList = await axios.get(
-    `https://api.jikan.moe/v4/characters/${context.params.character}/manga`
-  );
-  return {
-    props: {
-      character: character.data.data,
-      pictures: picture.data.data,
-      voiceActor: voiceActor.data.data,
-      animeList: animeList.data.data,
-      mangaList: mangaList.data.data,
-    }, // will be passed to the page component as props
-  };
 }
 
 export default Character;

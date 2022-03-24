@@ -21,6 +21,10 @@
   border-radius: 10px;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .parent {
   min-height: 100vh;
   margin: auto;
