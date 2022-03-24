@@ -5,7 +5,7 @@ import {
   onSubmitSearchDesktop,
   searchData,
 } from "../../libs/navbarFunctions";
-import FormSearchBox from "../searchBoxNav/navSearchBoxMobile";
+import FormSearchBox from "../searchBoxNav/navSearchBoxDesktop";
 export default function Desktop({
   data,
   setData,
