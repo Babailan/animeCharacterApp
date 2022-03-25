@@ -23,6 +23,8 @@ function Cards({ images, name, mal_id, id }: cardProps) {
         <CardActionArea
           sx={{
             height: "100%",
+            display: "flex",
+            flexDirection: "column",
             justifyContent: "flex-start",
             alignContent: "flex-start",
           }}

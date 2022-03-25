@@ -22,64 +22,88 @@ const Index = () => {
     return (
       <>
         <Greetings />
-        <Skeleton
-          animation={"wave"}
-          variant="text"
-          sx={{ bgcolor: "#c5c7c9" }}
-        />
-        <Skeleton
-          variant="rectangular"
-          animation={"wave"}
-          width={"auto"}
-          height={"200px"}
-          sx={{ bgcolor: "#c5c7c9", marginBottom: "10px" }}
-        />
-        <Skeleton
-          variant="rectangular"
-          animation={"wave"}
-          width={"auto"}
-          height={"200px"}
-          sx={{ bgcolor: "#c5c7c9", marginBottom: "10px" }}
-        />
-        <Skeleton
-          variant="rectangular"
-          animation={"wave"}
-          width={"auto"}
-          height={"200px"}
-          sx={{ bgcolor: "#c5c7c9", marginBottom: "10px" }}
-        />
+        <div style={{ padding: "0 10px 10px 10px " }}>
+          <Skeleton
+            animation={"wave"}
+            variant="text"
+            sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
+          />
+          <Skeleton
+            variant="rectangular"
+            animation={"wave"}
+            width={"auto"}
+            height={"200px"}
+            sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
+          />
+          <Skeleton
+            animation={"wave"}
+            variant="text"
+            sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
+          />
+          <Skeleton
+            variant="rectangular"
+            animation={"wave"}
+            width={"auto"}
+            height={"200px"}
+            sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
+          />
+          <Skeleton
+            animation={"wave"}
+            variant="text"
+            sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
+          />
+          <Skeleton
+            variant="rectangular"
+            animation={"wave"}
+            width={"auto"}
+            height={"200px"}
+            sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
+          />
+        </div>
       </>
     );
   if (!mangaRec.data || !animeRec.data || !character.data)
     return (
       <>
         <Greetings />
-        <Skeleton
-          animation={"wave"}
-          variant="text"
-          sx={{ bgcolor: "#c5c7c9" }}
-        />
-        <Skeleton
-          variant="rectangular"
-          animation={"wave"}
-          width={"auto"}
-          height={"200px"}
-          sx={{ bgcolor: "#c5c7c9", marginBottom: "10px" }}
-        />
-        <Skeleton
-          variant="rectangular"
-          animation={"wave"}
-          width={"auto"}
-          height={"200px"}
-          sx={{ bgcolor: "#c5c7c9", marginBottom: "10px" }}
-        />
-        <Skeleton
-          variant="rectangular"
-          animation={"wave"}
-          width={"auto"}
-          height={"200px"}
-          sx={{ bgcolor: "#c5c7c9", marginBottom: "10px" }}
-        />
+        <div style={{ padding: "0 10px 10px 10px " }}>
+          <Skeleton
+            animation={"wave"}
+            variant="text"
+            sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
+          />
+          <Skeleton
+            variant="rectangular"
+            animation={"wave"}
+            width={"auto"}
+            height={"200px"}
+            sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
+          />
+          <Skeleton
+            animation={"wave"}
+            variant="text"
+            sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
+          />
+          <Skeleton
+            variant="rectangular"
+            animation={"wave"}
+            width={"auto"}
+            height={"200px"}
+            sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
+          />
+          <Skeleton
+            animation={"wave"}
+            variant="text"
+            sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
+          />
+          <Skeleton
+            variant="rectangular"
+            animation={"wave"}
+            width={"auto"}
+            height={"200px"}
+            sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
+          />
+        </div>
       </>
     );
   return (

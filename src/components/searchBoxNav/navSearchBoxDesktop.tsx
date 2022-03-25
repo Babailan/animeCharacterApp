@@ -34,7 +34,9 @@ function FormSearchBoxMobile({
 }: Props) {
   return (
     <form
-      onSubmit={(e) => onSubmitSearch(e, text, setData, setText, router)}
+      onSubmit={(e) =>
+        onSubmitSearch(e, text, setData, setText, router, previousCall)
+      }
       className="container-search"
     >
       <SearchBox

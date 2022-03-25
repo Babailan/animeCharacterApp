@@ -8,19 +8,22 @@ function Greeting() {
       <div className={styles.image_background_greeting}></div>
       <div className={styles.greeting_left_right}></div>
       <div className={styles.greetings_container_letters}>
-        <h1>
-          Welcome to <span style={{ color: "#026077" }}>Anime-World</span>
+        <h1 className={styles.stroke}>
+          Welcome to{" "}
+          <span className={styles.stroke} style={{ color: "#026077" }}>
+            Anime-World
+          </span>
         </h1>
-        <p>
+        <h4 className={styles.stroke} style={{ marginTop: 5 }}>
           Discover anime and manga, track your progress, watch anime, read
           manga.
-        </p>
+        </h4>
         <Button
-          style={{ marginTop: 20 }}
+          style={{ marginTop: 10 }}
           href={"https://github.com/Babailan/animeCharacterApp/tree/revamp-2"}
           target={"_blank"}
           variant={"contained"}
-          size={"large"}
+          size={"medium"}
         >
           Project Repository
         </Button>
