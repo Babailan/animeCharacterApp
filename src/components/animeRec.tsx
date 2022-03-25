@@ -2,7 +2,6 @@
 
 import Cards from "./cardRecommendations";
 import styles from "../style/Recommendations.module.css";
-import RemoveElementsDuplicated from "../libs/removeElementDuplicated";
 
 function AnimeRecomendation({ animeRec }) {
   return (
