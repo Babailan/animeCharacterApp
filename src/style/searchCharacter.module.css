@@ -1,5 +1,6 @@
 .searchList {
   margin: 2em 0;
+  padding: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 2em;

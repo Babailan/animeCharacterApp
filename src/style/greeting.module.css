@@ -4,7 +4,7 @@
   align-items: center;
   overflow: hidden;
   color: #000000;
-  height: 70vh;
+  height: 50vh;
   position: relative;
 }
 .image_background_greeting {
@@ -26,9 +26,13 @@
   z-index: 2;
   margin: 0;
   width: 100%;
-  font-family: "fredoka";
   padding: 2em;
   position: relative;
+}
+.stroke {
+  -webkit-text-stroke: 0.2px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
+  font-family: sans-serif;
 }
 /* keyframes  */
 @keyframes falling-star-before {

@@ -46,28 +46,38 @@ function Character() {
         <Skeleton
           animation={"wave"}
           variant="text"
-          sx={{ bgcolor: "#c5c7c9" }}
+          sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
         />
         <Skeleton
           variant="rectangular"
           animation={"wave"}
           width={"auto"}
           height={"200px"}
-          sx={{ bgcolor: "#c5c7c9", marginBottom: "10px" }}
+          sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
+        />
+        <Skeleton
+          animation={"wave"}
+          variant="text"
+          sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
         />
         <Skeleton
           variant="rectangular"
           animation={"wave"}
           width={"auto"}
           height={"200px"}
-          sx={{ bgcolor: "#c5c7c9", marginBottom: "10px" }}
+          sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
+        />
+        <Skeleton
+          animation={"wave"}
+          variant="text"
+          sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
         />
         <Skeleton
           variant="rectangular"
           animation={"wave"}
           width={"auto"}
           height={"200px"}
-          sx={{ bgcolor: "#c5c7c9", marginBottom: "10px" }}
+          sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
         />
       </div>
     );
@@ -84,28 +94,38 @@ function Character() {
         <Skeleton
           animation={"wave"}
           variant="text"
-          sx={{ bgcolor: "#c5c7c9" }}
+          sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
         />
         <Skeleton
           variant="rectangular"
           animation={"wave"}
           width={"auto"}
           height={"200px"}
-          sx={{ bgcolor: "#c5c7c9", marginBottom: "10px" }}
+          sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
+        />
+        <Skeleton
+          animation={"wave"}
+          variant="text"
+          sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
         />
         <Skeleton
           variant="rectangular"
           animation={"wave"}
           width={"auto"}
           height={"200px"}
-          sx={{ bgcolor: "#c5c7c9", marginBottom: "10px" }}
+          sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
+        />
+        <Skeleton
+          animation={"wave"}
+          variant="text"
+          sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
         />
         <Skeleton
           variant="rectangular"
           animation={"wave"}
           width={"auto"}
           height={"200px"}
-          sx={{ bgcolor: "#c5c7c9", marginBottom: "10px" }}
+          sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
         />
       </div>
     );
