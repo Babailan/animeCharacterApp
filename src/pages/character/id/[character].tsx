@@ -1,20 +1,16 @@
-import axios from "axios";
 import styles from "../../../style/character.module.css";
 import download from "../../../libs/downloadImage";
 import { FaDownload } from "react-icons/fa";
 import Image from "next/image";
 import { useContext } from "react";
 import { Query } from "../../../hooks/sizeQuery";
-import dynamic from "next/dynamic";
-import Media from "react-media";
+import MediaQuery from "react-responsive";
 import useSWR from "swr";
 import fetcher from "../../../libs/axiosFetch";
 import { useRouter } from "next/router";
-const About = dynamic(() => import("../../../components/character"), {
-  ssr: false,
-});
+import { Skeleton } from "@mui/material";
 
-function Character({ params }) {
+function Character() {
   const router = useRouter();
   const query = useContext(Query);
   const character = useSWR(
@@ -44,17 +40,76 @@ function Character({ params }) {
     voiceActor.error ||
     mangaList.error ||
     animeList.error
-  )
-    return <div>Loading</div>;
+  ) {
+    return (
+      <div className={styles.characterContainer}>
+        <Skeleton
+          animation={"wave"}
+          variant="text"
+          sx={{ bgcolor: "#c5c7c9" }}
+        />
+        <Skeleton
+          variant="rectangular"
+          animation={"wave"}
+          width={"auto"}
+          height={"200px"}
+          sx={{ bgcolor: "#c5c7c9", marginBottom: "10px" }}
+        />
+        <Skeleton
+          variant="rectangular"
+          animation={"wave"}
+          width={"auto"}
+          height={"200px"}
+          sx={{ bgcolor: "#c5c7c9", marginBottom: "10px" }}
+        />
+        <Skeleton
+          variant="rectangular"
+          animation={"wave"}
+          width={"auto"}
+          height={"200px"}
+          sx={{ bgcolor: "#c5c7c9", marginBottom: "10px" }}
+        />
+      </div>
+    );
+  }
   if (
     !character.data ||
     !pictures.data ||
     !voiceActor.data ||
     !mangaList.data ||
     !animeList.data
-  )
-    return <div>Loading...</div>;
-
+  ) {
+    return (
+      <div className={styles.characterContainer}>
+        <Skeleton
+          animation={"wave"}
+          variant="text"
+          sx={{ bgcolor: "#c5c7c9" }}
+        />
+        <Skeleton
+          variant="rectangular"
+          animation={"wave"}
+          width={"auto"}
+          height={"200px"}
+          sx={{ bgcolor: "#c5c7c9", marginBottom: "10px" }}
+        />
+        <Skeleton
+          variant="rectangular"
+          animation={"wave"}
+          width={"auto"}
+          height={"200px"}
+          sx={{ bgcolor: "#c5c7c9", marginBottom: "10px" }}
+        />
+        <Skeleton
+          variant="rectangular"
+          animation={"wave"}
+          width={"auto"}
+          height={"200px"}
+          sx={{ bgcolor: "#c5c7c9", marginBottom: "10px" }}
+        />
+      </div>
+    );
+  }
   return (
     <div className={styles.characterContainer}>
       <h1 className={styles.name}>{character.data.name}</h1>
@@ -78,31 +133,24 @@ function Character({ params }) {
 
         <div className={styles.basicInfo}>
           <p className={"align_items"}>
-            {
-              <span className={styles.favorites}>
-                Favorites:
-                {character.data.favorites}
-              </span>
-            }
+            Favorites:
+            {character.data.favorites}
           </p>
           <p className={"align_items"}>
-            <span className={styles.favorites}></span>
             Nicknames:{JSON.stringify(character.data.nicknames)}
           </p>
           <p className={"align_items"}>
-            <span className={styles.favorites}>
-              Name_kanji:
-              {character.data.name_kanji}
-            </span>
+            Name_kanji:
+            {character.data.name_kanji}
           </p>
-          <Media query={query.DesktopNav}>
-            <About about={character.data.about} />
-          </Media>
+          <MediaQuery minWidth={query.DesktopNav}>
+            <p className={styles.about}>{character.data.about}</p>
+          </MediaQuery>
         </div>
       </div>
-      <Media query={query.mobileNav}>
-        <About about={character.data.about} />
-      </Media>
+      <MediaQuery maxWidth={query.mobileNav}>
+        <p className={styles.about}>{character.data.about}</p>
+      </MediaQuery>
       {animeList.data.length !== 0 && (
         <div className={styles.pictures_container}>
           <h2 className={styles.Picture_titles}>Anime</h2>

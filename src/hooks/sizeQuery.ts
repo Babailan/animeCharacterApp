@@ -2,8 +2,8 @@ import Router from "next/router";
 import { createContext } from "react";
 
 const sizeQuery = {
-  mobileNav: "(max-width: 640px)",
-  DesktopNav: "(min-width: 641px)",
+  mobileNav: 640,//minwidth
+  DesktopNav: 641,//maxwidth
   router: Router,
 };
 const Query = createContext(sizeQuery);

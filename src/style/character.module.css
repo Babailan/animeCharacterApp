@@ -33,6 +33,7 @@
   text-align: start;
   font-family: sans-serif;
   width: 100%;
+  padding: 10px;
 }
 .about::first-letter {
   font-size: 1.3em;
@@ -112,10 +113,6 @@
   mix-blend-mode: darken;
 }
 
-.favorites {
-  display: flex;
-  align-items: center;
-}
 @media (max-width: 381px) {
   .image_container {
     max-height: 400px;

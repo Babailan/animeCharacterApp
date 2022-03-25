@@ -67,9 +67,9 @@ function FormSearchBoxMobile({
         </select>
       </SearchBox>
       {/* dropSearchMobile */}
-      {data.length ? (
+      {data.length !== 0 && (
         <DropSearch onClickBox={onClickBox} data={data} category={category} />
-      ) : null}
+      )}
     </form>
   );
 }

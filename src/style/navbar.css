@@ -1,5 +1,7 @@
 /*  navbar  */
 .navbar {
+  margin: auto;
+  max-width: 1200px;
   background-color: #ffffff;
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgb(190, 190, 190);

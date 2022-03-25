@@ -10,35 +10,52 @@ const searchData = async (
   clearTimeout(previousCall);
   if (category === "characters") {
     let previousTime = setTimeout(async () => {
-      if (value.length) {
-        const req = await axios.get(`https://api.jikan.moe/v4/${category}?`, {
-          params: { sort: "desc", order_by: "favorites", limit: 15, q: value },
+      const values = document.querySelector(".searchBox")["value"];
+      if (values) {
+        const req = await axios.get(`https://api.jikan.moe/v4/${category}`, {
+          params: { sort: "desc", order_by: "favorites", limit: 15, q: values },
         });
-        if (document.querySelector(".searchBox")["value"].length === 0) {
-          setData([]);
-          return;
-        }
         const character = req.data.data;
         setData(character);
+      } else {
+        setData([]);
+        return;
       }
     }, 500);
     clearTimeout(previousCall);
     setPreviousCall(previousTime);
   } else if (category === "anime") {
-    if (value && value.length >= 1) {
-      const req = await axios.get(`https://api.jikan.moe/v4/${category}`, {
-        params: { limit: 6, q: value },
-      });
-
-      const character = req.data.data;
-      console.log(character);
-      setData(character);
-
-      clearTimeout(previousCall);
-    } else {
-      setData([]);
-    }
+    let previousTime = setTimeout(async () => {
+      const values = document.querySelector(".searchBox")["value"];
+      if (values) {
+        const req = await axios.get(`https://api.jikan.moe/v4/${category}`, {
+          params: { sort: "desc", order_by: "favorites", limit: 15, q: values },
+        });
+        const character = req.data.data;
+        setData(character);
+      } else {
+        setData([]);
+        return;
+      }
+    }, 500);
+    clearTimeout(previousCall);
+    setPreviousCall(previousTime);
   } else {
+    let previousTime = setTimeout(async () => {
+      const values = document.querySelector(".searchBox")["value"];
+      if (values) {
+        const req = await axios.get(`https://api.jikan.moe/v4/${category}`, {
+          params: { sort: "desc", order_by: "favorites", limit: 15, q: values },
+        });
+        const character = req.data.data;
+        setData(character);
+      } else {
+        setData([]);
+        return;
+      }
+    }, 500);
+    clearTimeout(previousCall);
+    setPreviousCall(previousTime);
   }
 };
 const logoOnClick = async (e: any, router: any) => {
@@ -59,8 +76,9 @@ const onSubmitSearchMobile = async (
   setSearchBox((p: boolean) => !p);
   setData([]);
   setText("");
-  if (value.length === 0) {
-    router.push("/character", undefined, { shallow: true });
+  if (!value.length) {
+    router.push("/", undefined, { shallow: true });
+     return
   }
   router.push(`/character/search/${value}`, undefined, { shallow: true });
 };
@@ -74,8 +92,9 @@ const onSubmitSearchDesktop = async (
   e.preventDefault();
   setData([]);
   setText("");
-  if (value.length === 0) {
-    router.push("/character", undefined, { shallow: true });
+  if (!value.length) {
+    router.push("/", undefined, { shallow: true });
+    return
   }
   router.push(`/character/search/${value}`, undefined, { shallow: true });
 };
