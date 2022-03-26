@@ -43,9 +43,10 @@
 }
 .containerSearch-2 {
   display: flex;
-  background-color: #dfdfdf;
+  background-color: #464646;
   position: relative;
   width: 100%;
+  align-items: center;
   border-radius: 3px;
   max-width: 300px;
   margin: 0 0 0 auto;
@@ -93,20 +94,20 @@
   border-radius: 3px;
   font-weight: lighter;
   outline: none;
-  background-color: #dfdfdf;
-  color: #4d4d4d;
+  background-color: transparent;
+  color: #ffffff;
   border: none;
 }
-.searchBox::placeholder {
-  color: #4d4d4d;
-  text-transform: capitalize;
-}
+
 .optionCategory {
-  font-weight: 600;
+  font-weight: 400;
   font-family: "fredoka";
   text-transform: capitalize;
   background-color: transparent;
-  color: #4d4d4d;
+  color: #ffffff;
+  background-color: #464646;
+  display: flex;
+  align-items: center;
   outline: none;
   height: min-content;
   border: none;
@@ -152,7 +153,7 @@
   border: none;
   color: #e4e6eb;
   font-weight: 600;
-  font-size: 1em;
+  font-size: 0.8em;
   min-width: fit-content;
 }
 .sign-up {
@@ -161,7 +162,7 @@
   font-weight: 600;
   background-color: transparent;
   color: #e4e6eb;
-  font-size: 1em;
+  font-size: 0.8em;
   border: none;
   min-width: fit-content;
 }
@@ -185,9 +186,10 @@
   max-height: 250px;
   right: 0;
   font-weight: 400;
-  background-color: rgb(255, 255, 255);
+  background-color: #222222;
   word-wrap: break-word;
   z-index: 2;
+  border-radius: 0 3px 3px 3px;
 }
 
 .card-bar {
@@ -195,21 +197,24 @@
   cursor: pointer;
   font-weight: 300;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   overflow: hidden;
   gap: 1em;
   margin-bottom: 10px;
 }
+.name {
+  color: #ffffff;
+}
 .card-bar:hover {
-  background-color: #d6d6d6;
+  background-color: #525252;
 }
 .card-bar:last-child {
   display: flex;
   align-items: center;
   overflow: hidden;
   gap: 1em;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 .card-bar-image {
   min-width: 40px;
@@ -223,5 +228,8 @@
   }
   .search-icon {
     gap: 2em;
+  }
+  .dropDrop {
+    right: 10px;
   }
 }

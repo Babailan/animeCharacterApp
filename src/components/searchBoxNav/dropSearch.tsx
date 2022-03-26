@@ -12,7 +12,11 @@ function DropSearch({ category, data, onClickBox }) {
               onClick={(e) => onClickBox(e, mal_id)}
             >
               <div
-                style={{ width: "100%", maxWidth: "30px", maxHeight: "40px" }}
+                style={{
+                  width: "100%",
+                  maxWidth: "30px",
+                  maxHeight: "fit-content",
+                }}
               >
                 <Image
                   src={images.webp.image_url}
@@ -23,7 +27,7 @@ function DropSearch({ category, data, onClickBox }) {
                 />
               </div>
 
-              <p>{name}</p>
+              <p className={"name"}>{name}</p>
             </div>
           );
         })}
@@ -32,7 +36,11 @@ function DropSearch({ category, data, onClickBox }) {
           return (
             <div key={index} className="card-bar">
               <div
-                style={{ width: "100%", maxWidth: "30px", maxHeight: "40px" }}
+                style={{
+                  width: "100%",
+                  maxWidth: "30px",
+                  maxHeight: "fit-content",
+                }}
               >
                 <Image
                   src={images.webp.image_url}
@@ -51,7 +59,11 @@ function DropSearch({ category, data, onClickBox }) {
           return (
             <div key={index} className="card-bar">
               <div
-                style={{ width: "100%", maxWidth: "30px", maxHeight: "40px" }}
+                style={{
+                  width: "100%",
+                  maxWidth: "30px",
+                  maxHeight: "fit-content",
+                }}
               >
                 <Image
                   src={images.webp.image_url}
@@ -61,7 +73,7 @@ function DropSearch({ category, data, onClickBox }) {
                   loading={"lazy"}
                 />
               </div>
-              <p>{title}</p>
+              <p className={"name"}>{title}</p>
             </div>
           );
         })}
