@@ -18,50 +18,7 @@ const Index = () => {
     "https://api.jikan.moe/v4/characters",
     fetchCharacterFav
   );
-  if (mangaRec.error || animeRec.error || character.error)
-    return (
-      <>
-        <Greetings />
-        <div style={{ padding: "0 10px 10px 10px " }}>
-          <Skeleton
-            animation={"wave"}
-            variant="text"
-            sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
-          />
-          <Skeleton
-            variant="rectangular"
-            animation={"wave"}
-            width={"auto"}
-            height={"200px"}
-            sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
-          />
-          <Skeleton
-            animation={"wave"}
-            variant="text"
-            sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
-          />
-          <Skeleton
-            variant="rectangular"
-            animation={"wave"}
-            width={"auto"}
-            height={"200px"}
-            sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
-          />
-          <Skeleton
-            animation={"wave"}
-            variant="text"
-            sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
-          />
-          <Skeleton
-            variant="rectangular"
-            animation={"wave"}
-            width={"auto"}
-            height={"200px"}
-            sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
-          />
-        </div>
-      </>
-    );
+
   if (!mangaRec.data || !animeRec.data || !character.data)
     return (
       <>
@@ -70,38 +27,38 @@ const Index = () => {
           <Skeleton
             animation={"wave"}
             variant="text"
-            sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
+            sx={{ bgcolor: "#242424", width: "200px", height: "50px" }}
           />
           <Skeleton
             variant="rectangular"
             animation={"wave"}
             width={"auto"}
             height={"200px"}
-            sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
+            sx={{ bgcolor: "#242424", borderRadius: 2 }}
           />
           <Skeleton
             animation={"wave"}
             variant="text"
-            sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
+            sx={{ bgcolor: "#242424", width: "200px", height: "50px" }}
           />
           <Skeleton
             variant="rectangular"
             animation={"wave"}
             width={"auto"}
             height={"200px"}
-            sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
+            sx={{ bgcolor: "#242424", borderRadius: 2 }}
           />
           <Skeleton
             animation={"wave"}
             variant="text"
-            sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
+            sx={{ bgcolor: "#242424", width: "200px", height: "50px" }}
           />
           <Skeleton
             variant="rectangular"
             animation={"wave"}
             width={"auto"}
             height={"200px"}
-            sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
+            sx={{ bgcolor: "#242424", borderRadius: 2 }}
           />
         </div>
       </>
