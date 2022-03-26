@@ -8,6 +8,8 @@ function Greeting() {
     <div className={styles.greetings_container}>
       <div className={styles.image_background_greeting}></div>
       <div className={styles.greeting_left_right}></div>
+      <div className={styles.greeting_right_left}></div>
+      <div className={styles.greeting_top_bottom}></div>
       <div className={styles.greetings_container_letters}>
         <h1 className={styles.stroke}>
           Welcome to{" "}
@@ -21,7 +23,7 @@ function Greeting() {
         </h4>
         <Button
           style={{ marginTop: 10 }}
-          href={"https://github.com/Babailan/animeCharacterApp/tree/revamp-2"}
+          href={"https://github.com/Babailan/animeCharacterApp/tree/master"}
           target={"_blank"}
           variant={"contained"}
           size={"medium"}
