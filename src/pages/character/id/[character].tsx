@@ -35,54 +35,6 @@ function Character() {
   );
 
   if (
-    character.error ||
-    pictures.error ||
-    voiceActor.error ||
-    mangaList.error ||
-    animeList.error
-  ) {
-    return (
-      <div className={styles.characterContainer}>
-        <Skeleton
-          animation={"wave"}
-          variant="text"
-          sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
-        />
-        <Skeleton
-          variant="rectangular"
-          animation={"wave"}
-          width={"auto"}
-          height={"200px"}
-          sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
-        />
-        <Skeleton
-          animation={"wave"}
-          variant="text"
-          sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
-        />
-        <Skeleton
-          variant="rectangular"
-          animation={"wave"}
-          width={"auto"}
-          height={"200px"}
-          sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
-        />
-        <Skeleton
-          animation={"wave"}
-          variant="text"
-          sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
-        />
-        <Skeleton
-          variant="rectangular"
-          animation={"wave"}
-          width={"auto"}
-          height={"200px"}
-          sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
-        />
-      </div>
-    );
-  }
-  if (
     !character.data ||
     !pictures.data ||
     !voiceActor.data ||
@@ -94,38 +46,38 @@ function Character() {
         <Skeleton
           animation={"wave"}
           variant="text"
-          sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
+          sx={{ bgcolor: "#242424", width: "200px", height: "50px" }}
         />
         <Skeleton
           variant="rectangular"
           animation={"wave"}
           width={"auto"}
           height={"200px"}
-          sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
+          sx={{ bgcolor: "#242424", borderRadius: 2 }}
         />
         <Skeleton
           animation={"wave"}
           variant="text"
-          sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
+          sx={{ bgcolor: "#242424", width: "200px", height: "50px" }}
         />
         <Skeleton
           variant="rectangular"
           animation={"wave"}
           width={"auto"}
           height={"200px"}
-          sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
+          sx={{ bgcolor: "#242424", borderRadius: 2 }}
         />
         <Skeleton
           animation={"wave"}
           variant="text"
-          sx={{ bgcolor: "#c5c7c9", width: "200px", height: "50px" }}
+          sx={{ bgcolor: "#242424", width: "200px", height: "50px" }}
         />
         <Skeleton
           variant="rectangular"
           animation={"wave"}
           width={"auto"}
           height={"200px"}
-          sx={{ bgcolor: "#c5c7c9", borderRadius: 2 }}
+          sx={{ bgcolor: "#242424", borderRadius: 2 }}
         />
       </div>
     );
@@ -165,150 +117,161 @@ function Character() {
             {character.data.name_kanji}
           </p>
           <MediaQuery minWidth={query.DesktopNav}>
-            <p className={styles.about}>{character.data.about}</p>
+            <p className={styles.about}>
+              {" "}
+              {character.data.about === null
+                ? "No Information"
+                : character.data.about}
+            </p>
           </MediaQuery>
         </div>
       </div>
       <MediaQuery maxWidth={query.mobileNav}>
-        <p className={styles.about}>{character.data.about}</p>
+        <p className={styles.about}>
+          {character.data.about === null
+            ? "No Information"
+            : character.data.about}
+        </p>
       </MediaQuery>
-      {animeList.data.length !== 0 && (
-        <div className={styles.pictures_container}>
-          <h2 className={styles.Picture_titles}>Anime</h2>
-          <div className={styles.pictures_list}>
-            {animeList.data.map(({ anime }, index: number) => (
-              <div key={index} className={styles.eachPicture_container}>
-                <div className={styles.image_container}>
-                  <div
-                    style={{
-                      width: "100%",
-                      border: "1px solid #000",
-                      position: "relative",
-                    }}
-                    className={styles.image}
-                  >
-                    <Image
-                      src={anime.images.jpg.image_url}
-                      objectFit={"fill"}
-                      layout={"fill"}
-                      loading={"lazy"}
-                      className={styles.images}
-                    />
+      <div className={styles.listofAllImages}>
+        {animeList.data.length !== 0 && (
+          <div className={styles.pictures_container}>
+            <h2 className={styles.Picture_titles}>Anime</h2>
+            <div className={styles.pictures_list}>
+              {animeList.data.map(({ anime }, index: number) => (
+                <div key={index} className={styles.eachPicture_container}>
+                  <div className={styles.image_container}>
+                    <div
+                      style={{
+                        width: "100%",
+                        border: "1px solid #000",
+                        position: "relative",
+                      }}
+                      className={styles.image}
+                    >
+                      <Image
+                        src={anime.images.jpg.image_url}
+                        objectFit={"fill"}
+                        layout={"fill"}
+                        loading={"lazy"}
+                        className={styles.images}
+                      />
+                    </div>
                   </div>
+                  <p style={{ textAlign: "center", padding: "1em" }}>
+                    Title : {anime.title}
+                  </p>
                 </div>
-                <p style={{ textAlign: "center", padding: "1em" }}>
-                  Title : {anime.title}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      )}
-      {mangaList.data.length !== 0 && (
-        <div className={styles.pictures_container}>
-          <h2 className={styles.Picture_titles}>Manga</h2>
-          <div className={styles.pictures_list}>
-            {mangaList.data.map(({ manga }, index: number) => (
-              <div key={index} className={styles.eachPicture_container}>
-                <div className={styles.image_container}>
-                  <div
-                    style={{
-                      width: "100%",
-                      border: "1px solid #000",
-                      position: "relative",
-                    }}
-                    className={styles.image}
-                  >
-                    <Image
-                      src={manga.images.webp.image_url}
-                      objectFit={"fill"}
-                      layout={"fill"}
-                      loading={"lazy"}
-                      className={styles.images}
-                    />
+        )}
+        {mangaList.data.length !== 0 && (
+          <div className={styles.pictures_container}>
+            <h2 className={styles.Picture_titles}>Manga</h2>
+            <div className={styles.pictures_list}>
+              {mangaList.data.map(({ manga }, index: number) => (
+                <div key={index} className={styles.eachPicture_container}>
+                  <div className={styles.image_container}>
+                    <div
+                      style={{
+                        width: "100%",
+                        border: "1px solid #000",
+                        position: "relative",
+                      }}
+                      className={styles.image}
+                    >
+                      <Image
+                        src={manga.images.webp.image_url}
+                        objectFit={"fill"}
+                        layout={"fill"}
+                        loading={"lazy"}
+                        className={styles.images}
+                      />
+                    </div>
                   </div>
+                  <p
+                    style={{ textAlign: "center", padding: "1em" }}
+                    className={styles.picture_titles}
+                  >
+                    Title : {manga.title}
+                  </p>
                 </div>
-                <p
-                  style={{ textAlign: "center", padding: "1em" }}
-                  className={styles.picture_titles}
-                >
-                  Title : {manga.title}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {pictures.data.length !== 0 && (
-        <div className={styles.pictures_container}>
-          <h2 className={styles.Picture_titles}>Pictures</h2>
-          <div className={styles.pictures_list}>
-            {pictures.data.map(({ jpg }, index: number) => (
-              <div key={index} className={styles.eachPicture_container}>
-                <div className={styles.image_container}>
-                  <div
-                    style={{
-                      width: "100%",
-                      border: "1px solid #000",
-                      position: "relative",
-                    }}
-                    className={styles.image}
-                  >
-                    <Image
-                      src={jpg.image_url}
-                      objectFit={"fill"}
-                      layout={"fill"}
-                      loading={"lazy"}
-                      className={styles.images}
-                    />
+        {pictures.data.length !== 0 && (
+          <div className={styles.pictures_container}>
+            <h2 className={styles.Picture_titles}>Pictures</h2>
+            <div className={styles.pictures_list}>
+              {pictures.data.map(({ jpg }, index: number) => (
+                <div key={index} className={styles.eachPicture_container}>
+                  <div className={styles.image_container}>
+                    <div
+                      style={{
+                        width: "100%",
+                        border: "1px solid #000",
+                        position: "relative",
+                      }}
+                      className={styles.image}
+                    >
+                      <Image
+                        src={jpg.image_url}
+                        objectFit={"fill"}
+                        layout={"fill"}
+                        loading={"lazy"}
+                        className={styles.images}
+                      />
+                    </div>
                   </div>
-                </div>
-                <span
-                  className={styles.download_image}
-                  onClick={() => download(jpg.image_url)}
-                >
-                  {<FaDownload />}Download
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-      {voiceActor.data.length !== 0 && (
-        <div className={styles.pictures_container}>
-          <h2 className={styles.Picture_titles}>Voice Actor</h2>
-          <div className={styles.pictures_list}>
-            {voiceActor.data.map(({ person, language }, index: number) => (
-              <div key={index} className={styles.eachPicture_container}>
-                <div className={styles.image_container}>
-                  <div
-                    style={{
-                      width: "100%",
-                      border: "1px solid #000",
-                      position: "relative",
-                    }}
+                  <span
+                    className={styles.download_image}
+                    onClick={() => download(jpg.image_url)}
                   >
-                    <Image
-                      src={person.images.jpg.image_url}
-                      objectFit={"fill"}
-                      layout={"fill"}
-                      loading={"lazy"}
-                      className={styles.images}
-                    />
-                  </div>
+                    {<FaDownload />}Download
+                  </span>
                 </div>
-                <p style={{ textAlign: "center", padding: "10px 0 0 0 " }}>
-                  Language : {language}
-                </p>
-                <p style={{ textAlign: "center", padding: "0 0 10px " }}>
-                  name : {person.name}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      )}
+        )}
+        {voiceActor.data.length !== 0 && (
+          <div className={styles.pictures_container}>
+            <h2 className={styles.Picture_titles}>Voice Actor</h2>
+            <div className={styles.pictures_list}>
+              {voiceActor.data.map(({ person, language }, index: number) => (
+                <div key={index} className={styles.eachPicture_container}>
+                  <div className={styles.image_container}>
+                    <div
+                      style={{
+                        width: "100%",
+                        border: "1px solid #000",
+                        position: "relative",
+                      }}
+                    >
+                      <Image
+                        src={person.images.jpg.image_url}
+                        objectFit={"fill"}
+                        layout={"fill"}
+                        loading={"lazy"}
+                        className={styles.images}
+                      />
+                    </div>
+                  </div>
+                  <p style={{ textAlign: "center", padding: "10px 0 0 0 " }}>
+                    Language : {language}
+                  </p>
+                  <p style={{ textAlign: "center", padding: "0 0 10px " }}>
+                    name : {person.name}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -26,7 +26,7 @@ export default () => {
   return (
     <div className={styles.searchList}>
       {!data.length ? (
-        <h1>no result</h1>
+        <h1 style={{ color: "#fff" }}>no result</h1>
       ) : (
         data.map(({ mal_id, images, name }) => {
           return (
