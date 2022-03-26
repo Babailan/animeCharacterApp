@@ -68,17 +68,21 @@ const onSubmitSearchMobile = async (
   setData: Function,
   setText: Function,
   setSearchBox: Function,
-  router: any
+  router: any,
+  previousCall: any
 ) => {
   e.preventDefault();
-
-  router.push(`/`);
   setSearchBox((p: boolean) => !p);
+  clearTimeout(previousCall);
   setData([]);
+  setTimeout(() => {
+    clearTimeout(previousCall);
+    setData([]);
+  }, 500);
   setText("");
   if (!value.length) {
     router.push("/", undefined, { shallow: true });
-     return
+    return;
   }
   router.push(`/character/search/${value}`, undefined, { shallow: true });
 };
@@ -87,14 +91,21 @@ const onSubmitSearchDesktop = async (
   value: string,
   setData: Function,
   setText: Function,
-  router: any
+  router: any,
+  previousCall: any
 ) => {
   e.preventDefault();
   setData([]);
   setText("");
+  clearTimeout(previousCall);
+  setTimeout(() => {
+    clearTimeout(previousCall);
+    setData([]);
+  }, 500);
+
   if (!value.length) {
     router.push("/", undefined, { shallow: true });
-    return
+    return;
   }
   router.push(`/character/search/${value}`, undefined, { shallow: true });
 };

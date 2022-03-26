@@ -17,12 +17,15 @@ function Cards({ images, name, mal_id, id }: cardProps) {
           minWidth: 225,
           justifyContent: "flex-start",
           alignContent: "flex-start",
+          bgcolor: "#242424",
         }}
         key={mal_id || id}
       >
         <CardActionArea
           sx={{
             height: "100%",
+            display: "flex",
+            flexDirection: "column",
             justifyContent: "flex-start",
             alignContent: "flex-start",
           }}
@@ -35,7 +38,7 @@ function Cards({ images, name, mal_id, id }: cardProps) {
             alt={id}
           />
           <CardContent>
-            <Typography variant={"h6"} component={"div"}>
+            <Typography color={"#fff"} component={"div"}>
               {name}
             </Typography>
           </CardContent>

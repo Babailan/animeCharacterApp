@@ -1,6 +1,6 @@
-import AnimeRecomendation from "./animeRec";
-import CharacterRecomendation from "./characterFav";
-import MangaRecomendation from "./mangaRec";
+import AnimeRecomendation from "./anime/animeRec";
+import CharacterRecomendation from "./character/characterFav";
+import MangaRecomendation from "./manga/mangaRec";
 
 function Home({ mangaRec, animeRec, character }) {
   return (
