@@ -30,7 +30,10 @@ export default () => {
       ) : (
         data.map(({ mal_id, images, name }) => {
           return (
-            <Card sx={{ maxWidth: 225, minWidth: 225 }} key={mal_id}>
+            <Card
+              sx={{ maxWidth: 225, minWidth: 225, bgcolor: "#B0B3B8" }}
+              key={mal_id}
+            >
               <CardActionArea onClick={(e) => action(e, mal_id)}>
                 <CardMedia
                   component="img"

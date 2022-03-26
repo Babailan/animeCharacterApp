@@ -2,9 +2,8 @@
 .navbar {
   margin: auto;
   max-width: 1200px;
-  background-color: #ffffff;
+  background-color: #121212;
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgb(190, 190, 190);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,7 +16,7 @@
 .logo {
   cursor: pointer;
   font-family: sans-serif;
-  color: #026077;
+  color: #e4e6eb;
   font-size: 1.5em;
   display: flex;
   justify-content: center;
@@ -36,7 +35,7 @@
   content: "";
   width: 100%;
   height: 3px;
-  background-color: #026077;
+  background-color: #6e6e6e;
   position: absolute;
   left: 0;
   right: 0;
@@ -46,7 +45,8 @@
   display: flex;
   background-color: #dfdfdf;
   position: relative;
-  width: 80%;
+  width: 100%;
+  border-radius: 3px;
   max-width: 300px;
   margin: 0 0 0 auto;
 }
@@ -62,7 +62,7 @@
   margin-left: 5px;
   width: 20px;
   height: 100%;
-  color: #133697;
+  color: #ffffff;
 }
 .magniDropDown {
   min-width: 20px;
@@ -74,9 +74,9 @@
   align-self: flex-start;
 }
 .container-search {
-  background-color: #ffffff;
-  padding: 1em 0;
+  background-color: #121212;
   position: absolute;
+  padding: 1em 0;
   left: 0;
   bottom: 0;
   top: 100%;
@@ -150,7 +150,7 @@
   margin-right: 7px;
   /* font-family: "fredoka"; */
   border: none;
-  color: #0d4dad;
+  color: #e4e6eb;
   font-weight: 600;
   font-size: 1em;
   min-width: fit-content;
@@ -160,7 +160,7 @@
   text-transform: capitalize;
   font-weight: 600;
   background-color: transparent;
-  color: #0d4dad;
+  color: #e4e6eb;
   font-size: 1em;
   border: none;
   min-width: fit-content;
@@ -170,7 +170,7 @@
   width: 20px;
   height: 100%;
   cursor: pointer;
-  color: #133697;
+  color: #e4e6eb;
   margin: 0 7px;
 }
 .dropDrop {

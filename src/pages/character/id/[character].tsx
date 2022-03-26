@@ -147,6 +147,7 @@ function Character() {
           <Image
             src={character.data.images.jpg.image_url}
             width={"225px"}
+            className={styles.images}
             height={"350px"}
           />
         </div>
@@ -195,7 +196,9 @@ function Character() {
                     />
                   </div>
                 </div>
-                <p>Title : {anime.title}</p>
+                <p style={{ textAlign: "center", padding: "1em" }}>
+                  Title : {anime.title}
+                </p>
               </div>
             ))}
           </div>
@@ -225,7 +228,12 @@ function Character() {
                     />
                   </div>
                 </div>
-                <p className={styles.picture_titles}>Title : {manga.title}</p>
+                <p
+                  style={{ textAlign: "center", padding: "1em" }}
+                  className={styles.picture_titles}
+                >
+                  Title : {manga.title}
+                </p>
               </div>
             ))}
           </div>
@@ -290,8 +298,12 @@ function Character() {
                     />
                   </div>
                 </div>
-                <p>Language : {language}</p>
-                <p>name : {person.name}</p>
+                <p style={{ textAlign: "center", padding: "10px 0 0 0 " }}>
+                  Language : {language}
+                </p>
+                <p style={{ textAlign: "center", padding: "0 0 10px " }}>
+                  name : {person.name}
+                </p>
               </div>
             ))}
           </div>

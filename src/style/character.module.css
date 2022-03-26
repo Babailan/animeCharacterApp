@@ -34,6 +34,7 @@
   font-family: sans-serif;
   width: 100%;
   padding: 10px;
+  color: rgb(228, 222, 222);
 }
 .about::first-letter {
   font-size: 1.3em;
@@ -52,16 +53,14 @@
   flex: 1;
   padding-bottom: 10px;
 }
-.pictures_list::-webkit-scrollbar {
-  height: 10px;
-}
-.pictures_list::-webkit-scrollbar-track {
-  border-radius: 10px;
-  background-color: rgb(218, 216, 216);
-}
+
 .eachPicture_container {
   position: relative;
+  border-radius: 10px;
+  overflow: hidden;
   max-width: 225px;
+  background-color: #b0b3b8;
+  min-width: 225px;
 }
 .pictures_container {
   display: flex;
@@ -105,6 +104,9 @@
   padding: 10px;
   align-items: center;
   width: fit-content;
+}
+.images {
+  border-radius: 5px;
 }
 .eachPicture_container:hover .download_image {
   opacity: 1;
