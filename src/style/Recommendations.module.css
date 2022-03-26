@@ -10,10 +10,15 @@
   position: relative;
   display: flex;
   width: 100%;
+  height: fit-content;
   overflow-x: auto;
   overflow-y: hidden;
   grid-gap: 1em;
   gap: 1em;
   flex: 1 1;
   padding-bottom: 10px;
+}
+.titles {
+  font-weight: 300;
+  color: #e4e6eb;
 }

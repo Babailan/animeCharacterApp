@@ -17,6 +17,7 @@ function Cards({ images, name, mal_id, id }: cardProps) {
           minWidth: 225,
           justifyContent: "flex-start",
           alignContent: "flex-start",
+          bgcolor: "#B0B3B8",
         }}
         key={mal_id || id}
       >
