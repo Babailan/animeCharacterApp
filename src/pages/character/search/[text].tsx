@@ -31,7 +31,7 @@ export default () => {
         data.map(({ mal_id, images, name }) => {
           return (
             <Card
-              sx={{ maxWidth: 225, minWidth: 225, bgcolor: "#B0B3B8" }}
+              sx={{ maxWidth: 225, minWidth: 225, bgcolor: "#242424" }}
               key={mal_id}
             >
               <CardActionArea onClick={(e) => action(e, mal_id)}>
@@ -43,7 +43,7 @@ export default () => {
                   alt="green iguana"
                 />
                 <CardContent>
-                  <Typography variant={"h6"} component={"div"}>
+                  <Typography color={"#fff"} component={"div"}>
                     {name}
                   </Typography>
                 </CardContent>
