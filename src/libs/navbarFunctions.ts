@@ -75,6 +75,10 @@ const onSubmitSearchMobile = async (
   setSearchBox((p: boolean) => !p);
   clearTimeout(previousCall);
   setData([]);
+  setTimeout(() => {
+    clearTimeout(previousCall);
+    setData([]);
+  }, 500);
   setText("");
   if (!value.length) {
     router.push("/", undefined, { shallow: true });
@@ -94,6 +98,11 @@ const onSubmitSearchDesktop = async (
   setData([]);
   setText("");
   clearTimeout(previousCall);
+  setTimeout(() => {
+    clearTimeout(previousCall);
+    setData([]);
+  }, 500);
+
   if (!value.length) {
     router.push("/", undefined, { shallow: true });
     return;
