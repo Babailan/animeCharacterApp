@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import bcrypt from "bcrypt";
 import client from "../../libs/mongodb";
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const email = req.query.email;
   const password: any = req.query.password;
