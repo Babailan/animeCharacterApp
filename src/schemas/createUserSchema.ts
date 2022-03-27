@@ -1,16 +1,28 @@
 import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+import validator from "validator";
 
-mongoose.connect("mongodb://127.0.0.1:27017/local");
-const createUser = new mongoose.Schema({
-  name: { type: String, required: true },
+const createUserSchema = new mongoose.Schema({
+  name: { type: String, required: [true, "Name is required"] },
   password: {
     type: String,
-    required: true,
-    min: [6, "Minimium is 6 characters"],
+    required: [true, "Password is required"],
+    minlength: [6, "Minimium is 6 characters long"],
   },
-  email: { String, required: true },
+  email: {
+    type: String,
+    lowercase: true,
+    unique: true,
+    required: [true, "Email is required"],
+    validate: [validator.isEmail, "Please enter a valid email"],
+  },
 });
 
-const createUserModel = mongoose.model("UserCreate", createUser);
+createUserSchema.pre("save", async function (next) {
+  const hashedPassword = await bcrypt.hash(this.password, 10);
+  this.password = hashedPassword;
+  next();
+});
 
-export default createUserModel;
+export default mongoose.models.usersSchemes ||
+  mongoose.model("usersSchemes", createUserSchema);
