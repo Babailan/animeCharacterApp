@@ -5,7 +5,6 @@ import "../style/footer.css";
 import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer";
 import { AppProps } from "next/app";
-
 import { Query, sizeQuery } from "../hooks/sizeQuery";
 
 function MyApp({ Component, pageProps }: AppProps) {

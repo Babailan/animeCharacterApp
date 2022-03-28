@@ -5,7 +5,6 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
-import axios from "axios";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import fetcher from "../../../libs/axiosFetch";
@@ -21,8 +20,10 @@ export default () => {
     e.preventDefault();
     router.push(`/character/id/${mal_id}`);
   };
-  if (error) return <h1>loading...</h1>;
-  if (!data) return <h1>loading...</h1>;
+  if (error)
+    return <h1 style={{ color: "#fff", textAlign: "center" }}>loading...</h1>;
+  if (!data)
+    return <h1 style={{ color: "#fff", textAlign: "center" }}>loading...</h1>;
   return (
     <div className={styles.searchList}>
       {!data.length ? (

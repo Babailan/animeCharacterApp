@@ -23,9 +23,15 @@
 body {
   background-color: #121212;
 }
-
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s;
+  -webkit-text-fill-color: #fff !important;
+}
 .parent {
-  min-height: 100vh;
+  min-height: 90vh;
   margin: auto;
   max-width: 1200px;
 }

@@ -1,0 +1,112 @@
+.name {
+  display: flex;
+}
+.main_container {
+  width: inherit;
+  height: inherit;
+  min-height: inherit;
+  min-width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  color: #fff;
+  height: fit-content;
+  border-radius: 0 10px 10px 10px;
+  min-height: fit-content;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+  min-width: 280px;
+  max-width: 400px;
+  padding: 4em;
+  gap: 1em;
+  background-color: #2e2e2e;
+}
+.inputs_container {
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+  min-width: 280px;
+  max-width: 400px;
+}
+.inputs {
+  color: #fff;
+  background-color: transparent;
+  border-radius: 5px;
+  outline: none;
+  padding: 0.5em;
+  border: 1px solid rgb(90, 90, 90);
+  width: 100%;
+  padding-left: 12%;
+}
+
+.inputs::placeholder {
+  color: #fff;
+}
+.inputs:focus::placeholder {
+  visibility: hidden;
+}
+.email:focus {
+  border-color: rgb(82, 82, 189);
+}
+.name:focus {
+  border-color: rgb(82, 82, 189);
+}
+.password:focus {
+  border-color: rgb(82, 82, 189);
+}
+.email:focus ~ .Envelope {
+  color: rgb(82, 82, 189) !important;
+}
+.name:focus ~ .User {
+  color: rgb(82, 82, 189) !important;
+}
+.password:focus ~ .FaEnd {
+  color: rgb(82, 82, 189) !important;
+}
+.password:focus ~ .falock {
+  color: rgb(82, 82, 189) !important;
+}
+.title {
+  color: #fff;
+}
+.label {
+  position: relative;
+}
+.FaEnd {
+  position: absolute;
+  color: #fff;
+  display: flex;
+  z-index: 2;
+  width: fit-content;
+  top: 27%;
+  right: 5%;
+  height: fit-content;
+}
+.FaStart {
+  position: absolute;
+  width: inherit;
+  color: #fff;
+  top: 23%;
+  left: 4.5%;
+  height: inherit;
+}
+.sign_up {
+  width: 100%;
+  font-size: 1em;
+  padding: 0.5em 0;
+  border-radius: 5px;
+  background-color: rgb(82, 82, 189);
+  cursor: pointer;
+  transition: 0.2s;
+  color: #fff;
+  border: none;
+}
+.sign_up:hover {
+  background-color: rgb(46, 46, 202);
+}

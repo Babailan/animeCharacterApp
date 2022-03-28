@@ -1,5 +1,5 @@
 function RemoveElementsDuplicated(array: any) {
-  array = array.slice(0, 20);
+  array = array.slice(0, 30);
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array.length; j++) {
       if (i === j) {
