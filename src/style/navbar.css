@@ -143,6 +143,8 @@
 .logins-signups {
   display: flex;
   background-color: transparent;
+  max-width: fit-content;
+  min-width: fit-content;
 }
 .login {
   text-transform: capitalize;

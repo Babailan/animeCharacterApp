@@ -4,9 +4,12 @@ import dbConnect from "../../libs/connectDb";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const email = req.query.email;
-    const password: any = req.query.password;
-    const name = req.query.name;
+    if (typeof req.body === "string") {
+      req.body = JSON.parse(req.body);
+    }
+    const email = req.body.email;
+    const password = req.body.password;
+    const name = req.body.name;
     const usersss = new userModelCreate({
       email,
       password,
