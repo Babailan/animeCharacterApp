@@ -32,7 +32,7 @@ export default function Desktop({
           <p className="logoMain">AnimeWorld</p>
         </div>
       </div>
-      <div className="logins-signups">
+      <div style={{ display: "flex", width: "fit-content", gap: "1em" }}>
         <FormSearchBox
           category={category}
           setPreviousCall={setPreviousCall}
@@ -47,8 +47,12 @@ export default function Desktop({
           onClickBox={onClickBox}
           router={router}
         />
-        <button className="login">login</button>
-        <button className="sign-up">sign up</button>
+        <div className="logins-signups">
+          <button className="login" onClick={() => router.push("/login")}>
+            login
+          </button>
+          <button className="sign-up">sign up</button>
+        </div>
       </div>
     </>
   );

@@ -143,7 +143,6 @@
 .logins-signups {
   display: flex;
   background-color: transparent;
-  gap: 1em;
 }
 .login {
   text-transform: capitalize;
@@ -154,6 +153,7 @@
   color: #e4e6eb;
   font-weight: 600;
   font-size: 0.8em;
+  cursor: pointer;
   min-width: fit-content;
 }
 .sign-up {
@@ -162,6 +162,7 @@
   font-weight: 600;
   background-color: transparent;
   color: #e4e6eb;
+  cursor: pointer;
   font-size: 0.8em;
   border: none;
   min-width: fit-content;

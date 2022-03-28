@@ -24,5 +24,5 @@ createUserSchema.pre("save", async function (next) {
   next();
 });
 
-export default mongoose.models.usersSchemes ||
-  mongoose.model("usersSchemes", createUserSchema);
+export default mongoose.models.users ||
+  mongoose.model("users", createUserSchema);

@@ -16,7 +16,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     await usersss.save();
     res.status(200).json({ message: "Thank you for signing up" });
   } catch (err) {
-    console.log(err.message);
     res.status(403).json({ message: Message(err.message) });
   }
 };
