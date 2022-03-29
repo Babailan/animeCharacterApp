@@ -3,12 +3,14 @@ import { Query } from "../../hooks/sizeQuery";
 import MediaQuery from "react-responsive";
 import dynamic from "next/dynamic";
 import { Box, Skeleton } from "@mui/material";
+import { getCookie } from "cookies-next";
 const MobileNavbar = dynamic(() => import("./navbarMobile"), { ssr: false });
 const NavDesktop = dynamic(() => import("./navbarDesktop"), { ssr: false });
 
 export default function Navbar() {
   const query = useContext(Query);
   const [onLoad, isOnLoad] = useState(true);
+  const [user, setUser] = useState(false);
 
   const [category, setCategory] = useState("characters");
   const [previousCall, setPreviousCall] = useState();
@@ -16,6 +18,10 @@ export default function Navbar() {
   const [data, setData] = useState([]);
   useEffect(() => {
     isOnLoad(false);
+    const check = getCookie("user");
+    if (check) {
+      setUser(true);
+    }
   }, []);
 
   if (onLoad)
@@ -78,6 +84,7 @@ export default function Navbar() {
           category={category}
           previousCall={previousCall}
           setPreviousCall={setPreviousCall}
+          checkUser={user}
         />
       </MediaQuery>
       <MediaQuery minWidth={query.DesktopNav}>
@@ -90,6 +97,7 @@ export default function Navbar() {
           category={category}
           previousCall={previousCall}
           setPreviousCall={setPreviousCall}
+          checkUser={user}
         />
       </MediaQuery>
     </div>

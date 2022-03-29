@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import validator from "validator";
+import jwt from "jsonwebtoken";
 
 const createUserSchema = new mongoose.Schema({
   name: { type: String, required: [true, "Name is required"] },
@@ -23,6 +24,16 @@ createUserSchema.pre("save", async function (next) {
   this.password = hashedPassword;
   next();
 });
+createUserSchema.methods.authenticate = function () {
+  var token = jwt.sign(
+    { name: this.name, email: this.email, password: this.password },
+    "O8jt60RaO5q7d",
+    {
+      expiresIn: "60m",
+    }
+  );
+  return token;
+};
 
 export default mongoose.models.users ||
   mongoose.model("users", createUserSchema);

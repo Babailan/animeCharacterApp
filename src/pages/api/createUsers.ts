@@ -17,7 +17,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     });
     await dbConnect();
     await usersss.save();
-    res.status(200).json({ message: "Thank you for signing up" });
+    const auth = usersss.authenticate();
+    res.status(200).json({ message: "Thank you for signing up", token: auth });
   } catch (err) {
     res.status(403).json({ message: Message(err.message) });
   }
