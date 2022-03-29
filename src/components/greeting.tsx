@@ -13,7 +13,7 @@ function Greeting() {
       <div className={styles.greetings_container_letters}>
         <h1 className={styles.stroke}>
           Welcome to{" "}
-          <span className={styles.stroke} style={{ color: "#2a99b4" }}>
+          <span className={styles.stroke} style={{ color: "#070042" }}>
             Anime-World
           </span>
         </h1>

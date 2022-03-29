@@ -1,8 +1,7 @@
 /*  navbar  */
 .navbar {
   margin: auto;
-  max-width: 1200px;
-  background-color: #121212;
+  background-color: #161b22;
   backdrop-filter: blur(20px);
   display: flex;
   align-items: center;

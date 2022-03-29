@@ -7,12 +7,16 @@ import { getCookie } from "cookies-next";
 const MobileNavbar = dynamic(() => import("./navbarMobile"), { ssr: false });
 const NavDesktop = dynamic(() => import("./navbarDesktop"), { ssr: false });
 
-export default function Navbar({ thereIs, setThereIs }) {
+export default function Navbar({
+  thereIs,
+  setThereIs,
+  setPreviousCall,
+  previousCall,
+}) {
   const query = useContext(Query);
   const [onLoad, isOnLoad] = useState(true);
 
   const [category, setCategory] = useState("characters");
-  const [previousCall, setPreviousCall] = useState();
   const [text, setText] = useState("");
   const [data, setData] = useState([]);
   useEffect(() => {

@@ -2,3 +2,26 @@
   width: 100%;
   height: fit-content;
 }
+.warning {
+  font-size: larger;
+  color: rgb(177, 180, 0);
+  gap: 10px;
+  width: fit-content;
+  display: flex;
+  background-color: rgb(236, 240, 0);
+  padding: 0.8em 1em;
+  font-weight: 400;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.icons {
+  max-width: 20px;
+  min-width: 20px;
+  max-height: 20px;
+  min-height: 20px;
+}
+.pointer {
+  cursor: pointer;
+}

@@ -3,7 +3,7 @@ import styles from "../../style/sign_up.module.css";
 import { FaEye, FaEyeSlash, FaEnvelope, FaUser, FaLock } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { setCookies, checkCookies } from "cookies-next";
+import { checkCookies } from "cookies-next";
 import Router from "next/router";
 
 export default ({ setThereIs }) => {
@@ -83,9 +83,10 @@ export default ({ setThereIs }) => {
   return (
     <div className={styles.main_container}>
       <ToastContainer position="top-center" autoClose={1500} limit={3} />
+      <h1 className={styles.title}>Sign up</h1>
       <div className={styles.container}>
-        <h1 className={styles.title}>Sign up</h1>
         <form className={styles.inputs_container} onSubmit={(e) => onSubmit(e)}>
+          <h2>Welcome Users</h2>
           <label className={styles.label}>
             <input
               className={`${styles.name} ${styles.inputs}`}
@@ -104,7 +105,6 @@ export default ({ setThereIs }) => {
               onChange={(e) => onChangeHandler(e, "email")}
               autoComplete="off"
             />
-
             <FaEnvelope className={`${styles.FaStart} ${styles.Envelope}`} />
           </label>
           <label className={styles.label}>
@@ -126,7 +126,7 @@ export default ({ setThereIs }) => {
             </div>
           </label>
           <button className={styles.sign_up} type={"submit"}>
-            SIGN UP
+            Sign up
           </button>
         </form>
       </div>
