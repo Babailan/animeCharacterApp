@@ -7,10 +7,9 @@ import { getCookie } from "cookies-next";
 const MobileNavbar = dynamic(() => import("./navbarMobile"), { ssr: false });
 const NavDesktop = dynamic(() => import("./navbarDesktop"), { ssr: false });
 
-export default function Navbar() {
+export default function Navbar({ thereIs, setThereIs }) {
   const query = useContext(Query);
   const [onLoad, isOnLoad] = useState(true);
-  const [user, setUser] = useState(false);
 
   const [category, setCategory] = useState("characters");
   const [previousCall, setPreviousCall] = useState();
@@ -20,7 +19,7 @@ export default function Navbar() {
     isOnLoad(false);
     const check = getCookie("user");
     if (check) {
-      setUser(true);
+      setThereIs(true);
     }
   }, []);
 
@@ -84,7 +83,7 @@ export default function Navbar() {
           category={category}
           previousCall={previousCall}
           setPreviousCall={setPreviousCall}
-          checkUser={user}
+          checkUser={thereIs}
         />
       </MediaQuery>
       <MediaQuery minWidth={query.DesktopNav}>
@@ -97,7 +96,7 @@ export default function Navbar() {
           category={category}
           previousCall={previousCall}
           setPreviousCall={setPreviousCall}
-          checkUser={user}
+          checkUser={thereIs}
         />
       </MediaQuery>
     </div>

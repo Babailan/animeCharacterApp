@@ -12,8 +12,8 @@
 }
 .container {
   color: #fff;
-  height: fit-content;
-  border-radius: 0 10px 10px 10px;
+  height: 70vh;
+  border-radius: 5px;
   min-height: fit-content;
   width: inherit;
   display: flex;
@@ -25,7 +25,7 @@
   max-width: 400px;
   padding: 4em;
   gap: 1em;
-  background-color: #2e2e2e;
+  background-color: #292929;
 }
 .inputs_container {
   display: flex;

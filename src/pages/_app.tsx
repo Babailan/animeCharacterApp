@@ -6,13 +6,16 @@ import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer";
 import { AppProps } from "next/app";
 import { Query, sizeQuery } from "../hooks/sizeQuery";
-
+import { useEffect, useState } from "react";
+import { browser } from "process";
 function MyApp({ Component, pageProps }: AppProps) {
+  const [thereIs, setThereIs] = useState(undefined);
+
   return (
     <Query.Provider value={sizeQuery}>
-      <Navbar />
+      <Navbar thereIs={thereIs} setThereIs={setThereIs} />
       <div className="parent">
-        <Component {...pageProps} />
+        <Component {...pageProps} setThereIs={setThereIs} />
       </div>
       <Footer />
     </Query.Provider>

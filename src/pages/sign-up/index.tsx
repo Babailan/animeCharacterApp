@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import styles from "../../style/login.module.css";
+import styles from "../../style/sign_up.module.css";
 import { FaEye, FaEyeSlash, FaEnvelope, FaUser, FaLock } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { setCookies, checkCookies } from "cookies-next";
 import Router from "next/router";
-export default () => {
+
+export default ({ setThereIs }) => {
   const notify = (message?: any) => toast.error(message);
   const [values, setValues] = useState({
     name: "",
@@ -67,10 +68,11 @@ export default () => {
     if (data.message.includes("Minimium is 6 characters long")) {
       return notify("Minimium is 6 characters long");
     }
-    setCookies("user", data.token, {
-      maxAge: 60 * 60,
-    });
-    Router.push("/");
+    const check = checkCookies("user");
+    if (check) {
+      Router.push("/");
+      setThereIs(true);
+    }
   };
   useEffect(() => {
     const check = checkCookies("user");

@@ -24,16 +24,6 @@ createUserSchema.pre("save", async function (next) {
   this.password = hashedPassword;
   next();
 });
-createUserSchema.methods.authenticate = function () {
-  var token = jwt.sign(
-    { name: this.name, email: this.email, password: this.password },
-    "O8jt60RaO5q7d",
-    {
-      expiresIn: "60m",
-    }
-  );
-  return token;
-};
 
 export default mongoose.models.users ||
   mongoose.model("users", createUserSchema);

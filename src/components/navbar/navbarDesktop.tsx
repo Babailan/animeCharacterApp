@@ -55,7 +55,12 @@ export default function Desktop({
               <button className="login" onClick={() => router.push("/login")}>
                 login
               </button>
-              <button className="sign-up">sign up</button>
+              <button
+                className="sign-up"
+                onClick={() => router.push("/sign-up")}
+              >
+                sign up
+              </button>
             </>
           )}
         </div>
