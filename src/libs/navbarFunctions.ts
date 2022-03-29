@@ -92,7 +92,8 @@ const onSubmitSearchDesktop = async (
   setData: Function,
   setText: Function,
   router: any,
-  previousCall: any
+  previousCall: any,
+  category: string
 ) => {
   e.preventDefault();
   setData([]);
@@ -107,6 +108,6 @@ const onSubmitSearchDesktop = async (
     router.push("/", undefined, { shallow: true });
     return;
   }
-  router.push(`/character/search/${value}`, undefined, { shallow: true });
+  router.push(`/character/${category}/${value}`, undefined, { shallow: true });
 };
 export { logoOnClick, searchData, onSubmitSearchMobile, onSubmitSearchDesktop };

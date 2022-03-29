@@ -8,7 +8,7 @@ function AnimeRecomendation({ animeRec }) {
   const router = useRouter();
   const onClickBox = (e: any, mal_id: string) => {
     e.preventDefault();
-    router.push(`/character/id/${mal_id}`, undefined, { shallow: true });
+    router.push(`/anime/id/${mal_id}`, undefined, { shallow: true });
   };
   return (
     <div className={styles.Recommendation_container}>
@@ -21,7 +21,7 @@ function AnimeRecomendation({ animeRec }) {
                 height: "fit-content",
                 width: "fit-content",
               }}
-              onClick={(e) => onClickBox(e, mal_id)}
+              onClick={(e) => onClickBox(e, entry[0].mal_id)}
               key={mal_id}
             >
               <Cards
