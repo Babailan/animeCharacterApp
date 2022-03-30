@@ -26,22 +26,26 @@
   background-color: rgb(15, 15, 15);
   border: 1px solid rgb(39, 39, 39);
 }
+.introWelcome {
+  font-weight: 200;
+  font-size: 2em;
+}
 .inputs_container {
   display: flex;
-  gap: 1em;
   flex-direction: column;
   min-width: 280px;
   max-width: 400px;
+  gap: 10px;
 }
 .inputs {
   color: #fff;
   background-color: transparent;
   border-radius: 5px;
+  font-family: "Open Sans", sans-serif;
   outline: none;
-  padding: 0.5em;
+  padding: 7px 10px;
   border: 1px solid rgb(90, 90, 90);
   width: 100%;
-  padding-left: 12%;
 }
 
 .inputs::placeholder {
@@ -50,6 +54,7 @@
 .inputs:focus::placeholder {
   visibility: hidden;
 }
+
 .email:focus {
   border-color: rgb(82, 82, 189);
 }
@@ -71,8 +76,16 @@
 .password:focus ~ .falock {
   color: rgb(82, 82, 189) !important;
 }
+.text_start {
+  text-align: start;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.8em;
+}
 .title {
   color: #fff;
+  font-weight: 100;
+  font-size: 1.4em;
+  font-family: "Open Sans", sans-serif;
 }
 .label {
   position: relative;
@@ -87,17 +100,11 @@
   right: 5%;
   height: fit-content;
 }
-.FaStart {
-  position: absolute;
-  width: inherit;
-  color: #fff;
-  top: 23%;
-  left: 4.5%;
-  height: inherit;
-}
+
 .sign_up {
   width: 100%;
   padding: 0.5em 0;
+  margin-top: 10px;
   font-size: 1em;
   border-radius: 5px;
   font-weight: 600;
@@ -106,6 +113,8 @@
   transition: 0.2s;
   color: #fff;
   border: none;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
 }
 .sign_up:hover {
   background-color: rgb(2, 144, 45);

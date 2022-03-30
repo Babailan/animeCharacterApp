@@ -9,6 +9,7 @@ import useSWR from "swr";
 import fetcher from "../../../libs/axiosFetch";
 import { useRouter } from "next/router";
 import { Skeleton } from "@mui/material";
+import Link from "next/link";
 
 function Character() {
   const router = useRouter();
@@ -138,31 +139,38 @@ function Character() {
           <div className={styles.pictures_container}>
             <h2 className={styles.Picture_titles}>Anime</h2>
             <div className={styles.pictures_list}>
-              {animeList.data.map(({ anime }, index: number) => (
-                <div key={index} className={styles.eachPicture_container}>
-                  <div className={styles.image_container}>
+              {animeList.data.map(({ anime }, index: number) => {
+                console.log(animeList.data);
+                return (
+                  <Link key={index} href={`/anime/id/${anime.mal_id}`}>
                     <div
-                      style={{
-                        width: "100%",
-                        border: "1px solid #000",
-                        position: "relative",
-                      }}
-                      className={styles.image}
+                      className={`${styles.eachPicture_container} ${styles.cursor_pointer}`}
                     >
-                      <Image
-                        src={anime.images.jpg.image_url}
-                        objectFit={"fill"}
-                        layout={"fill"}
-                        loading={"lazy"}
-                        className={styles.images}
-                      />
+                      <div className={styles.image_container}>
+                        <div
+                          style={{
+                            width: "100%",
+                            border: "1px solid #000",
+                            position: "relative",
+                          }}
+                          className={styles.image}
+                        >
+                          <Image
+                            src={anime.images.jpg.image_url}
+                            objectFit={"fill"}
+                            layout={"fill"}
+                            loading={"lazy"}
+                            className={styles.images}
+                          />
+                        </div>
+                      </div>
+                      <p style={{ textAlign: "center", padding: "1em" }}>
+                        Title : {anime.title}
+                      </p>
                     </div>
-                  </div>
-                  <p style={{ textAlign: "center", padding: "1em" }}>
-                    Title : {anime.title}
-                  </p>
-                </div>
-              ))}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         )}

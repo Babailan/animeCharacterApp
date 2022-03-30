@@ -66,6 +66,9 @@
   color: #fff;
   min-width: 225px;
 }
+.cursor_pointer {
+  cursor: pointer;
+}
 .pictures_container {
   display: flex;
   justify-content: center;
@@ -73,7 +76,6 @@
   flex-wrap: wrap;
   width: fit-content;
   max-width: 100%;
-
   padding: 10px;
 }
 .Picture_titles {
@@ -90,9 +92,8 @@
   width: 225px;
   min-width: 225px;
   max-width: 225px;
-  height: 350px;
+  height: 300px;
   background-size: 100% 100%;
-  border: 1px solid #000;
   background-repeat: no-repeat;
 }
 .download_image {
@@ -115,13 +116,13 @@
   width: fit-content;
 }
 .images {
-  border-radius: 5px;
+  border-radius: 0;
 }
 .eachPicture_container:hover .download_image {
   opacity: 1;
 }
-.eachPicture_container:hover {
-  mix-blend-mode: soft-light;
+.eachPicture_container:hover .image_container {
+  mix-blend-mode: lighten;
 }
 .listofAllImages {
   display: flex;

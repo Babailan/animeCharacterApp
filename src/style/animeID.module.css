@@ -1,6 +1,8 @@
 .animeContainer {
   width: 100%;
   height: fit-content;
+  padding: 10px 0;
+  color: #c9d1d9;
 }
 .warning {
   font-size: larger;
