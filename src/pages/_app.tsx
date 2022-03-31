@@ -6,13 +6,36 @@ import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer";
 import { AppProps } from "next/app";
 import { Query, sizeQuery } from "../hooks/sizeQuery";
-
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const [previousCall, setPreviousCall] = useState();
+  const [thereIs, setThereIs] = useState(undefined);
+  useEffect(() => {
+    clearTimeout(previousCall);
+  }, [router.route]);
+
   return (
     <Query.Provider value={sizeQuery}>
-      <Navbar />
+      {router.route.includes("/login") ||
+      router.route.includes("/sign-up") ||
+      router.route.includes("404") ? null : (
+        <Navbar
+          thereIs={thereIs}
+          setThereIs={setThereIs}
+          setPreviousCall={setPreviousCall}
+          previousCall={previousCall}
+        />
+      )}
+
       <div className="parent">
-        <Component {...pageProps} />
+        <Component
+          {...pageProps}
+          setThereIs={setThereIs}
+          previousCall={previousCall}
+          setPreviousCall={setPreviousCall}
+        />
       </div>
       <Footer />
     </Query.Provider>

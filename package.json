@@ -15,9 +15,13 @@
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.5.1",
+    "@types/cookies": "^0.7.7",
+    "@types/jsonwebtoken": "^8.5.8",
     "@types/validator": "^13.7.2",
     "axios": "^0.26.1",
     "bcrypt": "^5.0.1",
+    "cookies-next": "^2.0.4",
+    "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.4.1",
     "mongoose": "^6.2.8",
     "next": "^12.1.0",
@@ -28,7 +32,8 @@
     "react-toastify": "^8.2.0",
     "sharp": "^0.30.3",
     "swr": "^1.2.2",
-    "validator": "^13.7.0"
+    "validator": "^13.7.0",
+    "ytdl-core": "^4.11.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",

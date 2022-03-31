@@ -6,6 +6,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import useSWR from "swr";
 import fetcher from "../../../libs/axiosFetch";
 import styles from "../../../style/searchCharacter.module.css";
@@ -13,7 +14,7 @@ import styles from "../../../style/searchCharacter.module.css";
 export default () => {
   const router = useRouter();
   const { data, error } = useSWR(
-    `https://api.jikan.moe/v4/characters?q=${router.query.text}&sort=desc&order_by=favorites`,
+    `https://api.jikan.moe/v4/characters?q=${router.query.character}&sort=desc&order_by=favorites`,
     fetcher
   );
   const action = (e: any, mal_id: string) => {

@@ -15,7 +15,7 @@ const Index = () => {
     fetcher
   );
   const character = useSWR(
-    "https://api.jikan.moe/v4/characters",
+    "https://api.jikan.moe/v4/top/characters",
     fetchCharacterFav
   );
 
@@ -66,6 +66,7 @@ const Index = () => {
   return (
     <>
       {/* greetings entry */}
+
       <Greetings />
       <Home
         mangaRec={RemoveElementsDuplicated(mangaRec.data)}

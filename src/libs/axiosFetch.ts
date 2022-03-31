@@ -5,5 +5,7 @@ const fetchCharacterFav = (url: string) =>
     .get(url, { params: { order_by: "favorites", sort: "desc" } })
     .then((res) => res.data.data);
 
+const trailer = (url) => axios.get(url).then((res) => res.data);
+
 export default fetcher;
 export { fetchCharacterFav };

@@ -15,6 +15,7 @@ export default function Desktop({
   category,
   previousCall,
   setPreviousCall,
+  checkUser,
 }) {
   const router = useRouter();
   const onClickBox = async (e: any, id: any) => {
@@ -47,11 +48,21 @@ export default function Desktop({
           onClickBox={onClickBox}
           router={router}
         />
+
         <div className="logins-signups">
-          <button className="login" onClick={() => router.push("/login")}>
-            login
-          </button>
-          <button className="sign-up">sign up</button>
+          {checkUser ? null : (
+            <>
+              <button className="login" onClick={() => router.push("/login")}>
+                login
+              </button>
+              <button
+                className="sign-up"
+                onClick={() => router.push("/sign-up")}
+              >
+                sign up
+              </button>
+            </>
+          )}
         </div>
       </div>
     </>

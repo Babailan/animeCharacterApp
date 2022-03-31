@@ -17,7 +17,7 @@ function Cards({ images, name, mal_id, id }: cardProps) {
           minWidth: 225,
           justifyContent: "flex-start",
           alignContent: "flex-start",
-          bgcolor: "#242424",
+          bgcolor: "transparent",
         }}
         key={mal_id || id}
       >
@@ -38,7 +38,7 @@ function Cards({ images, name, mal_id, id }: cardProps) {
             alt={id}
           />
           <CardContent>
-            <Typography color={"#fff"} component={"div"}>
+            <Typography color={"#cdcdcd"} component={"h6"}>
               {name}
             </Typography>
           </CardContent>

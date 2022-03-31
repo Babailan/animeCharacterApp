@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import validator from "validator";
+import jwt from "jsonwebtoken";
 
 const createUserSchema = new mongoose.Schema({
   name: { type: String, required: [true, "Name is required"] },

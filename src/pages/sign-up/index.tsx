@@ -1,9 +1,14 @@
-import { useState } from "react";
-import style from "../style/login.module.css";
-import { FaEye, FaEyeSlash, FaEnvelope, FaUser, FaLock } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import styles from "../../style/sign_up.module.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-export default () => {
+import { checkCookies } from "cookies-next";
+import Router from "next/router";
+import imageICon from "../../images/iconSignUp.jpg";
+import Image from "next/image";
+
+function Index({ setThereIs }) {
   const notify = (message?: any) => toast.error(message);
   const [values, setValues] = useState({
     name: "",
@@ -28,7 +33,8 @@ export default () => {
       };
     });
   };
-  const onSubmit = async () => {
+  const onSubmit = async (e: any) => {
+    e.preventDefault();
     if (
       !values.name.length ||
       !values.password.length ||
@@ -46,7 +52,6 @@ export default () => {
       }),
     });
     const data = await req.json();
-    console.log(data);
     if (data.message.includes("this email is already exists")) {
       return notify("This email is already exists");
     }
@@ -65,57 +70,79 @@ export default () => {
     if (data.message.includes("Minimium is 6 characters long")) {
       return notify("Minimium is 6 characters long");
     }
+    const check = checkCookies("user");
+    if (check) {
+      Router.push("/");
+      setThereIs(true);
+    }
   };
+  useEffect(() => {
+    const check = checkCookies("user");
+    if (check) {
+      Router.push("/");
+    }
+  }, []);
   return (
-    <div className={style.main_container}>
+    <div className={styles.main_container}>
       <ToastContainer position="top-center" autoClose={1500} limit={3} />
-      <div className={style.container}>
-        <h1 className={style.title}>Sign up</h1>
-        <form className={style.inputs_container} autoComplete={"off"}>
-          <label className={style.label}>
+      <div
+        style={{
+          width: "100px",
+          height: "100px",
+          margin: "auto",
+          borderRadius: " 50%",
+          overflow: "hidden",
+        }}
+      >
+        <Image src={imageICon} width={100} height={100} />
+      </div>
+      <h1 className={styles.title}>Sign up in AnimeWorld</h1>
+      <div className={styles.container}>
+        <form className={styles.inputs_container} onSubmit={(e) => onSubmit(e)}>
+          <p className={styles.text_start}>Username</p>
+          <label className={styles.label}>
             <input
-              className={`${style.name} ${style.inputs}`}
+              className={`${styles.name} ${styles.inputs}`}
               value={values.name}
-              placeholder="Name"
               onChange={(e) => onChangeHandler(e, "name")}
               autoComplete="off"
             />
-            <FaUser className={`${style.FaStart} ${style.User}`} />
           </label>
-          <label className={style.label}>
+          <p className={styles.text_start}>Email</p>
+          <label className={styles.label}>
             <input
-              className={`${style.email} ${style.inputs}`}
+              className={`${styles.email} ${styles.inputs}`}
               value={values.email}
-              placeholder="Email"
               onChange={(e) => onChangeHandler(e, "email")}
               autoComplete="off"
             />
-
-            <FaEnvelope className={`${style.FaStart} ${style.Envelope}`} />
           </label>
-          <label className={style.label}>
+          <p className={styles.text_start}>Password</p>
+          <label className={styles.label}>
             <input
-              className={`${style.password} ${style.inputs}`}
+              className={`${styles.password} ${styles.inputs}`}
               value={values.password}
               type={values.showPassword ? "text" : "password"}
-              placeholder="Password"
               onChange={(e) => onChangeHandler(e, "password")}
               autoComplete="off"
             />
-            <FaLock className={`${style.FaStart} ${style.falock}`} />
-            <div className={style.FaEnd}>
-              {values.showPassword ? (
-                <FaEyeSlash onClick={showPass} />
-              ) : (
-                <FaEye onClick={showPass} />
-              )}
+            <div className={styles.FaEnd}>
+              {values.password.length ? (
+                values.showPassword ? (
+                  <FaEyeSlash onClick={showPass} />
+                ) : (
+                  <FaEye onClick={showPass} />
+                )
+              ) : null}
             </div>
           </label>
+          <button className={styles.sign_up} type={"submit"}>
+            Sign up
+          </button>
         </form>
-        <button className={style.sign_up} onClick={onSubmit}>
-          SIGN UP
-        </button>
       </div>
     </div>
   );
-};
+}
+
+export default Index;

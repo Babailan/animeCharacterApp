@@ -35,7 +35,15 @@ function FormSearchBoxMobile({
   return (
     <form
       onSubmit={(e) =>
-        onSubmitSearch(e, text, setData, setText, router, previousCall)
+        onSubmitSearch(
+          e,
+          text,
+          setData,
+          setText,
+          router,
+          previousCall,
+          category
+        )
       }
       className="container-search"
     >

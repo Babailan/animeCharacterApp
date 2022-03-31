@@ -17,6 +17,7 @@ type Props = {
   setData: Function;
   setPreviousCall: Function;
   previousCall: any;
+  checkUser: boolean;
 };
 // Mobile Navbar
 function MobileNavbar({
@@ -28,6 +29,7 @@ function MobileNavbar({
   setData,
   setPreviousCall,
   previousCall,
+  checkUser,
 }: Props) {
   const router = useRouter();
   const [SearchBox, setSearchBox] = useState(false);
@@ -56,10 +58,14 @@ function MobileNavbar({
       <div className="logo" onClick={(e) => logoOnClick(e, router)}>
         <p className="logoMain">AW</p>
       </div>
-      <div className="logins-signups">
-        <button className="login">login</button>
-        <button className="sign-up">sign up</button>
-      </div>
+
+      {checkUser ? null : (
+        <div className="logins-signups">
+          <button className="login">login</button>
+          <button className="sign-up">sign up</button>
+        </div>
+      )}
+
       {/* SearchBoxIfStatement*/}
       {SearchBox ? (
         <FormSearchBox
