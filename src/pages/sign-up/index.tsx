@@ -86,12 +86,7 @@ export default ({ setThereIs }) => {
     <div className={styles.main_container}>
       <ToastContainer position="top-center" autoClose={1500} limit={3} />
       <div style={{ width: "100px", height: "100px", margin: "auto" }}>
-        <Image
-          src={imageICon}
-          width={100}
-          height={100}
-          style={{ borderRadius: "50%" }}
-        />
+        <Image src={imageICon} width={100} height={100} />
       </div>
       <h1 className={styles.title}>Sign up in AnimeWorld</h1>
       <div className={styles.container}>

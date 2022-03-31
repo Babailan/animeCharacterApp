@@ -4,7 +4,7 @@ import dbConnect from "../../libs/connectDb";
 import createToken from "../../libs/createToken";
 import { setCookies } from "cookies-next";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (typeof req.body === "string") {
       req.body = JSON.parse(req.body);
@@ -33,7 +33,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   } catch (err) {
     res.status(403).json({ message: Message(err.message) });
   }
-};
+}
 
 function Message(message: string) {
   if (message.includes("Password is required")) {
@@ -55,3 +55,4 @@ function Message(message: string) {
     return "this email is already exists";
   }
 }
+export default handler;

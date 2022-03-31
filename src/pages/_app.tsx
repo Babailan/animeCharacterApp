@@ -33,6 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component
           {...pageProps}
           setThereIs={setThereIs}
+          previousCall={previousCall}
           setPreviousCall={setPreviousCall}
         />
       </div>
