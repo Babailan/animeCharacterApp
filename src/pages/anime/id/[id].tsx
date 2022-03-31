@@ -5,6 +5,7 @@ import { Skeleton } from "@mui/material";
 import styles from "../../../style/animeID.module.css";
 import { useEffect } from "react";
 import { FaExclamationCircle, FaTimesCircle } from "react-icons/fa";
+import ReactPlayer from "react-player/youtube";
 
 function Id({ setPreviousCall, previousCall }) {
   const router = useRouter();
@@ -88,11 +89,7 @@ function Id({ setPreviousCall, previousCall }) {
               }}
             />
           </div>
-          <iframe
-            src={`${data.trailer.embed_url}&autoplay=1&mute=1&loop=1`}
-            style={{ width: "100%", height: "50vh" }}
-            allowFullScreen={false}
-          />
+          <ReactPlayer url={data.trailer.url} style={{ width: "100%" }} />
         </>
       )}
     </div>
