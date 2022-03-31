@@ -1,8 +1,6 @@
-import { Button } from "@mui/material";
 import styles from "../style/greeting.module.css";
 
 function Greeting() {
-  const images = ["../images/background1.webp"];
   return (
     //greetings entry
     <div className={styles.greetings_container}>
