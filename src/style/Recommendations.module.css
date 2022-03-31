@@ -21,4 +21,7 @@
 .titles {
   font-weight: 300;
   color: #e4e6eb;
+  font-size: 1.7em;
+  font-family: "Open Sans", sans-serif;
+  z-index: 5;
 }

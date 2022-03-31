@@ -4,11 +4,11 @@ import MangaRecomendation from "./manga/mangaRec";
 
 function Home({ mangaRec, animeRec, character }) {
   return (
-    <>
+    <div style={{ marginTop: "-10%" }}>
       <AnimeRecomendation animeRec={animeRec} />
       <MangaRecomendation mangaRec={mangaRec} />
       <CharacterRecomendation character={character} />
-    </>
+    </div>
   );
 }
 

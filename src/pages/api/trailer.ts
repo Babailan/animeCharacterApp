@@ -1,12 +1,27 @@
+import axios from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
 import ytdl from "ytdl-core";
-import fs from "fs";
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   res.setHeader("Content-type", "Video/mp4");
-  const video = ytdl("https://www.youtube.com/watch?v=ZQeSeYNEwHM", {
-    quality: "highest",
-  });
 
+  const topAnime = await axios.get("https://api.jikan.moe/v4/top/anime", {
+    params: { filter: "favorite" },
+  });
+  let urls = "";
+  for (let i = 0; i < topAnime.data.data.length; i++) {
+    if (topAnime.data.data[i].trailer.url !== null) {
+      urls = topAnime.data.data[i].trailer.url;
+    } else {
+      continue;
+    }
+    if (urls) {
+      break;
+    }
+  }
+
+  const video = ytdl(urls, {
+    quality: "highestvideo",
+  });
   video.pipe(res);
 }
 

@@ -31,10 +31,8 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: #fff !important;
 }
 .parent {
-  min-height: 90vh;
   margin: auto;
-  max-width: 1200px;
-  padding: 0 10px;
+  min-height: 100vh;
 }
 .align_items {
   width: 100%;

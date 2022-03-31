@@ -66,6 +66,7 @@ const Index = () => {
   return (
     <>
       {/* greetings entry */}
+
       <Greetings />
       <Home
         mangaRec={RemoveElementsDuplicated(mangaRec.data)}

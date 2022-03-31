@@ -8,7 +8,7 @@ import Router from "next/router";
 import imageICon from "../../images/iconSignUp.jpg";
 import Image from "next/image";
 
-export default ({ setThereIs }) => {
+function Index({ setThereIs }) {
   const notify = (message?: any) => toast.error(message);
   const [values, setValues] = useState({
     name: "",
@@ -85,7 +85,15 @@ export default ({ setThereIs }) => {
   return (
     <div className={styles.main_container}>
       <ToastContainer position="top-center" autoClose={1500} limit={3} />
-      <div style={{ width: "100px", height: "100px", margin: "auto" }}>
+      <div
+        style={{
+          width: "100px",
+          height: "100px",
+          margin: "auto",
+          borderRadius: " 50%",
+          overflow: "hidden",
+        }}
+      >
         <Image src={imageICon} width={100} height={100} />
       </div>
       <h1 className={styles.title}>Sign up in AnimeWorld</h1>
@@ -135,4 +143,6 @@ export default ({ setThereIs }) => {
       </div>
     </div>
   );
-};
+}
+
+export default Index;

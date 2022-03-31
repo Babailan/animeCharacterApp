@@ -6,31 +6,15 @@ function Greeting() {
   return (
     //greetings entry
     <div className={styles.greetings_container}>
-      <div className={styles.image_background_greeting}></div>
+      <div className={styles.videotrailer}>
+        <video autoPlay loop muted style={{ width: "100%" }}>
+          <source src={"/api/trailer"} type="video/mp4" />
+        </video>
+      </div>
+      <div className={styles.greeting_bottom_top}></div>
       <div className={styles.greeting_left_right}></div>
       <div className={styles.greeting_right_left}></div>
       <div className={styles.greeting_top_bottom}></div>
-      <div className={styles.greetings_container_letters}>
-        <h1 className={styles.stroke}>
-          Welcome to{" "}
-          <span className={styles.stroke} style={{ color: "#070042" }}>
-            Anime-World
-          </span>
-        </h1>
-        <h4 className={styles.stroke} style={{ marginTop: 5 }}>
-          Discover anime and manga, track your progress, watch anime, read
-          manga.
-        </h4>
-        <Button
-          style={{ marginTop: 10 }}
-          href={"https://github.com/Babailan/animeCharacterApp/tree/master"}
-          target={"_blank"}
-          variant={"contained"}
-          size={"medium"}
-        >
-          Project Repository
-        </Button>
-      </div>
     </div>
   );
 }
