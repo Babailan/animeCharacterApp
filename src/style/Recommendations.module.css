@@ -1,5 +1,4 @@
 .Recommendation_container {
-  padding: 10px;
   justify-content: center;
   gap: 10px;
   display: flex;
@@ -11,8 +10,8 @@
   display: flex;
   width: 100%;
   height: fit-content;
-  overflow-x: auto;
   overflow-y: hidden;
+  overflow-x: hidden;
   grid-gap: 1em;
   gap: 1em;
   flex: 1 1;
@@ -24,4 +23,19 @@
   font-size: 1.7em;
   font-family: "Open Sans", sans-serif;
   z-index: 5;
+}
+.AngleRight {
+  position: sticky;
+  cursor: pointer;
+  background-color: rgba(34, 34, 34, 0.849);
+  display: flex;
+  min-width: 100px;
+  max-width: 100px;
+  justify-content: center;
+  align-items: center;
+  color: #e4e6eb;
+  font-size: larger;
+  right: 0;
+  top: 0;
+  z-index: 2;
 }

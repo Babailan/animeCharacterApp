@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import Greetings from "../components/greeting";
 import Home from "../components/home";
-import fetcher, { fetchCharacterFav } from "../libs/axiosFetch";
+import fetcher, { fetchCharacterFav, trailer } from "../libs/axiosFetch";
 import { Skeleton } from "@mui/material";
 import RemoveElementsDuplicated from "../libs/removeElementDuplicated";
 
@@ -18,8 +18,9 @@ const Index = () => {
     "https://api.jikan.moe/v4/top/characters",
     fetchCharacterFav
   );
+  const videoTrailer = useSWR("/api/trailer", trailer);
 
-  if (!mangaRec.data || !animeRec.data || !character.data)
+  if (!mangaRec.data || !animeRec.data || !character.data || !videoTrailer.data)
     return (
       <>
         <Greetings />
@@ -67,7 +68,7 @@ const Index = () => {
     <>
       {/* greetings entry */}
 
-      <Greetings />
+      <Greetings trailerUrl={videoTrailer.data.url} />
       <Home
         mangaRec={RemoveElementsDuplicated(mangaRec.data)}
         animeRec={RemoveElementsDuplicated(animeRec.data)}

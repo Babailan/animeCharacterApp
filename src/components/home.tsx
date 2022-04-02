@@ -4,7 +4,7 @@ import MangaRecomendation from "./manga/mangaRec";
 
 function Home({ mangaRec, animeRec, character }) {
   return (
-    <div style={{ marginTop: "-10%" }}>
+    <div style={{ marginTop: "-10%", padding: "0 10px" }}>
       <AnimeRecomendation animeRec={animeRec} />
       <MangaRecomendation mangaRec={mangaRec} />
       <CharacterRecomendation character={character} />
