@@ -4,6 +4,7 @@ import MediaQuery from "react-responsive";
 import dynamic from "next/dynamic";
 import { Box, Skeleton } from "@mui/material";
 import { getCookie } from "cookies-next";
+import { useRouter } from "next/router";
 const MobileNavbar = dynamic(() => import("./navbarMobile"), { ssr: false });
 const NavDesktop = dynamic(() => import("./navbarDesktop"), { ssr: false });
 
@@ -13,6 +14,7 @@ export default function Navbar({
   setPreviousCall,
   previousCall,
 }) {
+  const router = useRouter();
   const query = useContext(Query);
   const [onLoad, isOnLoad] = useState(true);
 
@@ -29,7 +31,7 @@ export default function Navbar({
 
   if (onLoad)
     return (
-      <div className="navbar">
+      <div className={`navbar ${router.pathname == "/" ? "absolute" : ""}`}>
         <Box
           sx={{
             width: "100%",
@@ -76,7 +78,7 @@ export default function Navbar({
     );
 
   return (
-    <div className="navbar">
+    <div className={`navbar ${router.pathname == "/" ? "absolute" : ""}`}>
       <MediaQuery maxWidth={query.mobileNav}>
         <MobileNavbar
           data={data}
