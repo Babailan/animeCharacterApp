@@ -1,14 +1,20 @@
 import styles from "../style/greeting.module.css";
 
-function Greeting() {
+type props = {
+  trailerUrl?: any;
+};
+
+function Greeting({ trailerUrl }: props) {
   return (
     //greetings entry
     <div className={styles.greetings_container}>
-      <div className={styles.videotrailer}>
-        <video autoPlay loop muted style={{ width: "100%" }}>
-          <source src={"/api/trailer"} type="video/mp4" />
-        </video>
-      </div>
+      {trailerUrl ? (
+        <div className={styles.videotrailer}>
+          <video autoPlay loop muted style={{ width: "100%" }}>
+            <source src={trailerUrl} type="video/mp4" />
+          </video>
+        </div>
+      ) : null}
       <div className={styles.greeting_bottom_top}></div>
       <div className={styles.greeting_left_right}></div>
       <div className={styles.greeting_right_left}></div>
