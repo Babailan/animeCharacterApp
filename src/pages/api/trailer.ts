@@ -6,10 +6,10 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const topAnime = await axios.get("https://api.jikan.moe/v4/seasons/now");
     let urls = "";
-    console.log("someone Id a request");
+    console.log(topAnime.data.data.length);
     for (let i = 0; i < topAnime.data.data.length; i++) {
       if (topAnime.data.data[i].trailer.url !== null) {
-        urls = topAnime.data.data[i].trailer.url;
+        urls = topAnime.data.data[Math.floor(Math.random() * 25)].trailer.url;
       } else {
         continue;
       }

@@ -1,28 +1,51 @@
 //manga Recommentations
-
+//className={styles.Recommendation_list}
 import Cards from "../cardRecommendations";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, Autoplay } from "swiper";
 import styles from "../../style/Recommendations.module.css";
 
-function AnimeRecomendation({ animeRec }) {
+function AnimeRecommendation({ animeRec }) {
   return (
     <div className={styles.Recommendation_container}>
-      <h1 className={styles.titles}>Anime Recommendations</h1>
-      <div className={styles.Recommendation_list}>
-        {animeRec.map(({ mal_id, entry }, index: number) => {
-          return (
-            <Cards
-              key={mal_id}
-              mal_id={mal_id}
-              images={entry[0].images.webp.image_url}
-              name={entry[0].title}
-              index={index}
-              lastId={animeRec.length - 1}
-            />
-          );
-        })}
+      <h2 className={styles.titles}>Popular Anime</h2>
+      <div>
+        <Swiper
+          slidesPerView={"auto"}
+          spaceBetween={10}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          centeredSlides={true}
+          pagination={{
+            clickable: true,
+            type: "progressbar",
+          }}
+          navigation={true}
+          modules={[Pagination, Navigation, Autoplay]}
+          className="mySwiper"
+          loop={true}
+        >
+          {animeRec.map(({ mal_id, entry }, index: number) => {
+            return (
+              <SwiperSlide style={{ width: "fit-content" }}>
+                <Cards
+                  key={mal_id}
+                  mal_id={mal_id}
+                  images={entry[0].images.webp.image_url}
+                  name={entry[0].title}
+                  index={index}
+                  lastId={animeRec.length - 1}
+                />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       </div>
     </div>
   );
 }
 
-export default AnimeRecomendation;
+export default AnimeRecommendation;

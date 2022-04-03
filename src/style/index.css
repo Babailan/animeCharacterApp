@@ -21,6 +21,7 @@
   border-radius: 10px;
 }
 body {
+  position: relative;
   background-color: #010409;
 }
 input:-webkit-autofill,
@@ -29,6 +30,9 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 5000s;
   -webkit-text-fill-color: #fff !important;
+}
+.absolute {
+  position: absolute;
 }
 .parent {
   margin: auto;

@@ -4,6 +4,8 @@ import Home from "../components/home";
 import fetcher, { fetchCharacterFav, trailer } from "../libs/axiosFetch";
 import { Skeleton } from "@mui/material";
 import RemoveElementsDuplicated from "../libs/removeElementDuplicated";
+import "swiper/css";
+import "swiper/css/pagination";
 
 const Index = () => {
   const mangaRec = useSWR(
