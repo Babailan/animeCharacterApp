@@ -3,25 +3,28 @@
 import Cards from "../cardRecommendations";
 import styles from "../../style/Recommendations.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper";
-import "swiper/css/navigation";
-import "swiper/css";
-import "swiper/css/pagination";
+import { Pagination, Navigation, Autoplay } from "swiper";
 
 function MangaRecomendation({ mangaRec }) {
   return (
     <div>
-      <h1 className={styles.titles}>Manga Recommendation</h1>
+      <h2 className={styles.titles}>Manga Recommendation</h2>
       <div>
         <Swiper
           slidesPerView={"auto"}
           spaceBetween={10}
+          centeredSlides={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
           pagination={{
             clickable: true,
             type: "progressbar",
           }}
           navigation={true}
-          modules={[Pagination, Navigation]}
+          modules={[Pagination, Navigation, Autoplay]}
           className="mySwiper"
           loop={true}
         >

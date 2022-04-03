@@ -2,26 +2,29 @@
 //className={styles.Recommendation_list}
 import Cards from "../cardRecommendations";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper";
+import { Pagination, Navigation, Autoplay } from "swiper";
 import styles from "../../style/Recommendations.module.css";
-import "swiper/css/navigation";
-import "swiper/css";
-import "swiper/css/pagination";
 
 function AnimeRecommendation({ animeRec }) {
   return (
     <div className={styles.Recommendation_container}>
-      <h1 className={styles.titles}>Anime Recommendation</h1>
+      <h2 className={styles.titles}>Popular Anime</h2>
       <div>
         <Swiper
           slidesPerView={"auto"}
           spaceBetween={10}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          centeredSlides={true}
           pagination={{
             clickable: true,
             type: "progressbar",
           }}
           navigation={true}
-          modules={[Pagination, Navigation]}
+          modules={[Pagination, Navigation, Autoplay]}
           className="mySwiper"
           loop={true}
         >

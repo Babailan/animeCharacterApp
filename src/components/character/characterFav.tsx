@@ -2,19 +2,13 @@
 
 import Cards from "../cardRecommendations";
 import styles from "../../style/Recommendations.module.css";
-import { useRouter } from "next/router";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper";
-import "swiper/css/navigation";
-import "swiper/css";
-import "swiper/css/pagination";
+import { Pagination, Navigation, Autoplay } from "swiper";
 
 function CharacterRecomendation({ character }) {
-  const router = useRouter();
-
   return (
     <div className={styles.Recommendation_container}>
-      <h1 className={styles.titles}>Most Favorite Characeters</h1>
+      <h2 className={styles.titles}>Most Favorite Characeters</h2>
       <div>
         <Swiper
           slidesPerView={"auto"}
@@ -23,8 +17,14 @@ function CharacterRecomendation({ character }) {
             clickable: true,
             type: "progressbar",
           }}
+          centeredSlides={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
           navigation={true}
-          modules={[Pagination, Navigation]}
+          modules={[Pagination, Navigation, Autoplay]}
           className="mySwiper"
           loop={true}
         >

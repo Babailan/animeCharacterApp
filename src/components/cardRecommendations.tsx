@@ -33,8 +33,6 @@ function Cards({ images, name, mal_id, id, category }: cardProps) {
         <Tooltip title={name} arrow placement={"top"}>
           <Card
             sx={{
-              maxWidth: 150,
-              minWidth: 150,
               justifyContent: "flex-start",
               alignContent: "flex-start",
               bgcolor: "transparent",
@@ -50,13 +48,9 @@ function Cards({ images, name, mal_id, id, category }: cardProps) {
                 alignContent: "flex-start",
               }}
             >
-              <Image
-                src={images}
-                loading={"lazy"}
-                height="300px"
-                width={"225px"}
-                alt={id}
-              />
+              <div style={{ minWidth: "225px", minHeight: "300px" }}>
+                <Image src={images} loading={"lazy"} layout={"fill"} alt={id} />
+              </div>
             </CardActionArea>
           </Card>
         </Tooltip>

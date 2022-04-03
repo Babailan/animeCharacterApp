@@ -2,6 +2,7 @@
 import "../style/index.css";
 import "../style/navbar.css";
 import "../style/footer.css";
+import "../style/navigation.css";
 import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer";
 import { AppProps } from "next/app";
