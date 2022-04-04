@@ -14,11 +14,12 @@ function AnimeRecommendation({ animeRec }) {
           slidesPerView={"auto"}
           spaceBetween={10}
           autoplay={{
-            delay: 2500,
+            delay: 10000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
-          centeredSlides={true}
+          centeredSlides={false}
+          slidesPerGroupAuto={true}
           pagination={{
             clickable: true,
             type: "progressbar",
@@ -28,16 +29,19 @@ function AnimeRecommendation({ animeRec }) {
           className="mySwiper"
           loop={true}
         >
-          {animeRec.map(({ mal_id, entry }, index: number) => {
+          {animeRec.map(({ entry }, index: number) => {
             return (
-              <SwiperSlide style={{ width: "fit-content" }}>
+              <SwiperSlide
+                style={{ width: "fit-content" }}
+                key={entry[0].mal_id}
+              >
                 <Cards
-                  key={mal_id}
-                  mal_id={mal_id}
+                  mal_id={entry[0].mal_id}
                   images={entry[0].images.webp.image_url}
                   name={entry[0].title}
                   index={index}
                   lastId={animeRec.length - 1}
+                  category={"anime"}
                 />
               </SwiperSlide>
             );

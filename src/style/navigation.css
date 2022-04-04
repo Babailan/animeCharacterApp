@@ -1,21 +1,23 @@
 .swiper-button-prev,
 .swiper-button-next {
   position: absolute;
-  top: 50%;
-  z-index: 10;
+  z-index: 2;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
   transition: 0.2s;
-  font-size:2em ;
+  font-size:3em ;
   -webkit-text-stroke: rgb(57, 57, 57);
   -webkit-text-stroke-width: 0.2px;
+  opacity: 0.7;
+  padding: 0 10px;
+  height: 100%;
 }
 .swiper-button-next:hover,.swiper-button-prev:hover {
-    font-size: 3em;
     opacity: 1;
+    background-color: rgba(0, 0, 0, 0.635);
 }
 
 .swiper-button-prev:after,
@@ -29,8 +31,7 @@
 }
 .swiper-button-prev,
 .swiper-rtl .swiper-button-next {
-  left: 10px;
-  right: auto;
+  left: 0;
 }
 .swiper-button-prev:after,
 .swiper-rtl .swiper-button-next:after {
@@ -38,8 +39,7 @@
 }
 .swiper-button-next,
 .swiper-rtl .swiper-button-prev {
-  right: 10px;
-  left: auto;
+  right: 0;
 }
 .swiper-button-next:after,
 .swiper-rtl .swiper-button-prev:after {
