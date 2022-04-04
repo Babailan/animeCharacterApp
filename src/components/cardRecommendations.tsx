@@ -1,7 +1,7 @@
 import { Card, CardActionArea, Tooltip } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/router";
-
+import styles from "../style/Recommendations.module.css";
 type cardProps = {
   images?: any;
   name?: string;
@@ -37,7 +37,7 @@ function Cards({ images, name, mal_id, id, category }: cardProps) {
               alignContent: "flex-start",
               bgcolor: "transparent",
             }}
-            key={mal_id || id}
+            key={mal_id}
           >
             <CardActionArea
               sx={{
@@ -48,8 +48,14 @@ function Cards({ images, name, mal_id, id, category }: cardProps) {
                 alignContent: "flex-start",
               }}
             >
-              <div style={{ minWidth: "225px", minHeight: "300px" }}>
-                <Image src={images} loading={"lazy"} layout={"fill"} alt={id} />
+              <div style={{ minWidth: "150px", minHeight: "200px" }}>
+                <Image
+                  src={images}
+                  loading={"lazy"}
+                  className={styles.images}
+                  layout={"fill"}
+                  alt={id}
+                />
               </div>
             </CardActionArea>
           </Card>
