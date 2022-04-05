@@ -6,13 +6,11 @@ type cardProps = {
   images?: any;
   name?: string;
   mal_id?: any;
-  id?: any;
   index?: number;
-  lastId?: number;
   category?: string;
 };
 
-function Cards({ images, name, mal_id, id, category }: cardProps) {
+function Cards({ images, name, mal_id, category }: cardProps) {
   const router = useRouter();
 
   const onClickBox = (e: any, mal_id: string) => {
@@ -48,13 +46,12 @@ function Cards({ images, name, mal_id, id, category }: cardProps) {
                 alignContent: "flex-start",
               }}
             >
-              <div style={{ minWidth: "150px", minHeight: "200px" }}>
+              <div className={styles.sizeCard}>
                 <Image
                   src={images}
                   loading={"lazy"}
                   className={styles.images}
                   layout={"fill"}
-                  alt={id}
                 />
               </div>
             </CardActionArea>
