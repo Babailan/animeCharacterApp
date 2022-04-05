@@ -20,7 +20,7 @@ function CharacterRecomendation({ character }) {
           }}
           centeredSlides={false}
           autoplay={{
-            delay: 10000,
+            delay: 60000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
@@ -31,12 +31,11 @@ function CharacterRecomendation({ character }) {
         >
           {character.map(({ name, images, mal_id }, index: number) => {
             return (
-              <SwiperSlide style={{ width: "fit-content" }}>
+              <SwiperSlide style={{ width: "fit-content" }} key={index}>
                 <Cards
                   mal_id={mal_id}
                   images={images.webp.image_url}
                   name={name}
-                  lastId={character.length - 1}
                   index={index}
                   category={"character"}
                 />

@@ -40,3 +40,21 @@
 .images {
   pointer-events: none;
 }
+.sizeCard {
+  min-width: 75px;
+  min-height: 100px;
+  position: relative;
+}
+
+@media (min-width:600px) {
+  .sizeCard {
+    min-width: 150px;
+    min-height: 175px;
+  }
+}
+@media (min-width:1000px) {
+  .sizeCard {
+    min-width: 200px;
+    min-height: 225px;
+  }
+}

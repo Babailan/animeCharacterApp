@@ -7,8 +7,8 @@ import { Pagination, Navigation, Autoplay } from "swiper";
 
 function MangaRecomendation({ mangaRec }) {
   return (
-    <div>
-      <h2 className={styles.titles}>Manga Recommendation</h2>
+    <div className={styles.Recommendation_container}>
+      <h2 className={styles.titles}>Top Manga</h2>
       <div>
         <Swiper
           slidesPerView={"auto"}
@@ -16,7 +16,7 @@ function MangaRecomendation({ mangaRec }) {
           slidesPerGroupAuto={true}
           centeredSlides={false}
           autoplay={{
-            delay: 10000,
+            delay: 60000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
@@ -29,15 +29,14 @@ function MangaRecomendation({ mangaRec }) {
           className="mySwiper"
           loop={true}
         >
-          {mangaRec.map(({ mal_id, entry }, index: number) => {
+          {mangaRec.map(({ mal_id, images, title }, index: number) => {
             return (
-              <SwiperSlide style={{ width: "fit-content" }}>
+              <SwiperSlide style={{ width: "fit-content" }} key={index}>
                 <Cards
                   mal_id={mal_id}
-                  images={entry[0].images.webp.image_url}
-                  name={entry[0].title}
+                  images={images.webp.image_url}
+                  name={title}
                   index={index}
-                  lastId={mangaRec.length - 1}
                 />
               </SwiperSlide>
             );
