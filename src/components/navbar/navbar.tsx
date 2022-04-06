@@ -5,22 +5,10 @@ import dynamic from "next/dynamic";
 import { Box, Skeleton } from "@mui/material";
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/router";
-const MobileNavbar = dynamic(() => import("./navbarMobile"), { ssr: false });
-const NavDesktop = dynamic(() => import("./navbarDesktop"), { ssr: false });
 
-export default function Navbar({
-  thereIs,
-  setThereIs,
-  setPreviousCall,
-  previousCall,
-}) {
+export default function Navbar() {
   const router = useRouter();
-  const query = useContext(Query);
   const [onLoad, isOnLoad] = useState(true);
-
-  const [category, setCategory] = useState("characters");
-  const [text, setText] = useState("");
-  const [data, setData] = useState([]);
   useEffect(() => {
     isOnLoad(false);
     const check = getCookie("user");
@@ -78,33 +66,6 @@ export default function Navbar({
     );
 
   return (
-    <div className={`navbar ${router.pathname == "/" ? "absolute" : ""}`}>
-      <MediaQuery maxWidth={query.mobileNav}>
-        <MobileNavbar
-          data={data}
-          setData={setData}
-          text={text}
-          setText={setText}
-          setCategory={setCategory}
-          category={category}
-          previousCall={previousCall}
-          setPreviousCall={setPreviousCall}
-          checkUser={thereIs}
-        />
-      </MediaQuery>
-      <MediaQuery minWidth={query.DesktopNav}>
-        <NavDesktop
-          data={data}
-          setData={setData}
-          text={text}
-          setText={setText}
-          setCategory={setCategory}
-          category={category}
-          previousCall={previousCall}
-          setPreviousCall={setPreviousCall}
-          checkUser={thereIs}
-        />
-      </MediaQuery>
-    </div>
+    <div className={`navbar ${router.pathname == "/" ? "absolute" : ""}`}></div>
   );
 }

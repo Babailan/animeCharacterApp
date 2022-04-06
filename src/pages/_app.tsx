@@ -22,12 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       {router.route.includes("/login") ||
       router.route.includes("/sign-up") ||
       router.route.includes("404") ? null : (
-        <Navbar
-          thereIs={thereIs}
-          setThereIs={setThereIs}
-          setPreviousCall={setPreviousCall}
-          previousCall={previousCall}
-        />
+        <Navbar setThereIs={setThereIs} />
       )}
 
       <div className="parent">
