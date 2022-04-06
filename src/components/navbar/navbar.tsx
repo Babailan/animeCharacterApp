@@ -73,7 +73,7 @@ export default function Navbar({ setThereIs }) {
       className={`${styles.navbar} ${router.pathname == "/" ? "absolute" : ""}`}
     >
       <div className={styles.leftCol}>
-        <p>AnimeWorld</p>
+        <p className={styles.logo}>ANIMEWORLD</p>
       </div>
     </div>
   );

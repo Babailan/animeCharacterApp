@@ -12,16 +12,22 @@ const Index = () => {
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
+    shouldRetryOnError: true,
+    errorRetryInterval: 0,
   });
   const mangaRec = useSWR("https://api.jikan.moe/v4/top/manga", fetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
+    shouldRetryOnError: true,
+    errorRetryInterval: 0,
   });
   const animeRec = useSWR("https://api.jikan.moe/v4/top/anime", fetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
+    shouldRetryOnError: true,
+    errorRetryInterval: 0,
   });
   const character = useSWR(
     "https://api.jikan.moe/v4/top/characters",
@@ -30,6 +36,8 @@ const Index = () => {
       revalidateIfStale: false,
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
+      shouldRetryOnError: true,
+      errorRetryInterval: 0,
     }
   );
 

@@ -1,7 +1,29 @@
 /*  navbar  */
 .navbar {
+    display: flex;
+    width: 100%;
+    z-index: 2;
+    padding: 1em;
 }
 .leftCol {
     display: flex;
     align-items: center;
+}
+.logo {
+    font-family: 'Bebas Neue', cursive;
+    color: rgb(224, 33, 33);
+    font-size: 1em;
+}
+
+
+
+@media (min-width:600px) {
+    .logo {
+        font-size: 1.5em;
+    }
+}
+@media (min-width:1000px) {
+    .logo {
+        font-size: 2em;
+    }
 }

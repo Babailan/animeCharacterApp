@@ -1,7 +1,6 @@
 // import App from 'next/app'
 import "../style/index.css";
 import "../style/footer.css";
-import "../style/navigation.css";
 import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer";
 import { AppProps } from "next/app";

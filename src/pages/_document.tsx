@@ -15,7 +15,7 @@ export default function Document() {
           rel="stylesheet"
         ></link>
         <link
-          href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
           rel="stylesheet"
         ></link>
       </Head>

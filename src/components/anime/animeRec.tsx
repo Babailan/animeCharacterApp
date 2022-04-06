@@ -22,7 +22,7 @@ function AnimeRecommendation({ animeRec }) {
           slidesPerGroupAuto={true}
           pagination={{
             clickable: true,
-            type: "progressbar",
+            type: "fraction",
           }}
           navigation={true}
           modules={[Pagination, Navigation, Autoplay]}

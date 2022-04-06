@@ -37,7 +37,7 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  background: linear-gradient(to bottom, #01040970 1px, #00000000 40%);
+  background: linear-gradient(to bottom, #000000cc 1px, #00000000 40%);
 }
 
 .greetings_container_letters {

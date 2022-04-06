@@ -3,7 +3,7 @@ module.exports = {
   optimizeFonts: true, //font optimization
   fontFamily: {
     OpenSan: ["Open Sans", "sans-serif"],
-    Kanit: ["Kanit", "sans-serif"],
+    Bebas: ["Bebas Neue", "cursive"],
   },
   images: {
     domains: ["cdn.myanimelist.net"], //add allowed domains

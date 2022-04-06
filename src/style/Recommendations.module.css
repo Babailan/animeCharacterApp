@@ -41,8 +41,8 @@
   pointer-events: none;
 }
 .sizeCard {
-  min-width: 75px;
-  min-height: 100px;
+  min-width: 100px;
+  min-height: 125px;
   position: relative;
 }
 

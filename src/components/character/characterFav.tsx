@@ -16,7 +16,7 @@ function CharacterRecomendation({ character }) {
           slidesPerGroupAuto={true}
           pagination={{
             clickable: true,
-            type: "progressbar",
+            type: "fraction",
           }}
           centeredSlides={false}
           autoplay={{
