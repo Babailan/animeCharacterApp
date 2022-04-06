@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { Query } from "../../../hooks/sizeQuery";
 import MediaQuery from "react-responsive";
 import useSWR from "swr";
-import fetcher from "../../../libs/axiosFetch";
+import fetcher from "../../../libs/fetcher";
 import { useRouter } from "next/router";
 import { Skeleton } from "@mui/material";
 import Link from "next/link";

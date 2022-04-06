@@ -1,12 +1,10 @@
-import { useState, useContext, useEffect } from "react";
-import { Query } from "../../hooks/sizeQuery";
-import MediaQuery from "react-responsive";
-import dynamic from "next/dynamic";
+import { useState, useEffect } from "react";
 import { Box, Skeleton } from "@mui/material";
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/router";
+import styles from "../../style/navbar.module.css";
 
-export default function Navbar() {
+export default function Navbar({ setThereIs }) {
   const router = useRouter();
   const [onLoad, isOnLoad] = useState(true);
   useEffect(() => {
@@ -17,9 +15,13 @@ export default function Navbar() {
     }
   }, []);
 
-  if (onLoad)
+  if (onLoad) {
     return (
-      <div className={`navbar ${router.pathname == "/" ? "absolute" : ""}`}>
+      <div
+        className={`${styles.navbar} ${
+          router.pathname == "/" ? "absolute" : ""
+        }`}
+      >
         <Box
           sx={{
             width: "100%",
@@ -64,8 +66,15 @@ export default function Navbar() {
         </Box>
       </div>
     );
+  }
 
   return (
-    <div className={`navbar ${router.pathname == "/" ? "absolute" : ""}`}></div>
+    <div
+      className={`${styles.navbar} ${router.pathname == "/" ? "absolute" : ""}`}
+    >
+      <div className={styles.leftCol}>
+        <p>AnimeWorld</p>
+      </div>
+    </div>
   );
 }
