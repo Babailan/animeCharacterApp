@@ -5,9 +5,11 @@
   justify-content: flex-start;
   gap: 1em;
   align-items: center;
-  background-color: #202020;
+  background-color: transparent;
+  margin: 20px 2%;
   color: #ffffff;
   padding-top: 1em;
+  border-top: rgb(53, 53, 53) 1px solid;
   display: flex;
   justify-content: center;
 }

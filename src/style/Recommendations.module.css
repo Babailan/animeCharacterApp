@@ -16,10 +16,12 @@
   padding-bottom: 10px;
 }
 .titles {
-  font-weight: 300;
+  font-weight: 500;
+  font-size: 1em;
   color: #e4e6eb;
   font-family: "Open Sans", sans-serif;
   z-index: 5;
+
 }
 .AngleRight {
   position: sticky;
@@ -46,12 +48,18 @@
 }
 
 @media (min-width:600px) {
+  .titles {
+    font-size: 1.2em;
+  }
   .sizeCard {
     min-width: 150px;
     min-height: 175px;
   }
 }
 @media (min-width:1000px) {
+  .titles {
+    font-size: 1.4em;
+  }
   .sizeCard {
     min-width: 200px;
     min-height: 250px;

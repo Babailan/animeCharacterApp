@@ -49,7 +49,7 @@ const Index = () => {
   ) {
     return (
       <>
-        <div style={{ padding: "5% 10px 10px 10px " }}>
+        <div style={{ padding: "10% 10px 10px 10px " }}>
           <Skeleton
             animation={"wave"}
             variant="text"

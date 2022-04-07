@@ -17,7 +17,7 @@ function MangaRecomendation({ mangaRec }) {
           centeredSlides={false}
           autoplay={{
             delay: 60000,
-            disableOnInteraction: false,
+            disableOnInteraction: true,
             pauseOnMouseEnter: true,
           }}
           pagination={{

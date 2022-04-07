@@ -8,7 +8,7 @@ import { Pagination, Navigation, Autoplay } from "swiper";
 function CharacterRecomendation({ character }) {
   return (
     <div className={styles.Recommendation_container}>
-      <h2 className={styles.titles}>Most Favorite Characeters</h2>
+      <h2 className={styles.titles}>Top Characeters</h2>
       <div>
         <Swiper
           slidesPerView={"auto"}
@@ -21,7 +21,7 @@ function CharacterRecomendation({ character }) {
           centeredSlides={false}
           autoplay={{
             delay: 60000,
-            disableOnInteraction: false,
+            disableOnInteraction: true,
             pauseOnMouseEnter: true,
           }}
           navigation={true}
