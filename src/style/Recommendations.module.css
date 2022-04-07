@@ -1,6 +1,5 @@
 .Recommendation_container {
   justify-content: center;
-  gap: 10px;
   display: flex;
   flex-direction: column;
 }

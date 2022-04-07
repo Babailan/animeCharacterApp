@@ -6,6 +6,7 @@ import { Pagination, Navigation, Autoplay } from "swiper";
 import styles from "../../style/Recommendations.module.css";
 
 function AnimeRecommendation({ animeRec }) {
+  console.log(animeRec.length);
   return (
     <div className={styles.Recommendation_container}>
       <h2 className={styles.titles}>Popular Anime</h2>
@@ -19,10 +20,10 @@ function AnimeRecommendation({ animeRec }) {
             pauseOnMouseEnter: true,
           }}
           centeredSlides={false}
-          slidesPerGroupAuto={true}
+          slidesPerGroup={2}
           pagination={{
             clickable: true,
-            type: "fraction",
+            type: "bullets",
           }}
           navigation={true}
           modules={[Pagination, Navigation, Autoplay]}

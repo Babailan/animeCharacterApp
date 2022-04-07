@@ -13,10 +13,10 @@ function CharacterRecomendation({ character }) {
         <Swiper
           slidesPerView={"auto"}
           spaceBetween={10}
-          slidesPerGroupAuto={true}
+          slidesPerGroup={2}
           pagination={{
             clickable: true,
-            type: "fraction",
+            type: "bullets",
           }}
           centeredSlides={false}
           autoplay={{
