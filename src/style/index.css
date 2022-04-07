@@ -56,7 +56,16 @@ input:-webkit-autofill:active {
   font-size: 1.3em;
   -webkit-text-stroke: #010409 0.3px;
 }
-
+.swiper-slide {
+  padding: 20px 0;
+}
+.swiper-slide > div {
+  transition: 200ms all;  
+}
+.swiper-slide:hover > div {
+  
+  transform: scale(1.1);
+}
 .swiper-button-prev,
 .swiper-button-next {
   position: absolute;

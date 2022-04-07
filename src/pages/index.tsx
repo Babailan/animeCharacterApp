@@ -49,11 +49,11 @@ const Index = () => {
   ) {
     return (
       <>
-        <div style={{ padding: "0 10px 10px 10px " }}>
+        <div style={{ padding: "5% 10px 10px 10px " }}>
           <Skeleton
             animation={"wave"}
             variant="text"
-            sx={{ bgcolor: "#242424", width: "200px", height: "50px" }}
+            sx={{ bgcolor: "#242424", width: "30%", height: "50px" }}
           />
           <Skeleton
             variant="rectangular"
@@ -65,7 +65,7 @@ const Index = () => {
           <Skeleton
             animation={"wave"}
             variant="text"
-            sx={{ bgcolor: "#242424", width: "200px", height: "50px" }}
+            sx={{ bgcolor: "#242424", width: "30%", height: "50px" }}
           />
           <Skeleton
             variant="rectangular"
@@ -77,7 +77,7 @@ const Index = () => {
           <Skeleton
             animation={"wave"}
             variant="text"
-            sx={{ bgcolor: "#242424", width: "200px", height: "50px" }}
+            sx={{ bgcolor: "#242424", width: "30%", height: "50px" }}
           />
           <Skeleton
             variant="rectangular"
