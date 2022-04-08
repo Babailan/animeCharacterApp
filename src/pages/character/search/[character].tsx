@@ -8,7 +8,6 @@ import {
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import fetcher from "../../../libs/fetcher";
-import styles from "../../../style/searchCharacter.module.css";
 
 function Search() {
   const router = useRouter();
@@ -25,7 +24,7 @@ function Search() {
   if (!data)
     return <h1 style={{ color: "#fff", textAlign: "center" }}>loading...</h1>;
   return (
-    <div className={styles.searchList}>
+    <div style={{ display: "flex", flexWrap: "wrap" }}>
       {!data.length ? (
         <h1 style={{ color: "#fff" }}>no result</h1>
       ) : (
