@@ -52,6 +52,7 @@ function Cards({ images, name, mal_id, category }: cardProps) {
                   loading={"lazy"}
                   className={styles.images}
                   layout={"fill"}
+                  alt={name}
                 />
               </div>
             </CardActionArea>

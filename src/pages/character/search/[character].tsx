@@ -6,12 +6,11 @@ import {
   Typography,
 } from "@mui/material";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import useSWR from "swr";
 import fetcher from "../../../libs/fetcher";
 import styles from "../../../style/searchCharacter.module.css";
 
-export default () => {
+function Search() {
   const router = useRouter();
   const { data, error } = useSWR(
     `https://api.jikan.moe/v4/characters?q=${router.query.character}&sort=desc&order_by=favorites`,
@@ -42,7 +41,7 @@ export default () => {
                   height="300"
                   style={{ backgroundSize: "contain" }}
                   image={images.webp.image_url}
-                  alt="green iguana"
+                  alt={name}
                 />
                 <CardContent>
                   <Typography color={"#fff"} component={"div"}>
@@ -56,4 +55,6 @@ export default () => {
       )}
     </div>
   );
-};
+}
+
+export default Search;

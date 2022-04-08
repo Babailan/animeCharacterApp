@@ -15,7 +15,6 @@ function Id({ setPreviousCall, previousCall }) {
   );
 
   useEffect(() => {
-    console.log(data);
     if (data) {
       const removingWarning = setTimeout(() => {
         if (document.querySelector(`.${styles.warning}`)) {
@@ -25,7 +24,7 @@ function Id({ setPreviousCall, previousCall }) {
       }, 60000);
       setPreviousCall(removingWarning);
     }
-  }, [data]);
+  }, [data, setPreviousCall]);
 
   if (!data) {
     return (

@@ -32,7 +32,7 @@ export default function Navbar({ setThereIs }) {
     if (check) {
       setThereIs(true);
     }
-  }, []);
+  }, [setThereIs]);
 
   return (
     <div

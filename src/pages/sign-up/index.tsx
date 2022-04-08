@@ -94,7 +94,7 @@ function Index({ setThereIs }) {
           overflow: "hidden",
         }}
       >
-        <Image src={imageICon} width={100} height={100} />
+        <Image src={imageICon} width={100} height={100} alt={"ICOnsodajdowa"} />
       </div>
       <h1 className={styles.title}>Sign up in AnimeWorld</h1>
       <div className={styles.container}>
