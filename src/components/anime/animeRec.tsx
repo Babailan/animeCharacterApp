@@ -8,21 +8,21 @@ import styles from "../../style/Recommendations.module.css";
 function AnimeRecommendation({ animeRec }) {
   return (
     <div className={styles.Recommendation_container}>
-      <h2 className={styles.titles}>Popular Anime</h2>
+      <h2 className={styles.titles}>Top Anime</h2>
       <div>
         <Swiper
           slidesPerView={"auto"}
           spaceBetween={10}
           autoplay={{
             delay: 60000,
-            disableOnInteraction: false,
+            disableOnInteraction: true,
             pauseOnMouseEnter: true,
           }}
           centeredSlides={false}
-          slidesPerGroupAuto={true}
+          slidesPerGroup={2}
           pagination={{
             clickable: true,
-            type: "progressbar",
+            type: "bullets",
           }}
           navigation={true}
           modules={[Pagination, Navigation, Autoplay]}

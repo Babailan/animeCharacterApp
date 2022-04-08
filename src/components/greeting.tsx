@@ -1,17 +1,17 @@
 import styles from "../style/greeting.module.css";
 
 type props = {
-  trailerUrl?: any;
+  data?: any;
 };
 
-function Greeting({ trailerUrl }: props) {
+function Greeting({ data }: props) {
   return (
     //greetings entry
     <div className={styles.greetings_container}>
-      {trailerUrl ? (
+      {data ? (
         <div className={styles.videotrailer}>
           <video autoPlay loop muted style={{ width: "100%" }}>
-            <source src={trailerUrl} type="video/mp4" />
+            <source src={data.url} type="video/mp4" />
           </video>
         </div>
       ) : null}

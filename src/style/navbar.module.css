@@ -1,0 +1,83 @@
+/*  navbar  */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 2;
+    padding: 1em;
+    align-items: center;
+}
+.leftCol {
+    display: flex;
+    align-items: center;
+}
+.rightCol {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Bebas Neue', cursive;
+    color: rgb(224, 33, 33);
+    font-size: 1.3em;
+}
+.inputContainer {
+    transition: all 500ms;
+    display: flex;
+    align-items: center;
+}
+.inputContainer_active {
+    background-color: #121212;
+    border: 1px solid #fff;
+    padding: 0 10px;
+    width: 100%;
+}
+.input {
+    transition: all 500ms;
+    outline: none;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    font-size: 1em;
+    padding: 5px 0;
+    margin-left: 10px;
+    display: none;
+}
+.input_active {
+    display: block;
+    width: inherit;
+}
+.searchIcon {
+    color: #fff;
+    height: 100%;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.links {
+    margin-left: 10px;
+    min-width: fit-content;
+}
+.links > a{
+    font-size: 0.8em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: "Open Sans",sans-serif;
+}
+@media (min-width:600px) {
+    .logo {
+        font-size: 1.5em;
+    }
+    .links > a {
+        font-size: 0.9em;
+    }
+}
+@media (min-width:1000px) {
+    .logo {
+        font-size: 2em;
+    }
+    .links > a {
+        font-size: 1em;
+    }
+}

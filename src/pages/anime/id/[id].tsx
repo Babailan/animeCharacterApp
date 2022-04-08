@@ -1,4 +1,4 @@
-import fetcher from "../../../libs/axiosFetch";
+import fetcher from "../../../libs/fetcher";
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import { Skeleton } from "@mui/material";

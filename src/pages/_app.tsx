@@ -1,8 +1,6 @@
 // import App from 'next/app'
 import "../style/index.css";
-import "../style/navbar.css";
 import "../style/footer.css";
-import "../style/navigation.css";
 import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer";
 import { AppProps } from "next/app";
@@ -22,12 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       {router.route.includes("/login") ||
       router.route.includes("/sign-up") ||
       router.route.includes("404") ? null : (
-        <Navbar
-          thereIs={thereIs}
-          setThereIs={setThereIs}
-          setPreviousCall={setPreviousCall}
-          previousCall={previousCall}
-        />
+        <Navbar setThereIs={setThereIs} />
       )}
 
       <div className="parent">

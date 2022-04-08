@@ -10,7 +10,6 @@ function Home({ mangaRec, animeRec, character }) {
         padding: "0 10px",
         display: "flex",
         flexDirection: "column",
-        gap: "1.5em",
       }}
     >
       <AnimeRecommendation animeRec={animeRec} />

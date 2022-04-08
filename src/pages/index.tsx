@@ -1,29 +1,59 @@
 import useSWR from "swr";
 import Greetings from "../components/greeting";
 import Home from "../components/home";
-import fetcher, { fetchCharacterFav, trailer } from "../libs/axiosFetch";
+import { trailer } from "../libs/fetcher";
+import fetcher, { fetchCharacterFav } from "../libs/fetcher";
 import { Skeleton } from "@mui/material";
 import "swiper/css";
 import "swiper/css/pagination";
 
 const Index = () => {
-  const mangaRec = useSWR("https://api.jikan.moe/v4/top/manga", fetcher);
-  const animeRec = useSWR("https://api.jikan.moe/v4/top/anime", fetcher);
+  const videoTrailer = useSWR("/api/trailer", trailer, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+    shouldRetryOnError: true,
+    errorRetryInterval: 0,
+  });
+  const mangaRec = useSWR("https://api.jikan.moe/v4/top/manga", fetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+    shouldRetryOnError: true,
+    errorRetryInterval: 0,
+  });
+  const animeRec = useSWR("https://api.jikan.moe/v4/top/anime", fetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+    shouldRetryOnError: true,
+    errorRetryInterval: 0,
+  });
   const character = useSWR(
     "https://api.jikan.moe/v4/top/characters",
-    fetchCharacterFav
+    fetchCharacterFav,
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+      shouldRetryOnError: true,
+      errorRetryInterval: 0,
+    }
   );
-  const videoTrailer = useSWR("/api/trailer", trailer);
 
-  if (!mangaRec.data || !animeRec.data || !character.data || !videoTrailer.data)
+  if (
+    !mangaRec.data ||
+    !animeRec.data ||
+    !character.data ||
+    !videoTrailer.data
+  ) {
     return (
       <>
-        <Greetings />
-        <div style={{ padding: "0 10px 10px 10px " }}>
+        <div style={{ padding: "10% 10px 10px 10px " }}>
           <Skeleton
             animation={"wave"}
             variant="text"
-            sx={{ bgcolor: "#242424", width: "200px", height: "50px" }}
+            sx={{ bgcolor: "#242424", width: "30%", height: "50px" }}
           />
           <Skeleton
             variant="rectangular"
@@ -35,7 +65,7 @@ const Index = () => {
           <Skeleton
             animation={"wave"}
             variant="text"
-            sx={{ bgcolor: "#242424", width: "200px", height: "50px" }}
+            sx={{ bgcolor: "#242424", width: "30%", height: "50px" }}
           />
           <Skeleton
             variant="rectangular"
@@ -47,7 +77,7 @@ const Index = () => {
           <Skeleton
             animation={"wave"}
             variant="text"
-            sx={{ bgcolor: "#242424", width: "200px", height: "50px" }}
+            sx={{ bgcolor: "#242424", width: "30%", height: "50px" }}
           />
           <Skeleton
             variant="rectangular"
@@ -59,11 +89,12 @@ const Index = () => {
         </div>
       </>
     );
+  }
   return (
     <>
       {/* greetings entry */}
 
-      <Greetings trailerUrl={videoTrailer.data.url} />
+      <Greetings data={videoTrailer.data} />
       <Home
         mangaRec={mangaRec.data}
         animeRec={animeRec.data}

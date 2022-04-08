@@ -13,16 +13,16 @@ function MangaRecomendation({ mangaRec }) {
         <Swiper
           slidesPerView={"auto"}
           spaceBetween={10}
-          slidesPerGroupAuto={true}
+          slidesPerGroup={2}
           centeredSlides={false}
           autoplay={{
             delay: 60000,
-            disableOnInteraction: false,
+            disableOnInteraction: true,
             pauseOnMouseEnter: true,
           }}
           pagination={{
             clickable: true,
-            type: "progressbar",
+            type: "bullets",
           }}
           navigation={true}
           modules={[Pagination, Navigation, Autoplay]}

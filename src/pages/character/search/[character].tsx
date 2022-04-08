@@ -8,7 +8,7 @@ import {
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import useSWR from "swr";
-import fetcher from "../../../libs/axiosFetch";
+import fetcher from "../../../libs/fetcher";
 import styles from "../../../style/searchCharacter.module.css";
 
 export default () => {
