@@ -9,6 +9,7 @@ function Footer() {
           className="github"
           href={"https://github.com/Babailan"}
           target="_blank"
+          rel="noreferrer"
         >
           <VscGithub className="githubIcon" />
         </a>
@@ -16,6 +17,7 @@ function Footer() {
           className="facebook"
           href={"https://www.facebook.com/imronnnellll"}
           target="_blank"
+          rel="noreferrer"
         >
           <FaFacebookF className="facebookLogo" />
         </a>
@@ -23,6 +25,7 @@ function Footer() {
           className="twitter"
           href={"https://twitter.com/ArigatoED"}
           target="_blank"
+          rel="noreferrer"
         >
           <FaTwitter className="twitterLogo" />
         </a>
@@ -30,6 +33,7 @@ function Footer() {
           className="instagram"
           href={"https://www.instagram.com/ronnelbabailan/"}
           target="_blank"
+          rel="noreferrer"
         >
           <FaInstagram className="instagramLogo" />
         </a>

@@ -12,8 +12,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [previousCall, setPreviousCall] = useState();
   const [thereIs, setThereIs] = useState(undefined);
   useEffect(() => {
-    clearTimeout(previousCall);
-  }, [router.route]);
+    if (thereIs) {
+      clearTimeout(previousCall);
+    }
+  }, [router.route, thereIs, previousCall]);
 
   return (
     <Query.Provider value={sizeQuery}>
