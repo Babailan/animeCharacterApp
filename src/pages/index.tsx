@@ -1,13 +1,15 @@
 import useSWR from "swr";
 import Greetings from "../components/greeting";
-import Home from "../components/home";
+import AnimeRecommendation from "../components/anime/animeRec";
+import CharacterRecomendation from "../components/character/characterFav";
+import MangaRecomendation from "../components/manga/mangaRec";
 import { trailer } from "../libs/fetcher";
 import fetcher, { fetchCharacterFav } from "../libs/fetcher";
 import { Skeleton } from "@mui/material";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const Index = () => {
+function Index() {
   const videoTrailer = useSWR("/api/trailer", trailer, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
@@ -95,13 +97,20 @@ const Index = () => {
       {/* greetings entry */}
 
       <Greetings data={videoTrailer.data} />
-      <Home
-        mangaRec={mangaRec.data}
-        animeRec={animeRec.data}
-        character={character.data}
-      />
+      <div
+        style={{
+          marginTop: "-10%",
+          padding: "0 10px",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <AnimeRecommendation animeRec={animeRec.data} />
+        <MangaRecomendation mangaRec={mangaRec.data} />
+        <CharacterRecomendation character={character.data} />
+      </div>
     </>
   );
-};
+}
 
 export default Index;
