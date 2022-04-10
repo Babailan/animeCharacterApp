@@ -3,11 +3,10 @@ import "../style/index.css";
 import "../style/footer.css";
 import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer";
-import { AppProps } from "next/app";
 import { Query, sizeQuery } from "../hooks/sizeQuery";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [previousCall, setPreviousCall] = useState();
   const [thereIs, setThereIs] = useState(undefined);
