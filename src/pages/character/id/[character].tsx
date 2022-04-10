@@ -1,15 +1,11 @@
 import styles from "../../../style/character.module.css";
 import download from "../../../libs/downloadImage";
-import { FaDownload } from "react-icons/fa";
-import Image from "next/image";
 import { useContext } from "react";
 import { Query } from "../../../hooks/sizeQuery";
-import MediaQuery from "react-responsive";
 import useSWR from "swr";
 import fetcher from "../../../libs/fetcher";
 import { useRouter } from "next/router";
 import { Skeleton } from "@mui/material";
-import Link from "next/link";
 
 function Character() {
   const router = useRouter();
