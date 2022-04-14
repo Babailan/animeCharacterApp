@@ -1,5 +1,4 @@
 import styles from "../../../style/character.module.css";
-import download from "../../../libs/downloadImage";
 import { useContext } from "react";
 import { Query } from "../../../hooks/sizeQuery";
 import useSWR from "swr";

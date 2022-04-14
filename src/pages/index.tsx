@@ -1,13 +1,12 @@
 import useSWR from "swr";
 import Greetings from "../components/greeting";
-import AnimeRecommendation from "../components/anime/animeRec";
-import CharacterRecomendation from "../components/character/characterFav";
-import MangaRecomendation from "../components/manga/mangaRec";
+import AnimeRecommendation from "../components/sliderCard/sliderCard";
 import { trailer } from "../libs/fetcher";
 import fetcher, { fetchCharacterFav } from "../libs/fetcher";
 import { Skeleton } from "@mui/material";
 import "swiper/css";
 import "swiper/css/pagination";
+import Component from "../components/InView";
 
 function Index() {
   const videoTrailer = useSWR("/api/trailer", trailer, {
@@ -43,55 +42,6 @@ function Index() {
     }
   );
 
-  if (
-    !mangaRec.data ||
-    !animeRec.data ||
-    !character.data ||
-    !videoTrailer.data
-  ) {
-    return (
-      <>
-        <div style={{ padding: "10% 10px 10px 10px " }}>
-          <Skeleton
-            animation={"wave"}
-            variant="text"
-            sx={{ bgcolor: "#242424", width: "30%", height: "50px" }}
-          />
-          <Skeleton
-            variant="rectangular"
-            animation={"wave"}
-            width={"auto"}
-            height={"200px"}
-            sx={{ bgcolor: "#242424", borderRadius: 2 }}
-          />
-          <Skeleton
-            animation={"wave"}
-            variant="text"
-            sx={{ bgcolor: "#242424", width: "30%", height: "50px" }}
-          />
-          <Skeleton
-            variant="rectangular"
-            animation={"wave"}
-            width={"auto"}
-            height={"200px"}
-            sx={{ bgcolor: "#242424", borderRadius: 2 }}
-          />
-          <Skeleton
-            animation={"wave"}
-            variant="text"
-            sx={{ bgcolor: "#242424", width: "30%", height: "50px" }}
-          />
-          <Skeleton
-            variant="rectangular"
-            animation={"wave"}
-            width={"auto"}
-            height={"200px"}
-            sx={{ bgcolor: "#242424", borderRadius: 2 }}
-          />
-        </div>
-      </>
-    );
-  }
   return (
     <>
       {/* greetings entry */}
@@ -105,9 +55,7 @@ function Index() {
           flexDirection: "column",
         }}
       >
-        <AnimeRecommendation animeRec={animeRec.data} />
-        <MangaRecomendation mangaRec={mangaRec.data} />
-        <CharacterRecomendation character={character.data} />
+        <Component />
       </div>
     </>
   );

@@ -8,13 +8,11 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  const [previousCall, setPreviousCall] = useState();
   const [thereIs, setThereIs] = useState(undefined);
   useEffect(() => {
     if (thereIs) {
-      clearTimeout(previousCall);
     }
-  }, [router.route, thereIs, previousCall]);
+  }, [router.route, thereIs]);
 
   return (
     <Query.Provider value={sizeQuery}>
@@ -25,12 +23,7 @@ function MyApp({ Component, pageProps }) {
       )}
 
       <div className="parent">
-        <Component
-          {...pageProps}
-          setThereIs={setThereIs}
-          previousCall={previousCall}
-          setPreviousCall={setPreviousCall}
-        />
+        <Component {...pageProps} setThereIs={setThereIs} />
       </div>
       <Footer />
     </Query.Provider>

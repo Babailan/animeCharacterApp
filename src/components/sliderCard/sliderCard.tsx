@@ -1,14 +1,13 @@
 //manga Recommentations
 //className={styles.Recommendation_list}
-import Cards from "../cardRecommendations";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper";
 import styles from "../../style/Recommendations.module.css";
 
-function AnimeRecommendation({ animeRec }) {
+function SliderCard({ title, children }) {
   return (
     <div className={styles.Recommendation_container}>
-      <h2 className={styles.titles}>Top Anime</h2>
+      <h2 className={styles.titles}>{title}</h2>
       <div>
         <Swiper
           slidesPerView={"auto"}
@@ -29,22 +28,11 @@ function AnimeRecommendation({ animeRec }) {
           className="mySwiper"
           loop={true}
         >
-          {animeRec.map(({ mal_id, images, title }, index: number) => {
-            return (
-              <SwiperSlide style={{ width: "fit-content" }} key={index}>
-                <Cards
-                  mal_id={mal_id}
-                  images={images.webp.image_url}
-                  name={title}
-                  index={index}
-                />
-              </SwiperSlide>
-            );
-          })}
+          {children}
         </Swiper>
       </div>
     </div>
   );
 }
 
-export default AnimeRecommendation;
+export default SliderCard;

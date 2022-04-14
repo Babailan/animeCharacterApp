@@ -21,6 +21,7 @@
     font-family: 'Bebas Neue', cursive;
     color: rgb(224, 33, 33);
     font-size: 1.3em;
+    cursor: pointer;
 }
 .inputContainer {
     transition: all 500ms;

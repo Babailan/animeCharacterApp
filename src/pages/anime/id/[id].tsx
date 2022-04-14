@@ -2,32 +2,17 @@ import fetcher from "../../../libs/fetcher";
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import { Skeleton } from "@mui/material";
-import styles from "../../../style/animeID.module.css";
-import { useEffect } from "react";
-import { FaExclamationCircle, FaTimesCircle } from "react-icons/fa";
 
-function Id({ setPreviousCall, previousCall }) {
+function Id() {
   const router = useRouter();
   const { data } = useSWR(
     `https://api.jikan.moe/v4/anime/${router.query.id}`,
     fetcher
   );
 
-  useEffect(() => {
-    if (data) {
-      const removingWarning = setTimeout(() => {
-        if (document.querySelector(`.${styles.warning}`)) {
-          document.querySelector(`.${styles.warning}`).remove();
-        }
-        return;
-      }, 60000);
-      setPreviousCall(removingWarning);
-    }
-  }, [data, setPreviousCall]);
-
   if (!data) {
     return (
-      <div className={styles.animeContainer}>
+      <div>
         <Skeleton
           animation={"wave"}
           variant="text"
@@ -68,28 +53,6 @@ function Id({ setPreviousCall, previousCall }) {
     );
   }
 
-  return (
-    <div className={styles.animeContainer}>
-      <h1>{data.title}</h1>
-      {data.trailer.embed_url === null ? null : (
-        <>
-          <div className={styles.warning}>
-            <FaExclamationCircle className={styles.icons} />
-            <p className={styles.warningText}>
-              Some trailer is not available other countries
-            </p>
-            <FaTimesCircle
-              className={`${styles.icons} ${styles.pointer}`}
-              onClick={() => {
-                document.querySelector(`.${styles.warning}`).remove();
-                clearTimeout(previousCall);
-                return;
-              }}
-            />
-          </div>
-        </>
-      )}
-    </div>
-  );
+  return <div></div>;
 }
 export default Id;
