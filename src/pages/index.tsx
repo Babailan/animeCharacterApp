@@ -1,9 +1,8 @@
 import useSWR from "swr";
 import Greetings from "../components/greeting";
-import AnimeRecommendation from "../components/sliderCard/sliderCard";
+import SliderWrapper from "../components/sliderCard/sliderCard";
 import { trailer } from "../libs/fetcher";
 import fetcher, { fetchCharacterFav } from "../libs/fetcher";
-import { Skeleton } from "@mui/material";
 import "swiper/css";
 import "swiper/css/pagination";
 import Component from "../components/InView";
@@ -55,7 +54,9 @@ function Index() {
           flexDirection: "column",
         }}
       >
-        <Component />
+        <SliderWrapper title={"Top Animes"}>
+          <h1>YES</h1>
+        </SliderWrapper>
       </div>
     </>
   );

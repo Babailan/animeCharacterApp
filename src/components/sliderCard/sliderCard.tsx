@@ -4,7 +4,12 @@ import { Swiper } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper";
 import styles from "../../style/Recommendations.module.css";
 
-function SliderCard({ title, children }) {
+type props = {
+  title?: string;
+  children?: React.ReactChild;
+};
+
+function SliderWrapper({ title, children }: props) {
   return (
     <div className={styles.Recommendation_container}>
       <h2 className={styles.titles}>{title}</h2>
@@ -35,4 +40,4 @@ function SliderCard({ title, children }) {
   );
 }
 
-export default SliderCard;
+export default SliderWrapper;

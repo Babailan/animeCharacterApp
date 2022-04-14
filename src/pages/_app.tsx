@@ -6,6 +6,7 @@ import Footer from "../components/footer";
 import { Query, sizeQuery } from "../hooks/sizeQuery";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [thereIs, setThereIs] = useState(undefined);
