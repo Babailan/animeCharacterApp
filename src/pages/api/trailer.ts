@@ -1,6 +1,5 @@
 import axios from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
-import { parse } from "path";
 import ytdl from "ytdl-core";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {

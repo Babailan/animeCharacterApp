@@ -1,40 +1,43 @@
-import useSWR from "swr";
 import Greetings from "../components/greeting";
-import SliderWrapper from "../components/sliderCard/sliderWrapper";
-import { trailer } from "../libs/fetcher";
-import fetcher, { fetchCharacterFav } from "../libs/fetcher";
+
 import "swiper/css";
 import "swiper/css/pagination";
-import Component from "../components/InView";
 import { SwiperSlide } from "swiper/react";
-import SkeletonLoading from "../components/skeletons/SliderSkeleton";
+import { GetServerSideProps } from "next";
 
-function Index() {
-  const videoTrailer = useSWR("/api/trailer", trailer, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-    revalidateOnReconnect: true,
+type Props = {
+  trailer: any;
+};
 
-    shouldRetryOnError: true,
-    errorRetryInterval: 0,
-  });
-
+function Index({ trailer }: Props) {
   return (
     <>
       {/* greetings entry */}
 
-      <Greetings data={videoTrailer.data} />
+      <Greetings data={trailer} />
       <div
         style={{
           padding: "0 10px",
           display: "flex",
           flexDirection: "column",
         }}
-      >
-        <SkeletonLoading />
-      </div>
+      ></div>
     </>
   );
 }
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const c = process.env.NODE_ENV === "development" ? "http://" : "https://";
+
+  const trailer = await fetch(`${c}${context.req.headers.host}/api/trailer`, {
+    method: "get",
+  });
+  const data = await trailer.json();
+
+  return {
+    props: {
+      trailer: data,
+    },
+  };
+};
 
 export default Index;
