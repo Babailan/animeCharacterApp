@@ -3,13 +3,15 @@
 import { Swiper } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper";
 import styles from "../../style/Recommendations.module.css";
+import ObserverHook from "../../hooks/observerHook";
 
-type props = {
+type Props = {
   title?: string;
-  children?: React.ReactChild;
+  children?: JSX.Element | JSX.Element[] | string;
 };
 
-function SliderWrapper({ title, children }: props) {
+function SliderWrapper({ title, children }: Props) {
+  const { ref, visible } = ObserverHook({ triggerOnce: false });
   return (
     <div className={styles.Recommendation_container}>
       <h2 className={styles.titles}>{title}</h2>

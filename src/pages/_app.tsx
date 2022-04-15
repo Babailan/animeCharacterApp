@@ -3,7 +3,6 @@ import "../style/index.css";
 import "../style/footer.css";
 import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer";
-import { Query, sizeQuery } from "../hooks/sizeQuery";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
@@ -16,7 +15,7 @@ function MyApp({ Component, pageProps }) {
   }, [router.route, thereIs]);
 
   return (
-    <Query.Provider value={sizeQuery}>
+    <>
       {router.route.includes("/login") ||
       router.route.includes("/sign-up") ||
       router.route.includes("404") ? null : (
@@ -27,7 +26,7 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} setThereIs={setThereIs} />
       </div>
       <Footer />
-    </Query.Provider>
+    </>
   );
 }
 

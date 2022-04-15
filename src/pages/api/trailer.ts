@@ -6,6 +6,7 @@ import ytdl from "ytdl-core";
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const data = await hayopkaBabi();
+
     res.end(JSON.stringify({ url: data[data.length - 1].url }));
   } catch (err) {
     res.status(500).send("somethings wrong");
@@ -27,18 +28,10 @@ async function hayopkaBabi() {
   }
 
   const sortedVideoQuality = data.formats.sort((a: any, b: any) => {
-    if (
-      a.qualityLabel === null ||
-      a.container !== "webm" ||
-      a.hasAudio === false
-    ) {
+    if (a.qualityLabel === null || a.container !== "webm") {
       a.qualityLabel = "0";
     }
-    if (
-      b.qualityLabel === null ||
-      b.container !== "webm" ||
-      b.hasAudio === false
-    ) {
+    if (b.qualityLabel === null || b.container !== "webm") {
       b.qualityLabel = "0";
     }
 
