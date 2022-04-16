@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
       {router.route.includes("/login") ||
       router.route.includes("/sign-up") ||
       router.route.includes("404") ? null : (
-        <Navbar setThereIs={setThereIs} />
+        <Navbar setThereIs={setThereIs} router={router} />
       )}
 
       <div className="parent">

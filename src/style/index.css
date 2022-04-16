@@ -6,6 +6,7 @@
   word-wrap: break-word;
   scroll-snap-type: proximity;
   scroll-behavior: smooth;
+  font-family: "Open Sans",sans-serif;
 }
 
 *::-webkit-scrollbar {

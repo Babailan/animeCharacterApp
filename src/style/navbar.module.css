@@ -14,17 +14,18 @@
 .rightCol {
     display: flex;
     position: relative;
+    flex: 1;
     align-items: center;
+    justify-content: flex-end;
 }
 
 .logo {
     font-family: 'Bebas Neue', cursive;
     color: rgb(224, 33, 33);
-    font-size: 1.3em;
+    font-size: 1.5em;
     cursor: pointer;
 }
 .inputContainer {
-    transition: all 500ms;
     display: flex;
     align-items: center;
 }
@@ -32,10 +33,11 @@
     background-color: #121212;
     border: 1px solid #fff;
     padding: 0 10px;
+    position: absolute;
+    max-width: 320px;
     width: 100%;
 }
 .input {
-    transition: all 500ms;
     outline: none;
     background-color: transparent;
     color: #fff;
@@ -60,19 +62,26 @@
     min-width: fit-content;
 }
 .links > a{
-    font-size: 0.8em;
+    font-size: 0.9em;
     color: #fff;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     font-family: "Open Sans",sans-serif;
 }
-@media (min-width:600px) {
-    .logo {
-        font-size: 1.5em;
-    }
-    .links > a {
-        font-size: 0.9em;
-    }
+.selectCategory {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #121212;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-weight: 600;
+}
+
+.selectCategory_Active {
+    display: block;
+
 }
 @media (min-width:1000px) {
     .logo {
