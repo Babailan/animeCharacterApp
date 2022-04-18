@@ -1,7 +1,7 @@
 import Skeleton from "@mui/material/Skeleton";
-function SkeletonLoading() {
+function SkeletonLoading({ element }) {
   return (
-    <div>
+    <div ref={element}>
       <Skeleton
         variant="text"
         style={{ width: "40%", height: "50px", backgroundColor: "#3A3B3C" }}

@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 
 type options = {
-  triggerOnce: boolean;
+  triggerOnce?: boolean;
+  threshold?: number;
 };
 
 function ObserverHook(options?: options) {
@@ -9,14 +10,17 @@ function ObserverHook(options?: options) {
   const [visible, setVisible] = useState<boolean>(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && options.triggerOnce) {
-        setVisible(entry.isIntersecting);
-        observer.disconnect();
-      } else {
-        setVisible(entry.isIntersecting);
-      }
-    });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && options.triggerOnce) {
+          setVisible(entry.isIntersecting);
+          observer.disconnect();
+        } else {
+          setVisible(entry.isIntersecting);
+        }
+      },
+      { threshold: options.threshold ? options.threshold : 0 }
+    );
     if (ref.current) {
       observer.observe(ref.current);
     }

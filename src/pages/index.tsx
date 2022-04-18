@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { SwiperSlide } from "swiper/react";
 import { GetServerSideProps } from "next";
+import SliderWrapper from "../components/sliderCard/sliderWrapper";
 
 type Props = {
   trailer: any;
@@ -21,7 +22,16 @@ function Index({ trailer }: Props) {
           display: "flex",
           flexDirection: "column",
         }}
-      ></div>
+      >
+        <SliderWrapper
+          title="Top Anime"
+          getUrlData="https://api.jikan.moe/v4/seasons/now"
+        >
+          <SwiperSlide>
+            <h1>yawa</h1>
+          </SwiperSlide>
+        </SliderWrapper>
+      </div>
     </>
   );
 }
