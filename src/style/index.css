@@ -6,25 +6,23 @@
   word-wrap: break-word;
   scroll-snap-type: proximity;
   scroll-behavior: smooth;
-  font-family: "Open Sans",sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 *::-webkit-scrollbar {
   height: 10px;
   width: 10px;
   border-radius: 10px;
-
 }
 *::-webkit-scrollbar-thumb {
   background: rgb(60, 60, 60);
 }
 *::-webkit-scrollbar-track {
   background-color: transparent;
-
 }
 body {
   position: relative;
-  background-color: #18191A;
+  background-color: #18191a;
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -55,15 +53,10 @@ input:-webkit-autofill:active {
 /* swiper config */
 .swiper {
   padding: 20px 0 !important;
+  display: flex;
+  align-items: center;
 }
 
-.swiper-slide > div {
-  transition: 200ms all;  
-}
-.swiper-slide:hover > div {
-  
-  transform: scale(1.1);
-}
 /* swiper navigation */
 .swiper-button-prev,
 .swiper-button-next {
@@ -75,16 +68,17 @@ input:-webkit-autofill:active {
   justify-content: center;
   color: #fff;
   transition: 0.2s;
-  font-size:3em ;
+  font-size: 3em;
   -webkit-text-stroke: rgb(57, 57, 57);
   -webkit-text-stroke-width: 0.2px;
   opacity: 0.7;
   padding: 0 10px;
   height: 100%;
 }
-.swiper-button-next:hover,.swiper-button-prev:hover {
-    opacity: 1;
-    background-color: rgba(0, 0, 0, 0.635);
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.635);
 }
 
 .swiper-button-prev:after,
@@ -102,7 +96,7 @@ input:-webkit-autofill:active {
 }
 .swiper-button-prev:after,
 .swiper-rtl .swiper-button-next:after {
-  content: 'prev';
+  content: "prev";
 }
 .swiper-button-next,
 .swiper-rtl .swiper-button-prev {
@@ -110,7 +104,7 @@ input:-webkit-autofill:active {
 }
 .swiper-button-next:after,
 .swiper-rtl .swiper-button-prev:after {
-  content: 'next';
+  content: "next";
 }
 /* swiper Pagination */
 
@@ -118,7 +112,7 @@ input:-webkit-autofill:active {
   width: fit-content !important;
   left: auto !important;
   right: 0px !important;
-  top: 0 !important;
+  top: -10px !important;
   height: fit-content !important;
 }
 .swiper-pagination-bullet {

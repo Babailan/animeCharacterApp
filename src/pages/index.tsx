@@ -1,16 +1,25 @@
 import Greetings from "../components/greeting";
-
 import "swiper/css";
 import "swiper/css/pagination";
-import { SwiperSlide } from "swiper/react";
 import { GetServerSideProps } from "next";
-import SliderWrapper from "../components/sliderCard/sliderWrapper";
+import InView from "../components/sliderCard/inView";
+import { useState } from "react";
+import animeSeason from "../interface/animeSeason";
+import Swiper from "../components/sliderCard/sliderParent";
+import { SwiperSlide } from "swiper/react";
+import Card from "../components/sliderCard/card";
+import shuffle from "../libs/shuffle";
 
 type Props = {
   trailer: any;
 };
 
+interface list {
+  seasonAnime: Array<animeSeason>;
+}
 function Index({ trailer }: Props) {
+  const [list, setList] = useState<list>({ seasonAnime: null });
+  console.log(list);
   return (
     <>
       {/* greetings entry */}
@@ -23,18 +32,26 @@ function Index({ trailer }: Props) {
           flexDirection: "column",
         }}
       >
-        <SliderWrapper
+        <InView
           title="Top Anime"
           getUrlData="https://api.jikan.moe/v4/seasons/now"
+          setData={setList}
         >
-          <SwiperSlide>
-            <h1>YESA</h1>
-          </SwiperSlide>
-        </SliderWrapper>
+          {list.seasonAnime ? (
+            <Swiper title={"Popular Anime"}>
+              {shuffle(list.seasonAnime).map(({ title, images, mal_id }) => (
+                <SwiperSlide style={{ width: "fit-content" }} key={mal_id}>
+                  <Card title={title} imgUrl={images.webp.image_url} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          ) : null}
+        </InView>
       </div>
     </>
   );
 }
+
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const c = process.env.NODE_ENV === "development" ? "http://" : "https://";
 
