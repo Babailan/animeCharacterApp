@@ -7,6 +7,7 @@ import ObserverHook from "../../hooks/observerHook";
 import useSWR from "swr";
 import fetcher from "../../libs/fetcher";
 import SkeletonLoading from "../skeletons/SliderSkeleton";
+import React from "react";
 
 type Props = {
   title?: string;
@@ -19,6 +20,7 @@ function SliderWrapper({ title, children, getUrlData }: Props) {
     triggerOnce: true,
     threshold: 0.7,
   });
+
   const { data } = useSWR(visible && getUrlData ? getUrlData : null, fetcher, {
     shouldRetryOnError: true,
     revalidateOnReconnect: false,
@@ -27,7 +29,6 @@ function SliderWrapper({ title, children, getUrlData }: Props) {
     revalidateOnFocus: false,
     errorRetryInterval: 3000,
   });
-  console.log(visible);
 
   return (
     <>

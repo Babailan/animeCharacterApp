@@ -28,7 +28,7 @@ function Index({ trailer }: Props) {
           getUrlData="https://api.jikan.moe/v4/seasons/now"
         >
           <SwiperSlide>
-            <h1>yawa</h1>
+            <h1>YESA</h1>
           </SwiperSlide>
         </SliderWrapper>
       </div>
