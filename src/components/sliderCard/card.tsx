@@ -6,15 +6,16 @@ function Card({ title, imgUrl }) {
   return (
     <Tooltip title={title} arrow placement={"top"}>
       <CardContainer className={styles.container}>
-        <CardActionArea style={{ padding: "10px", background: "transparent" }}>
+        <CardActionArea style={{ background: "transparent" }}>
           <p className={styles.title}>{title}</p>
-          <div className={styles.image}>
+          <div className={styles.imageContainer}>
             <Image
               src={imgUrl}
               loading={"lazy"}
+              width={100}
               layout={"responsive"}
-              width={125}
               height={150}
+              className={styles.image}
             />
           </div>
         </CardActionArea>

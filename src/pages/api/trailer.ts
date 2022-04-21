@@ -8,7 +8,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
     res.end(JSON.stringify({ url: data[data.length - 1].url }));
   } catch (err) {
-    res.status(500).send("somethings wrong");
+    res.status(500).send(JSON.stringify({ message: "somethings wrong" }));
   }
 }
 

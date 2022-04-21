@@ -1,11 +1,11 @@
 import { Swiper as Swipe } from "swiper/react";
-import { Pagination, Navigation, Autoplay } from "swiper";
+import { Navigation } from "swiper";
 const Swiper = ({ children, title }) => (
   <div>
     <h1 style={{ color: "#fff", fontSize: "1.5em" }}>{title}</h1>
     <Swipe
       slidesPerView={"auto"}
-      spaceBetween={15}
+      spaceBetween={10}
       centeredSlides={true}
       slidesPerGroup={2}
       navigation={true}
