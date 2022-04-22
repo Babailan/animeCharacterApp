@@ -6,7 +6,6 @@ import InView from "../components/sliderCard/inView";
 import Swiper from "../components/sliderCard/sliderParent";
 import { SwiperSlide } from "swiper/react";
 import Card from "../components/sliderCard/card";
-import shuffle from "../libs/shuffle";
 import animeSeason from "../interface/animeSeason";
 
 type Props = {
@@ -26,12 +25,11 @@ function Index({ trailer }: Props) {
           flexDirection: "column",
         }}
       >
-        <InView getUrlData="https://api.jikan.moe/v4/seasons/now">
+        <InView getUrlData="/api/seasonNow" triggerOnce={true} observe={false}>
           {({ data }) => {
-            console.log(data);
             return (
               <Swiper title={"Popular Anime"}>
-                {shuffle(data).map(({ title, images, mal_id }: animeSeason) => (
+                {data.map(({ title, images, mal_id }: animeSeason) => (
                   <SwiperSlide style={{ width: "fit-content" }} key={mal_id}>
                     <Card title={title} imgUrl={images.webp.large_image_url} />
                   </SwiperSlide>

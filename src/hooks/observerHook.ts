@@ -3,9 +3,14 @@ import { useEffect, useRef, useState } from "react";
 type options = {
   triggerOnce?: boolean;
   threshold?: number;
+  observe: boolean;
 };
 
 function ObserverHook(options?: options) {
+  //if observe is false do visible is always true
+  if (!options.observe) {
+    return { ref: null, visible: true };
+  }
   const ref = useRef();
   const [visible, setVisible] = useState<boolean>(false);
 

@@ -11,10 +11,8 @@ function Card({ title, imgUrl }) {
           <div className={styles.imageContainer}>
             <Image
               src={imgUrl}
-              loading={"lazy"}
-              width={100}
-              layout={"responsive"}
-              height={150}
+              loading={"eager"}
+              layout={"fill"}
               className={styles.image}
             />
           </div>

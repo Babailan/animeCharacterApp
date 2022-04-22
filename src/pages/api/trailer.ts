@@ -8,17 +8,17 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
     res.end(JSON.stringify({ url: data[data.length - 1].url }));
   } catch (err) {
-    res.status(500).send(JSON.stringify({ message: "somethings wrong" }));
+    res.status(500).end(JSON.stringify({ message: "somethings wrong" }));
   }
 }
 
 async function hayopkaBabi() {
-  const topAnime = await axios.get("https://api.jikan.moe/v4/seasons/now");
+  const seasonAnime = await axios.get("https://api.jikan.moe/v4/seasons/now");
   let urls = "";
   let data: any;
-  for (let i = 0; i < topAnime.data.data.length; i++) {
-    if (topAnime.data.data[i].trailer.url !== null) {
-      urls = topAnime.data.data[Math.floor(Math.random() * 25)].trailer.url;
+  for (let i = 0; i < seasonAnime.data.data.length; i++) {
+    if (seasonAnime.data.data[i].trailer.url !== null) {
+      urls = seasonAnime.data.data[Math.floor(Math.random() * 25)].trailer.url;
       data = await ytdl.getInfo(urls);
       break;
     } else {

@@ -7,12 +7,22 @@ type Props = {
   children?: JSX.Element | JSX.Element[] | string | any;
   getUrlData?: string;
   setData?: Function;
+  observe: boolean;
+  threshold?: number;
+  triggerOnce?: boolean;
 };
 
-function Inview({ children, getUrlData }: Props) {
+function Inview({
+  children,
+  getUrlData,
+  observe,
+  threshold,
+  triggerOnce,
+}: Props) {
   const { ref, visible } = ObserverHook({
-    triggerOnce: true,
-    threshold: 0.7,
+    observe: observe ? observe : false,
+    triggerOnce: triggerOnce ? triggerOnce : false,
+    threshold: threshold ? threshold : 0.7,
   });
 
   const { data } = useSWR(visible && getUrlData ? getUrlData : null, fetcher, {
