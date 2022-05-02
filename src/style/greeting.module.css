@@ -13,13 +13,13 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  background: linear-gradient(to right, #1c1f23c2 1px, #00000000 20%);
+  background: linear-gradient(to right, #18191a4b 1px, #00000000 20%);
 }
 .greeting_bottom_top {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: linear-gradient(to top, #1c1f23c2 2%, #00000000 20%);
+  background: linear-gradient(to top, #18191A 2%, #00000000 20%);
 }
 .videotrailer {
   height: fit-content;
@@ -31,13 +31,13 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  background: linear-gradient(to left, #1c1f23c2 1px, #0e070700 40%);
+  background: linear-gradient(to left, #18191a4b 1px, #0e070700 40%);
 }
 .greeting_top_bottom {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: linear-gradient(to bottom, #1c1f23c2 1px, #00000000 40%);
+  background: linear-gradient(to bottom, #18191a4b 1px, #00000000 40%);
 }
 
 .greetings_container_letters {

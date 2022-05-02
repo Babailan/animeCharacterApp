@@ -1,0 +1,40 @@
+.image {
+  pointer-events: none;
+}
+.imageContainer {
+  width: 100px;
+  height: 125px;
+  position: relative;
+}
+.container {
+  display: flex;
+  min-width: fit-content;
+  max-width: fit-content;
+  min-height: fit-content;
+  max-height: fit-content;
+  background: rgb(44, 44, 44);
+}
+.title {
+  margin: 10px;
+  text-align: center;
+  color: rgb(202, 202, 202);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+@media (min-width: 500px) {
+  .imageContainer {
+    width: 125px;
+    height: 150px;
+  }
+}
+@media (min-width: 700px) {
+  .imageContainer {
+    width: 170px;
+    height: 200px;
+  }
+}

@@ -1,116 +1,61 @@
-import useSWR from "swr";
 import Greetings from "../components/greeting";
-import AnimeRecommendation from "../components/anime/animeRec";
-import CharacterRecomendation from "../components/character/characterFav";
-import MangaRecomendation from "../components/manga/mangaRec";
-import { trailer } from "../libs/fetcher";
-import fetcher, { fetchCharacterFav } from "../libs/fetcher";
-import { Skeleton } from "@mui/material";
 import "swiper/css";
 import "swiper/css/pagination";
+import { GetServerSideProps } from "next";
+import InView from "../components/sliderCard/inView";
+import Swiper from "../components/sliderCard/sliderParent";
+import { SwiperSlide } from "swiper/react";
+import Card from "../components/sliderCard/card";
+import animeSeason from "../interface/animeSeason";
 
-function Index() {
-  const videoTrailer = useSWR("/api/trailer", trailer, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
-    shouldRetryOnError: true,
-    errorRetryInterval: 0,
-  });
-  const mangaRec = useSWR("https://api.jikan.moe/v4/top/manga", fetcher, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
-    shouldRetryOnError: true,
-    errorRetryInterval: 0,
-  });
-  const animeRec = useSWR("https://api.jikan.moe/v4/top/anime", fetcher, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
-    shouldRetryOnError: true,
-    errorRetryInterval: 0,
-  });
-  const character = useSWR(
-    "https://api.jikan.moe/v4/top/characters",
-    fetchCharacterFav,
-    {
-      revalidateIfStale: false,
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false,
-      shouldRetryOnError: true,
-      errorRetryInterval: 0,
-    }
-  );
+type Props = {
+  trailer: any;
+};
 
-  if (
-    !mangaRec.data ||
-    !animeRec.data ||
-    !character.data ||
-    !videoTrailer.data
-  ) {
-    return (
-      <>
-        <div style={{ padding: "10% 10px 10px 10px " }}>
-          <Skeleton
-            animation={"wave"}
-            variant="text"
-            sx={{ bgcolor: "#242424", width: "30%", height: "50px" }}
-          />
-          <Skeleton
-            variant="rectangular"
-            animation={"wave"}
-            width={"auto"}
-            height={"200px"}
-            sx={{ bgcolor: "#242424", borderRadius: 2 }}
-          />
-          <Skeleton
-            animation={"wave"}
-            variant="text"
-            sx={{ bgcolor: "#242424", width: "30%", height: "50px" }}
-          />
-          <Skeleton
-            variant="rectangular"
-            animation={"wave"}
-            width={"auto"}
-            height={"200px"}
-            sx={{ bgcolor: "#242424", borderRadius: 2 }}
-          />
-          <Skeleton
-            animation={"wave"}
-            variant="text"
-            sx={{ bgcolor: "#242424", width: "30%", height: "50px" }}
-          />
-          <Skeleton
-            variant="rectangular"
-            animation={"wave"}
-            width={"auto"}
-            height={"200px"}
-            sx={{ bgcolor: "#242424", borderRadius: 2 }}
-          />
-        </div>
-      </>
-    );
-  }
+function Index({ trailer }: Props) {
   return (
     <>
       {/* greetings entry */}
 
-      <Greetings data={videoTrailer.data} />
+      <Greetings data={trailer} />
       <div
         style={{
-          marginTop: "-10%",
           padding: "0 10px",
           display: "flex",
           flexDirection: "column",
         }}
       >
-        <AnimeRecommendation animeRec={animeRec.data} />
-        <MangaRecomendation mangaRec={mangaRec.data} />
-        <CharacterRecomendation character={character.data} />
+        <InView getUrlData="/api/seasonNow" triggerOnce={true} observe={false}>
+          {({ data }) => {
+            return (
+              <Swiper title={"Popular Anime"}>
+                {data.map(({ title, images, mal_id }: animeSeason) => (
+                  <SwiperSlide style={{ width: "fit-content" }} key={mal_id}>
+                    <Card title={title} imgUrl={images.webp.large_image_url} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            );
+          }}
+        </InView>
       </div>
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const c = process.env.NODE_ENV === "development" ? "http://" : "https://";
+
+  const trailer = await fetch(`${c}${context.req.headers.host}/api/trailer`, {
+    method: "get",
+  });
+  const data = await trailer.json();
+
+  return {
+    props: {
+      trailer: data,
+    },
+  };
+};
 
 export default Index;
